@@ -876,7 +876,7 @@ public class NPCOptionPacketListener implements PacketListener {
                     case 212:
                         //ShopManager.getShops().get(49).open(player);
                         System.out.println("Add buy bonds option here.");
-                        player.getPacketSender().openURL("https://zamron.net/store");
+                        player.getPacketSender().openURL("https://zamron.us/store");
                         //player.sendMessage("<img=12>You currently have @red@" + player.getPointsHandler().getDonationPoints() + " Donation Points!");
                         break;
 

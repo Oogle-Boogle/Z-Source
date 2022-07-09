@@ -459,16 +459,16 @@ public class ButtonClickPacketListener implements PacketListener {
                 player.sendMessage("This tab will be coming soon!");
                 break;
             case 19086:
-                player.getPacketSender().openURL("https://zamron.net/gearguide.html");
+                player.getPacketSender().openURL("https://zamron.us/gearguide.html");
                 break;
             case 19091:
                 player.getPacketSender().openURL("https://zamron/net/vote");
                 break;
             case 19096:
-                player.getPacketSender().openURL("https://zamron.net/store");
+                player.getPacketSender().openURL("https://zamron.us/store");
                 break;
             case 19101:
-                player.getPacketSender().openURL("https://www.zamron.net/");
+                player.getPacketSender().openURL("https://www.zamron.us/");
                 break;
             case 19106:
                 player.getPacketSender().openURL("https://discord.com/invite/CHTjMe3p59");
