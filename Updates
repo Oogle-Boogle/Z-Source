@@ -1,0 +1,154 @@
+Changed the Client package to com.zamron
+Changed donator and game mode drop rates - Lowered them
+Added raids
+Neatened up the config file - easier to find the useful configs
+Added a dungeon minigame (OS Style no customs)
+Fixed bug with raids - players could join mid raid and get reward for not competeing in the raid. (When testing)
+Moved home + npc's and objects
+Added an upgrading system
+Added a forging system (Similiar to the upgrade)
+Added skilling perks blue, black and red stones for different skills - Used to upgrade items
+Fixed the settings interface
+Fixed all item stats (CTRL on client)
+Fixed up some maps
+Added more maps for world bosses and more npc's
+Added more shops inc boss point store and a sell store (only buys certain items)
+Added goku and vegata floor 1 and floor 2 + store
+Added discord intergration
+Fixed the interface bug @ ::train now closes when leaving the area
+Added dbz
+Fixed Client issues when travelling to certain areas
+Client now uses 1G Java Memory via the launcher
+GIM added with interfaces and functions to kick, invite and and create groups.
+GIM bank has been added with access for all group members only
+GIM now have ::gimleaderboards to see whos #1 etc
+Added higher tier mobs to the daily npc task system and reworked the rewarding system with new rewards.
+Added ::fuser interface and ability to fuse items together with a timer
+Changed the fusion randomiser to give only 1 fusion stone
+Added ::commands with all the player commands
+Changed the fuser item requirements (more reasonable reqs)
+Added some cosmetic skateboard to fuser cos its cool :)
+Buffed the defence on the dungeon minigame mobs
+Voting scrolls can now be redeemed and give 1 voting point.
+Voting scrolls also have a chance of giving players a Voting Mystery Box and a chance to also get a $10 Bond
+Donation store has been modified and costs have been changed
+Removed Hiscores from the JFrame on client
+Removed the infusion stones being obtained by ::afk skills
+Removed medium keys from being dropped and added t1-3 keys and t4-7 instead
+Added auto retaliate
+New players can now also get a collectors necklace which is called 'Perfect Necklace' from starterzone. This item has 0 stats but has the benefits of collecting items dropped on floor from monsters
+Herbal bow is now AOE and the arrows have been added to the store
+All Pets are now obtainable via the 'Pet Mystery Box' in AFK shop + added DR to all pets - will make a list of DR pets in order
+Skilling boss is now multi
+Added cash drops to a few more monsters (earlier game) ------ STILL GOT TO ADD MORE --------
+Re-worked Seph, Assassin, Worldboss and Rick. Players will get a drop if they've done over 10k damage to the NPC. and their drops have been modified and removed some trash items that were unnecessary . The drop chance is now out of 300 instead of 1000.
+Collector level 5, owner cape, Collectors necklace (i) and Sharingan Aura all collect items and put your items to your bank instead of inventory
+While wearing collectors necklace and your inv is still full, the coll still picks up your items now (if you have stackables)
+Godzilla, Abbadon, Yoda, Eevee, Rainbow Eevee, Flareon, Vapereon, Antman, Mewtwo, Assassin, Zorbak, Stoned toad, Broly JR, Cookie Monster and Bugatti pets all give XP bonus, damage bonus and loot effects.
+Having any of the pets just mentioned above also have loot to bank effect (Don't need a collectors)
+Removed any kill requirements to progress to the next monster that required over 1k kc to max 1k
+Redone the starter zone rewards, buffed them and now the end task gives a t3 key and buffed the cash rewards to 5k on final task
+Added avas saving arrows & cannon shots (They don't leave your character you won't get them back in inv) 50% chance to save arrow
+Omega wings now have stats same as the rest of the Omega set
+Ground item names are now displaying correctly and not glitching out swapping names etc
+Easy raids now give low to mid tier armour with a 15% rare chance. Easy raids also give Overload (2) potions common and 500 1b Coins.
+Easy raids rares, hercules full set (10.5k full set) and capes and upto t2 defender
+Removed the 1k NPC kill requirements to enter raids
+Med raids gives low-higher tier gear, Med raids also have a chance of giving you an Icy Glaive with 8k stats. 15% chance to get a rare
+Hard raids can give you higher tier gear, rare chance is set to 5% as players have a chance of getting BFG (aoe) and Clouds items, Lucid full set, Kings set
+Easy raids now give blessed magic armour and infernal battlestaff and staff of valor
+Raids is now only playable if you have over 2 hours gametime played
+All easy raids NPC's now have attacks and some have poison effect (Make sure to take antiPoison)!
+Medium raids is now fixed and is medium difficulty instead of the NPC's not doing anything
+Raids bugging out spawning other difficulty NPC's has been fixed
+Raids hard NPC's has been finished and finalized. Raids is now in a finished state
+Fixed raids bug when players left the NPC's didn't despawn
+You can no longer teleport/logout out of Raids To leave you must die from the NPC's
+Double drop perk now works & added a 3 hour drop scroll into boss point store
+Added more gear to Boss Point store
+Players can now right click and operate an imbued weapon and switch it from range to melee and magic weapon for a cost
+Players can reset their slayer task ::resettask for 100 1B Coins
+Easy now have a 25% chance for a rare instead of 15%
+Medium Raids now has 2 of each NPC per round
+Rare raids now have a chance of 10% for a rare instead of 5%
+Medium raids now have a 20% chance for a rare instead of 15%
+Fixed the NPC requirements spamming you with other NPC requirements
+Boss points, Godzilla to Cerberus give 3 Boss points, Zeus to Lord valor will give you 5 Boss points, Storm breaker to King kong give 7 Boss points, Corp beast to Hulk gives 9 Boss points, Darkblue wizards to Dark purple wyrm give 11 Boss points, Trinity to Herbal Rogue gives 13 Boss points and Exoden to Custom Hellhounds give 15 boss points. You also get donator bonus points added to this depending on your rank.
+Slayer NPC's now give longer tasks
+Supreme box's now drop loot
+Double drops perk has been fixed
+Fixed VIP Stoner gun, had wrong animations and now also fires quicker
+Boss Point store prices have been upped
+Herbal bow now gives 2 times instead of once & has been upped in speed by 1
+All NPC's upto Exoden now drop upto 10k coins - Get some cash flowing in the game
+Easy tasks give Bugs bunny, Daffy ducks, Slyvester, Coyote, Yosemite sam, Martian, Bowser and Luigi Slayer tasks
+Medium Tasks give Hercules, Lucario, Defenders, Godzilla and Cerberus, Vegeta and Gokus
+Hard tasks give Crawling hands, Bloodvelds, Infernal Mages, Zeus, Infartico, Lord Valor slayer tasks & Storm Troopers
+Added bonds to the tier chests
+Added more Storm trooper spawns for Slayer NPC's
+Fixed that the dungeon to Smoke Devils, now takes 1k frank tokens and 1k colourful tokens
+Added bonds to Raids rewards
+Added a new armour set to Storm Troopers with a Ray Gun 8.8k (AOE) stats and has a nice attack speed for mid tear level
+Added Supreme staff AOE
+Blade of Misery is AOE (2 Tiles)
+Added Darth Vader to Starwars teleport
+To visit Starwars zone, you must now have 250 NPC kills instead of 5k - This is for people doing Medium slayer tasks won't have 5k NPC kills
+Added a thiev NPC next to the stalls so you can sell your items. Remember that you lose 15% of the value on sale.
+Passwords are now encrypted (Just for the players safety of having passwords)
+Players can now view whats inside the tier chests
+Fixed the model of assassin gloves, Left is the correct version and the right was previous before fix
+Removed the home map teleport for now as we've moved homes
+Fixed Exoden in raids going invisible
+Thermonuclear Smoke devils have been buffed in defence and attack - They also don't drop T4-T7 keys as common anymore.
+They also don't drop DragonSlayer items anymore - Only obtainable via slayer shop
+The dungeon 2 tab is now slightly more common drop
+Hellfire wizards have been buffed and they also drop Mystery box (common)
+Nomad has been buffed in health and attack. He is now impossible to hit with Melee, use Magic or Range to kill him.
+To be able to enter the Dungeon Minigame - You must now have 92 PVM skill evel, 1k Frankenstein tokens and 5K Colorful tokens
+You now gain 1k exp on completion of Raids in the Skill PVM
+Killing any NPC in the zones after Godzilla will reward you with PVM exp
+Removed blade of misery from Slayer Shop --- Only obtainable via upgrading
+Vaders now drop Saber to upgrade into Dual saber and then Dual saber upgrades into Blade of misery
+Ricks defence has been buffed from 400 to 2.5k
+Double XP will not give double XP on the Skills PVM <--- This is to reduce the amount of players who can go certain places (Have to grind)
+More lower tier items to mid-tier items are upgradeable
+Stoner VIP gear has been nerfed by 2k per stack
+Elite black items from Exoden have been given the correct stats.
+If a player has a Title and they'd like to change its colour, i've created a HEX colour live changer for you. Use the command ::titlecolor and select the color you'd like
+AOE instance tokens are now available via the OS Battle minigame
+KH Raid keys are a reward of OS Battle minigame
+New Ring Overloads are available and upgradable
+OS Battle Minigame rewards will consist of Money rewards and Overloads, KH Raids Keys and AOE Instance tokens
+Players now have a 3% chance of getting a rare pet from mystery pet box instead of 15%
+Added some extra bosses into the OS Battle minigame such as Bork, Venenatis, Skotizo, Generals and Barrlechest
+Buffed Slayer XP
+Skilling boss now gives players the XP when killed (top 5 DPS) - Note: This is a skilling boss
+AOE instances for donator ranks goes as follows... Regular non donator: 25, Donator: 20, Super Donator: 15, Extreme Donator: 10, Legendary Donator: 7, Deluxe Donator: 3
+OS Battle Minigame gives, 1, 2, 5 and 10x AOE instance tokens
+Seph's armour has been changed to BIS magic gear
+Assassin's items has been nerfed to 40k Stats
+Seph's sword is now 20k stats instead of 40k
+Assassin's off-hand is now 20k bonus instead of 82k
+Pro Defender is now only obtainable via upgrading
+Zeus full armour has been now added and added its stats. Zeus now drops his own armour
+New BIS range gear being brought in
+Dark ranger has 10% DR per piece just like Assassin & Seph
+The bug with magic spells have been fixed
+Seph sword has been buffed in attack speed
+BFG shots are dropped common by certain NPC's (Will list shortly)
+Added more BOX Zone NPC's
+Client has been updated (Reload ur Launchers for auto download) voting link has been updated
+Daily task now resets back to 0 when new task is given
+Fixed the raids bug where you can have 2x raids going at same time
+Chance box is now a 2% chance of getting 10k 1B coins, tested the 10% and its abit too OP :rofl:
+Wearing Collector Necklace(i) and above will save arrows/ammo shots - Essentially giving you unlimited ammo
+Double drops scrolls are now saved on logout
+Nerfed Assassin's max hit
+Barrows common rewards are now BFG shots ONLY. - random between 25 - 200
+Barrows rare rewards are, AOE instance tokens, Ovulant MBoxs
+Barrows also gives you a chance to win 100k gold with a 1% chance
+Barrows NPC's have 500k HP
+Custom hellhounds area has been extended
+Added more teleports - worldbosses to "zones"
+Increased the chances of getting infusion stones
+All imbued weapons now hit 4x instead of 1x

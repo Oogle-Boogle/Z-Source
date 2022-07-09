@@ -1,0 +1,50 @@
+#PVM Rare Drops
+Empty.
+
+#Teleporting
+@red@Teleporting:
+@blu@How do I teleport around in Zamron?
+@yel@You can use our teleport interfaces to teleport
+@yel@all around Zamron! We made 2 interfaces, 1 for
+@yel@the general teleports and 1 for the Boss Teleports
+
+@blu@How do I come to the World Bosses?
+@yel@You can use the commands that are visible when a
+@yel@World Boss respawns to teleport to the World Boss
+
+
+#Economy info
+@red@Economy Info:
+@blu@Main currency?
+@yel@On Zamron we use the 1b coins as currency, Coins are
+@yel@worthless. You can gain 1b coins from all
+@yel@NPC's and you randomly get them from events too!
+
+@blu@Where do I spend my 1b coins?
+@yel@On Zamron you can spend your 1b coins freely at every
+@yel@shop at ::shops. You can't use 1b coin on shops that
+@yel@use a point system as currency, these shops will tell
+@yel@you when it uses a point system as currency!
+
+
+#Shops
+@red@Shops:
+@blu@Where can I find the shops at Zamron?
+@yel@You can find all our shops at ::shops
+
+@blu@How do I use the shops?
+@yel@Every shop NPC will have it's name based on what 
+@yel@kind of shop it is. Some NPC's hold several shops
+@yel@so make sure to right click to see all available shops
+@yel@per shop NPC
+
+#Moneymaking
+@red@Moneymaking Methods:
+@blu@How do I make money on Zamron with skilling?
+@yel@You can earn skilling points by skilling which you 
+@yel@can exchange at the Skilling Point store for some 
+@yel@unique and custom gear. You can also get some nice
+@yel@cosmetical gear at this shop and some skilling supplies
+@blu@How do I make money on Zamron with PVM?
+@yel@You can go to our tier NPC's which all drop cool
+@yel@gear and other useful drops as Bones and Mystery Boxes

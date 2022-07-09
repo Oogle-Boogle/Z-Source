@@ -1,0 +1,13 @@
+players_online: off
+voting_connections: off
+store_connections: off
+yell_status: on
+double_vote_tokens: off
+double_exp: off
+double_points: off
+double_drops: off
+pos_enabled: on
+is_giveaway: false
+debug_mode: off
+developer_mode: off
+live_game: on

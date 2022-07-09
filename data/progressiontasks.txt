@@ -1,0 +1,26 @@
+Demon Crusher,Kill 100 PVM Demon, Kill 100 Native Demon, Kill 500 assigned tasks,100,100,500
+Hidden Valley,Kill 200 Ant workers,Kill 200 Wild Graakh,Kill 100 Jello,200,200,100
+Venoms Bite,Kill 1000 Symbiotes,Finish 20 slayer tasks,Claim 10 slayer lamp,1000,20,10
+Teleporter,Teleport to 20 tasks,Kill 1200 Sabertooths,Finish 50 slayer tasks,20,1200,50
+Cursed Ruins,Kill 2500 Leopards,Mine 100k afk ores,Get 100 slayer key drops,2500,100000,100
+Upgradable,Upgrade slayer helmet,Get 100 Slayer key drops,Finish 100 slayer tasks,1,100,100
+Cursed floor,Kill 2000 kree devils,Kill 2000 hyndra,Kill 2000 grooters,2000,2000,2000
+Prestiger,Prestige 20 times,Kill 2K assigned tasks,Redeem X2 slayer xp,20,2000,1
+Store manager,claim 30 slayer lamps,claim 30 invention lamps,claim VIP license,30,30,1
+Young Master,Kill 4K assigned tasks,use ladder 500 times,Mine 500k Afk ores,4000,500,500000
+Looter,Loot 100 slayer chests,Loot 150 slayer boxes,Kill 6K assigned tasks,100,150,6000
+Damned ruins,Kill 3800 mosquito,Get 4 ballista drops,Get 50 slayer spree,3800,4,50
+Advanced Master,Loot 100 slayer chests,Kill 8K assigned tasks,Bury 1K bones,100,8000,1000
+Multiplier,Complete 500 total tasks,Reach 20 slayer Multiplier,Kill 800 Chinese dragon,500,20,800
+Summoner,Dissolve 100 items,Kill 900 zamorak birds,Reach prestige 50 times,100,900,50
+Mighty master,Kill 10K assigned tasks,Reach 50 slayer multiplier,Kill 4K chinchompas,10000,50,4000
+Reacher,4K betrayed zone kills,Reach 70 slayer multiplier,Dissolve 300 items,4000,70,300
+Spree Master,Get 100 slayer spree,Kill 4K nature unicorns,Kill 25K assigned tasks,100,4000,25000
+Permanent,Dissolved 500 items,Donate once,5K Damnedzone kills,500,1,5000
+Legion Master,Dissolve 1K items,Kill 50K assigned tasks,Bury 5K bones,1000,50000,5000
+Looterbooter,Loot 1k slayer boxes,Reach max slayer multiplier,6K Hiddenzone kills,1000,100,6000
+Pet master,Kill 3K elementals,Donate twice,Dissolve 3K items,3000,2,3000
+Supreme Master,kill 2K baby bronze dragon,Kill 75K assigned tasks,Get 500 slayer spree,2000,75000,500
+Dissolver,Dissolve 8K items,Get 1K slayer spree,10K Cursedzone kills,8000,1000,10000
+Dedicated Son,Dissolve 10k items,Donate 3 times,Loot 5K slayer chests,10000,3,5000
+Grand Master,Open 5K slayer boxes,Kill 100K assigned tasks,Dissolve 15k items,5000,100000,15000
