@@ -15,6 +15,7 @@ import com.zamron.world.World;
 import com.zamron.world.content.clan.ClanChatManager;
 import com.zamron.world.content.grandexchange.GrandExchangeOffers;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import com.zamron.world.content.minimes.MiniMeData;
 import com.zamron.world.entity.impl.player.Player;
 
 /**
@@ -73,9 +74,11 @@ public final class GameEngine implements Runnable {
 		for (Player p : World.getPlayers()) {
 			if (p != null) {
 				p.getSession().handleQueuedMessages();
+			} else if  (p == null || p.isMiniMe) {
+					return;
+				}
 			}
 		}
-	}
 
 	/*
 	 * private EngineState next() { if (engineTick == PROCESS_GAME_TICK) { engineTick = 0; return

@@ -459,7 +459,7 @@ public class ButtonClickPacketListener implements PacketListener {
                 player.sendMessage("This tab will be coming soon!");
                 break;
             case 19086:
-                player.getPacketSender().openURL("https://zamron.us/gearguide.html");
+                player.getPacketSender().openURL("https://discord.gg/CeHjENEfVv");
                 break;
             case 19091:
                 player.getPacketSender().openURL("https://zamron/net/vote");
@@ -471,7 +471,7 @@ public class ButtonClickPacketListener implements PacketListener {
                 player.getPacketSender().openURL("https://www.zamron.us/");
                 break;
             case 19106:
-                player.getPacketSender().openURL("https://discord.com/invite/CHTjMe3p59");
+                player.getPacketSender().openURL("https://discord.gg/CeHjENEfVv");
                 break;
 
             case 23577:

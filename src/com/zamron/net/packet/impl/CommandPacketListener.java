@@ -633,9 +633,12 @@ public class CommandPacketListener implements PacketListener {
             TeleportHandler.teleportPlayer(player, new Position(2605, 3093), player.getSpellbook().getTeleportType());
         }
 
-        if (command[0].equalsIgnoreCase("heal") && player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) <= 1) {
-            player.getPacketSender().sendMessage("You've healed yourself.");
+        if (command[0].equalsIgnoreCase("stuck")) {
             player.heal(10);
+            player.moveTo(2605, 3093, 0);
+            player.sendMessage("@red@[SERVER]: Please logout and back in for the effects to work.");
+            //TeleportHandler.teleportPlayer(player, new Position(2605, 3093), player.getSpellbook().getTeleportType());
+
         }
 
         if (command[0].equalsIgnoreCase("may")) {
@@ -1844,7 +1847,7 @@ public class CommandPacketListener implements PacketListener {
                 playerToMove.getPacketSender()
                         .sendMessage("You've been teleported home by " + player.getUsername() + ".");
                 player.getPacketSender()
-                        .sendConsoleMessage("Sucessfully moved " + playerToMove.getUsername() + " to home.");
+                        .sendConsoleMessage("Successfully moved " + playerToMove.getUsername() + " to home.");
             }
         }
 

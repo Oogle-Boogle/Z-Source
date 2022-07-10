@@ -32,7 +32,7 @@ public class CombatRangedAmmo {
 		MAGMA_BLOWPIPE(new int[] {12927}, new AmmunitionData[] {AmmunitionData.BLOWPIPE}, RangedWeaponType.BLOWPIPE),
 		DRAGON_BLOWPIPE(new int[] {20557}, new AmmunitionData[] {AmmunitionData.BLOWPIPE}, RangedWeaponType.BLOWPIPE),
 		ARMADYLIAN_MACHINE(new int[] {19467}, new AmmunitionData[] {AmmunitionData.HAND_CANNON_SHOT, AmmunitionData.OPAL_BOLT, AmmunitionData.IRON_BOLT, AmmunitionData.JADE_BOLT, AmmunitionData.STEEL_BOLT, AmmunitionData.PEARL_BOLT, AmmunitionData.MITHRIL_BOLT, AmmunitionData.TOPAZ_BOLT, AmmunitionData.ADAMANT_BOLT,
-				AmmunitionData.SAPPHIRE_BOLT, AmmunitionData.EMERALD_BOLT, AmmunitionData.RUBY_BOLT, AmmunitionData.RUNITE_BOLT, AmmunitionData.BROAD_BOLT, AmmunitionData.DIAMOND_BOLT, AmmunitionData.ONYX_BOLT, AmmunitionData.DRAGON_BOLT, AmmunitionData.ARMADYLIAN_ARROW}, RangedWeaponType.CROSSBOW),
+		AmmunitionData.SAPPHIRE_BOLT, AmmunitionData.EMERALD_BOLT, AmmunitionData.RUBY_BOLT, AmmunitionData.RUNITE_BOLT, AmmunitionData.BROAD_BOLT, AmmunitionData.DIAMOND_BOLT, AmmunitionData.ONYX_BOLT, AmmunitionData.DRAGON_BOLT, AmmunitionData.ARMADYLIAN_ARROW}, RangedWeaponType.CROSSBOW),
 
 				
 		DARK_BOW(new int[] {3077, 3084, 3083, 11235, 13405, 18971, 15701, 15702, 15703, 15704, 19957}, new AmmunitionData[] {AmmunitionData.HAND_CANNON_SHOT, AmmunitionData.DRAGON_ARROW}, RangedWeaponType.DARK_BOW),

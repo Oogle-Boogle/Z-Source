@@ -32,6 +32,8 @@ public class PestControl {
 	public static int TOTAL_PLAYERS = 0;
 	private static int PLAYERS_IN_BOAT = 0;
 
+	private static long lastDelay = 0;
+
 	/**
 	 * @note Stores player and State
 	 */
@@ -545,8 +547,15 @@ public class PestControl {
 		for(int i = 0; i < portals.length; i++){
 			if(portals[i] != null && Math.random() > 0.5){
 				PestControlNPC luckiest = PestControlNPC.values()[((int)(Math.random()*PestControlNPC.values().length))];
-				if(luckiest != null){
-					npcList.add(spawnPCNPC(luckiest.getLowestNPCID()+((int) (Math.random()*(luckiest.getHighestNPCID()-luckiest.getLowestNPCID()))), new Position(portals[i].getPosition().getX(), portals[i].getPosition().getY() + 3 , 0), 30000));
+				if(luckiest != null) {
+					if (System.currentTimeMillis() - lastDelay >= 10000) {
+						npcList.add(spawnPCNPC(luckiest.getLowestNPCID() + ((int) (Math.random() * (luckiest.getHighestNPCID() - luckiest.getLowestNPCID()))), new Position(portals[i].getPosition().getX(), portals[i].getPosition().getY() + 5, 0), 300000));
+					}
+				}
+				if(luckiest != null) {
+					if (System.currentTimeMillis() - lastDelay >= 10000) {
+						npcList.add(spawnPCNPC(luckiest.getLowestNPCID() + ((int) (Math.random() * (luckiest.getHighestNPCID() - luckiest.getLowestNPCID()))), new Position(portals[i].getPosition().getX() + 5, portals[i].getPosition().getY(), 0), 300000));
+					}
 				}
 			}
 		}
@@ -569,6 +578,9 @@ public class PestControl {
 			break;
 		case SHIFTER:
 			processShifter(npc, _npc);
+			break;
+			case SPLATTER:
+				processSplatter(npc, _npc);
 			break;
 		case TORCHER:
 			processDefiler(npc, _npc);
@@ -636,11 +648,22 @@ public class PestControl {
 						npc.getCombatBuilder().reset(true);
 						int max = 5 + (npc.getDefinition().getCombatLevel() / 9);
 						attack(npc, knight, 3901, max, CombatIcon.MELEE);
+					} if
+						(isFree(npc, npc_)) {
+							npc.getCombatBuilder().getVictim();
+							npc.getCombatBuilder().reset(true);
 					}
 				}
 			}
 			if (npc.getPosition().copy().equals(knight.getPosition().copy()))
 				MovementQueue.stepAway(npc);
+		}
+	}
+
+	private static void processSplatter(final NPC npc, final PestControlNPC npc_) {
+		if (isFree(npc, npc_)) {
+			npc.getCombatBuilder().getVictim();
+			npc.getCombatBuilder().reset(true);
 		}
 	}
 
@@ -658,7 +681,7 @@ public class PestControl {
 									new Projectile(npc, knight, 1508, 80, 3, 43, 31, 0).sendProjectile();
 							}
 						}
-					TaskManager.submit(new Task(1) {
+				TaskManager.submit(new Task(1) {
 						@Override
 						public void execute() {
 							int max = 7 + (npc.getDefinition().getCombatLevel() / 9);

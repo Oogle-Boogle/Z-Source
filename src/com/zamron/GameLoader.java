@@ -103,7 +103,7 @@ public final class GameLoader {
 		serviceLoader.execute(() -> TheDeath.initialize());
 /*		serviceLoader.execute(() -> Onslaught.initialize());*/
 		serviceLoader.execute(() -> TheRick.initialize());
-		serviceLoader.execute(() -> Broly.initialize());
+		//serviceLoader.execute(() -> Broly.initialize());
 		serviceLoader.execute(() -> TheMay.initialize());
 		serviceLoader.execute(() -> TheSeph.initialize());
 		serviceLoader.execute(() -> GuideBook.loadGuideDataFile());

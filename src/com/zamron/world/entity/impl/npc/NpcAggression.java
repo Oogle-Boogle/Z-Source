@@ -39,7 +39,7 @@ public final class NpcAggression {
 			 */
 			if (!npc.getDefinition().isAttackable()) {
 				return;
-			} else if (player.getInventory().contains(9078, 1) && player.getKcSystem().meetsRequirements(player.getKcSystem().getData(npc.getId()))) {
+			} else if (player.getInventory().contains(9078, 1) && npc.getDefaultPosition().getDistance(player.getPosition()) < 7 + npc.getMovementCoordinator().getCoordinator().getRadius() && player.getKcSystem().meetsRequirements(player.getKcSystem().getData(npc.getId()))) {
 				player.setTargeted(true);
 				npc.getCombatBuilder().attack(player);
 				continue;

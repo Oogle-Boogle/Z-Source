@@ -247,7 +247,7 @@ public class ItemActionPacketListener implements PacketListener {
 				break;
 
 			case 4767:
-				player.getPacketSender().openURL("https://zamron.us/gearguide.html");
+				player.getPacketSender().openURL("https://discord.gg/CeHjENEfVv");
 				player.getPacketSender().sendMessage("Attempting to open: Zamron Gear guide");
 				break;
 

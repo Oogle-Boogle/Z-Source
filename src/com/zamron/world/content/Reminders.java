@@ -22,7 +22,7 @@ public class Reminders {
 			{"<img=12><col=eaeaea>[<col=60148a>SERVER<col=eaeaea>]<col=60148a>Use ::commands to find a list of commands"},
 			{"<img=12><col=eaeaea>[<col=60148a>SERVER<col=eaeaea>]<col=60148a> Toggle your client settings to your preference in the wrench tab!"},
 			{"<img=12><col=eaeaea>[<col=60148a>SERVER<col=eaeaea>]<col=60148a> Use the command ::drop for drop tables"},
-			{"<img=12><col=eaeaea>[<col=60148a>SERVER<col=eaeaea>]<col=60148a>Did you know you can get paid to make videos? PM Oogle"},
+			{"<img=12><col=eaeaea>[<col=60148a>SERVER<col=eaeaea>]<col=60148a>Did you know you can get paid to make videos? PM Fatalsalmon"},
 			{"<img=12><col=eaeaea>[<col=60148a>SERVER<col=eaeaea>]<col=60148a>Make sure you ::vote everyday for amazing Rewards!"},
 			{"<img=12><col=eaeaea>[<col=60148a>SERVER<col=eaeaea>]<col=60148a>You can checkout our donation deals ::donationdeals"},
 			{"<img=12><col=eaeaea>[<col=60148a>SERVER<col=eaeaea>]<col=60148a>Remember to complete your daily task as it resets every 24hr!"},

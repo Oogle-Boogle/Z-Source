@@ -8,6 +8,7 @@ import com.zamron.model.definitions.ItemDefinition;
 import com.zamron.model.definitions.WeaponAnimations;
 import com.zamron.util.NameUtils;
 import com.zamron.world.World;
+import com.zamron.world.entity.impl.npc.NPC;
 import com.zamron.world.entity.impl.player.Player;
 
 public class MiniMeFunctions {
@@ -35,8 +36,6 @@ public class MiniMeFunctions {
         TaskManager.submit(new Task(2, owner.getMinime(), false) {
             @Override
             public void execute() {
-
-
                 MiniMe.getEquipment().setItems(owner.getEquipment().getItems());
                 MiniMe.setWeapon(owner.getWeapon());
                 MiniMe.getUpdateFlag().flag(Flag.APPEARANCE);

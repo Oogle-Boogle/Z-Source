@@ -307,7 +307,7 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
             }
         }
 
-		if ((avas || comp || max || vet) && Misc.getRandom(4) == 1) { //Save arrow method 50%
+		if ((avas || comp || max || vet)) { //Save arrow method 100%
 			return;
 		}
 

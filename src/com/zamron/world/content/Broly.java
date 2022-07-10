@@ -80,9 +80,9 @@ public class Broly extends NPC {
 
 		World.register(instance);
 		setCurrent(instance);
-		System.out.print("Seph has spawned.");
+		System.out.print("Broly has spawned.");
 
-		World.sendMessageDiscord("<shad=1><img=418>@red@Sephiroth has respawned " +location.getLocation() + "");
+		World.sendMessageDiscord("<shad=1><img=418>@red@Broly has respawned " +location.getLocation() + "");
 	}
 
 	/**
@@ -162,7 +162,7 @@ public class Broly extends NPC {
 			String itemMessage = Misc.anOrA(itemName) + " " + itemName;
 			World.sendMessageNonDiscord(
 					"<img=12><col=FF0000>" + player.getUsername() + " received<col=eaeaea><img=12>[ " + itemMessage + "<col=eaeaea>]<img=12><col=FF0000> from Sephiroth!");
-			DiscordMessenger.sendRareDrop(player.getUsername(), " Just received " + itemMessage + " from Sephiroth!");
+			DiscordMessenger.sendRareDrop(player.getUsername(), " Just received " + itemMessage + " from Broly!");
 			return;
 		}
 
