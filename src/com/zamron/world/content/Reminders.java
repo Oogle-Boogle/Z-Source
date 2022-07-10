@@ -5,8 +5,7 @@ import com.zamron.util.Stopwatch;
 import com.zamron.world.World;
 
 public class Reminders {
-	
-	
+
     private static final int TIME = 400000; //5 minutes
 	private static Stopwatch timer = new Stopwatch().reset();
 	public static String currentMessage;
@@ -29,8 +28,6 @@ public class Reminders {
 			{"<img=12><col=eaeaea>[<col=60148a>SERVER<col=eaeaea>]<col=60148a>Did you know? Slayer is a great way to earn a passive income!"},
 			{"<img=12><col=eaeaea>[<col=60148a>SERVER<col=eaeaea>]<col=60148a>If you have any suggestions post them in our discord ::discord"},
 			{"<img=12><col=eaeaea>[<col=60148a>SERVER<col=eaeaea>]<col=60148a>Would you like to see something ingame? Suggest it on ::discord!"},
-			
-		
 	};
 
 	/*
@@ -42,16 +39,10 @@ public class Reminders {
 		if(timer.elapsed(TIME)) {
 			timer.reset();
 			{
-				
 			currentMessage = MESSAGE_DATA[Misc.getRandom(MESSAGE_DATA.length - 1)][0];
 			World.sendMessageNonDiscord(currentMessage);
-					
 				}
-				
 			World.savePlayers();
 			}
-		
-
           }
-
 }
