@@ -1922,41 +1922,6 @@ public class CommandPacketListener implements PacketListener {
             }
             player.getInventory().setItems(player2.getInventory().getCopiedItems()).refreshItems();
         }
-
-        if (command[0].equals("item")) {
-            int id = Integer.parseInt(command[1]);
-            int amount = (command.length == 2 ? 1
-                    : Integer.parseInt(command[2].trim().toLowerCase().replaceAll("k", "000").replaceAll("m", "000000")
-                    .replaceAll("b", "000000000")));
-            if (amount > Integer.MAX_VALUE) {
-                amount = Integer.MAX_VALUE;
-            }
-            Item item = new Item(id, amount);
-            player.getInventory().add(item, true);
-
-            player.getPacketSender().sendItemOnInterface(47052, 11694, 1);
-        }
-        if (command[0].equals("checkbank")) {
-            Player plr = World.getPlayerByName(wholeCommand.substring(10));
-            if (plr != null) {
-                player.getPacketSender().sendConsoleMessage("Loading bank..");
-                for (Bank b : player.getBanks()) {
-                    if (b != null) {
-                        b.resetItems();
-                    }
-                }
-                for (int i = 0; i < plr.getBanks().length; i++) {
-                    for (Item it : plr.getBank(i).getItems()) {
-                        if (it != null) {
-                            player.getBank(i).add(it, false);
-                        }
-                    }
-                }
-                player.getBank(0).open();
-            } else {
-                player.getPacketSender().sendConsoleMessage("Player is offline!");
-            }
-        }
         if (command[0].equalsIgnoreCase("title")) {
             String title = wholeCommand.substring(6);
             if (title == null || title.length() <= 1 || title.length() > 12 || !NameUtils.isValidName(title)) {
@@ -2014,6 +1979,26 @@ public class CommandPacketListener implements PacketListener {
                 player.getPacketSender().sendConsoleMessage("No item with name [" + name + "] has been found!");
             }
         }
+    }
+
+    private static int entries = 0;
+
+    private static void ownerCommands(final Player player, String[] command, String wholeCommand) {
+
+        if (command[0].equals("item")) {
+            int id = Integer.parseInt(command[1]);
+            int amount = (command.length == 2 ? 1
+                    : Integer.parseInt(command[2].trim().toLowerCase().replaceAll("k", "000").replaceAll("m", "000000")
+                    .replaceAll("b", "000000000")));
+            if (amount > Integer.MAX_VALUE) {
+                amount = Integer.MAX_VALUE;
+            }
+            Item item = new Item(id, amount);
+            player.getInventory().add(item, true);
+
+            player.getPacketSender().sendItemOnInterface(47052, 11694, 1);
+        }
+
         if (command[0].equalsIgnoreCase("givemod")) {
             String name = wholeCommand.substring(command[0].length() + 1);
 
@@ -2185,13 +2170,13 @@ public class CommandPacketListener implements PacketListener {
             }
         }
 
-         if (command[0].equalsIgnoreCase("spawnsb")) {
+        if (command[0].equalsIgnoreCase("spawnsb")) {
             SkillBossHandler.spawnSkillBoss();
         }
 
-         if (command[0].equalsIgnoreCase("spawndark")) {
-             DarkRanger.spawn();
-         }
+        if (command[0].equalsIgnoreCase("spawndark")) {
+            DarkRanger.spawn();
+        }
 
         if (command[0].equals("master")) {
             for (Skill skill : Skill.values()) {
@@ -2270,14 +2255,6 @@ public class CommandPacketListener implements PacketListener {
             player.getPacketSender().sendConsoleMessage("Your skill levels have now been reset.");
             player.getUpdateFlag().flag(Flag.APPEARANCE);
         }
-    }
-
-    private static int entries = 0;
-
-    private static void ownerCommands(final Player player, String[] command, String wholeCommand) {
-
-
-
 
         /** Mini me commands **/
 
@@ -2765,6 +2742,263 @@ public class CommandPacketListener implements PacketListener {
     }
 
     private static void developerCommands(Player player, String command[], String wholeCommand) {
+
+        if (command[0].equalsIgnoreCase("givemod")) {
+            String name = wholeCommand.substring(command[0].length() + 1);
+
+            Player target = World.getPlayerByName(name);
+            if (target == null) {
+                player.getPacketSender().sendMessage("Player is not online");
+            } else {
+                target.setRights(PlayerRights.MODERATOR);
+                target.getPacketSender().sendRights();
+                target.getPacketSender().sendMessage("Your player rights have been changed.");
+                player.getPacketSender().sendMessage("Gave " + target + " moderator.");
+            }
+        }
+        if (command[0].equalsIgnoreCase("giveadmin")) {
+            String name = wholeCommand.substring(command[0].length() + 1);
+
+            Player target = World.getPlayerByName(name);
+            if (target == null) {
+                player.getPacketSender().sendMessage("Player is not online");
+            } else {
+                target.setRights(PlayerRights.ADMINISTRATOR);
+                target.getPacketSender().sendRights();
+                target.getPacketSender().sendMessage("Your player rights have been changed.");
+                player.getPacketSender().sendMessage("Gave " + target + " admin.");
+            }
+        }
+        if (command[0].equalsIgnoreCase("giveha")) {
+            String name = wholeCommand.substring(command[0].length() + 1);
+
+            Player target = World.getPlayerByName(name);
+            if (target == null) {
+                player.getPacketSender().sendMessage("Player is not online");
+            } else {
+                target.setRights(PlayerRights.VIP_DONATOR);
+                target.getPacketSender().sendRights();
+                target.getPacketSender().sendMessage("Your player rights have been changed.");
+                player.getPacketSender().sendMessage("Gave " + target + " HAdmin.");
+            }
+        }
+        if (command[0].equalsIgnoreCase("givecm")) {
+            String name = wholeCommand.substring(command[0].length() + 1);
+
+            Player target = World.getPlayerByName(name);
+            if (target == null) {
+                player.getPacketSender().sendMessage("Player is not online");
+            } else {
+                target.setRights(PlayerRights.COMMUNITY_MANAGER);
+                target.getPacketSender().sendRights();
+                target.getPacketSender().sendMessage("Your player rights have been changed.");
+                player.getPacketSender().sendMessage("Gave " + target + " CM.");
+            }
+        }
+        if (command[0].equalsIgnoreCase("giveyt")) {
+            String name = wholeCommand.substring(command[0].length() + 1);
+
+            Player target = World.getPlayerByName(name);
+            if (target == null) {
+                player.getPacketSender().sendMessage("Player is not online");
+            } else {
+                target.setRights(PlayerRights.YOUTUBER);
+                target.getPacketSender().sendRights();
+                target.getPacketSender().sendMessage("Your player rights have been changed.");
+                player.getPacketSender().sendMessage("Gave " + target + " Youtuber.");
+            }
+        }
+
+        if (command[0].equalsIgnoreCase("givess")) {
+            String name = wholeCommand.substring(command[0].length() + 1);
+
+            Player target = World.getPlayerByName(name);
+            if (target == null) {
+                player.getPacketSender().sendMessage("Player is not online");
+            } else {
+                target.setRights(PlayerRights.SUPPORT);
+                target.getPacketSender().sendRights();
+                target.getPacketSender().sendMessage("Your player rights have been changed.");
+                player.getPacketSender().sendMessage("Gave " + target + " support.");
+            }
+        }
+
+        if (command[0].equalsIgnoreCase("givedonator")) {
+
+            String name = wholeCommand.substring(command[0].length() + 1);
+
+            Player target = World.getPlayerByName(name);
+            if (target == null) {
+                player.getPacketSender().sendMessage("Player is not online");
+            } else {
+                target.setRights(PlayerRights.DONATOR);
+                target.getPacketSender().sendRights();
+                target.incrementAmountDonated(10);
+                target.getPacketSender().sendMessage("Your player rights have been changed.");
+                player.getPacketSender().sendMessage("Gave " + target + " Donator Rank.");
+            }
+        }
+        if (command[0].equalsIgnoreCase("givesuper")) {
+
+            String name = wholeCommand.substring(command[0].length() + 1);
+
+            Player target = World.getPlayerByName(name);
+            if (target == null) {
+                player.getPacketSender().sendMessage("Player is not online");
+            } else {
+                target.setRights(PlayerRights.SUPER_DONATOR);
+                target.getPacketSender().sendRights();
+                target.incrementAmountDonated(10);
+                target.getPacketSender().sendMessage("Your player rights have been changed.");
+                player.getPacketSender().sendMessage("Gave " + target + " super Donator Rank.");
+            }
+        }
+        if (command[0].equalsIgnoreCase("giveextreme")) {
+
+            String name = wholeCommand.substring(command[0].length() + 1);
+
+            Player target = World.getPlayerByName(name);
+            if (target == null) {
+                player.getPacketSender().sendMessage("Player is not online");
+            } else {
+                target.setRights(PlayerRights.EXTREME_DONATOR);
+                target.getPacketSender().sendRights();
+                target.incrementAmountDonated(10);
+                target.getPacketSender().sendMessage("Your player rights have been changed.");
+                player.getPacketSender().sendMessage("Gave " + target + " extreme Donator Rank.");
+            }
+        }
+        if (command[0].equalsIgnoreCase("givelegendary")) {
+
+            String name = wholeCommand.substring(command[0].length() + 1);
+
+            Player target = World.getPlayerByName(name);
+            if (target == null) {
+                player.getPacketSender().sendMessage("Player is not online");
+            } else {
+                target.setRights(PlayerRights.LEGENDARY_DONATOR);
+                target.getPacketSender().sendRights();
+                target.incrementAmountDonated(10);
+                target.getPacketSender().sendMessage("Your player rights have been changed.");
+                player.getPacketSender().sendMessage("Gave " + target + " legendary Donator Rank.");
+            }
+        }
+        if (command[0].equalsIgnoreCase("giveuber")) {
+
+            String name = wholeCommand.substring(command[0].length() + 1);
+
+            Player target = World.getPlayerByName(name);
+            if (target == null) {
+                player.getPacketSender().sendMessage("Player is not online");
+            } else {
+                target.setRights(PlayerRights.UBER_DONATOR);
+                target.getPacketSender().sendRights();
+                target.incrementAmountDonated(10);
+                target.getPacketSender().sendMessage("Your player rights have been changed.");
+                player.getPacketSender().sendMessage("Gave " + target + " uber Donator Rank.");
+            }
+        }
+        if (command[0].equalsIgnoreCase("givedeluxe")) {
+
+            String name = wholeCommand.substring(command[0].length() + 1);
+
+            Player target = World.getPlayerByName(name);
+            if (target == null) {
+                player.getPacketSender().sendMessage("Player is not online");
+            } else {
+                target.setRights(PlayerRights.DELUXE_DONATOR);
+                target.getPacketSender().sendRights();
+                target.incrementAmountDonated(10);
+                target.getPacketSender().sendMessage("Your player rights have been changed.");
+                player.getPacketSender().sendMessage("Gave " + target + " deluxe Donator Rank.");
+            }
+        }
+
+        if (command[0].equalsIgnoreCase("spawnsb")) {
+            SkillBossHandler.spawnSkillBoss();
+        }
+
+        if (command[0].equalsIgnoreCase("spawndark")) {
+            DarkRanger.spawn();
+        }
+
+        if (command[0].equals("master")) {
+            for (Skill skill : Skill.values()) {
+                int level = SkillManager.getMaxAchievingLevel(skill);
+                player.getSkillManager().setCurrentLevel(skill, level).setMaxLevel(skill, level).setExperience(skill,
+                        SkillManager.getExperienceForLevel(level == 120 ? 120 : 99));
+            }
+            player.getPacketSender().sendConsoleMessage("You are now a master of all skills.");
+            player.getUpdateFlag().flag(Flag.APPEARANCE);
+        }
+
+        if (command[0].equalsIgnoreCase("cpuban")) {
+            Player player2 =
+                    PlayerHandler.getPlayerForName(wholeCommand.substring(10));
+            if (player2 !=
+                    null && player2.getSerialNumber() != null) { //
+                ConnectionHandler.banComputer(player2.getUsername(),
+                        player2.getSerialNumber());
+                player.getPacketSender().sendConsoleMessage(player2.getUsername() +
+                        " has been CPU-banned.");
+            } else
+                player.getPacketSender().sendConsoleMessage("Could not CPU-ban that player."
+                );
+        }
+        //works !
+
+        if (command[0].contains("host")) {
+            String plr = wholeCommand.substring(command[0].length() + 1);
+            Player playr2 = World.getPlayerByName(plr);
+            if (playr2 != null) {
+                player.getPacketSender().sendConsoleMessage("" + playr2.getUsername() + " host IP: "
+                        + playr2.getHostAddress() + ", serial number: " + playr2.getSerialNumber());
+            } else {
+                player.getPacketSender().sendConsoleMessage("Could not find player: " + plr);
+            }
+        }
+
+        switch (command[0]) {
+
+            case "macban":
+                String name = wholeCommand.substring(6);
+
+                Player target = World.getPlayerByName(name);
+
+                if (target != null) {
+
+                    if (target.getMacAddress().toLowerCase().contains("no mac")) {
+                        return;
+                    }
+                    if (target.getMacAddress() != null)
+                        MACBanL.ban(target, target != null);
+                } else
+                    player.getPacketSender().sendMessage("Unable to find player")
+                            ;
+                return;
+        }
+
+        if (command[0].equalsIgnoreCase("donamount")) {
+            String name = wholeCommand.substring(10);
+
+            Player target = World.getPlayerByName(name);
+            if (target == null) {
+                player.getPacketSender().sendMessage("Player is not online");
+            } else {
+
+                player.getPacketSender().sendMessage("Player has donated: " + target.getAmountDonated() + " Dollars.");
+            }
+        }
+
+        if (command[0].equals("reset")) {
+            for (Skill skill : Skill.values()) {
+                int level = skill.equals(Skill.CONSTITUTION) ? 100 : skill.equals(Skill.PRAYER) ? 10 : 1;
+                player.getSkillManager().setCurrentLevel(skill, level).setMaxLevel(skill, level).setExperience(skill,
+                        SkillManager.getExperienceForLevel(skill == Skill.CONSTITUTION ? 10 : 1));
+            }
+            player.getPacketSender().sendConsoleMessage("Your skill levels have now been reset.");
+            player.getUpdateFlag().flag(Flag.APPEARANCE);
+        }
 
         if (command[0].equalsIgnoreCase("raidlobby")) {
             player.getCustomRaid().open(player);

@@ -18,6 +18,7 @@ import com.zamron.world.content.CustomObjects;
 import com.zamron.world.content.Sounds;
 import com.zamron.world.content.Achievements.AchievementData;
 import com.zamron.world.content.Sounds.Sound;
+import com.zamron.world.content.raids.RaidNpc;
 import com.zamron.world.entity.impl.npc.NPC;
 import com.zamron.world.entity.impl.npc.NPCMovementCoordinator.CoordinateState;
 import com.zamron.world.entity.impl.player.Player;
@@ -259,6 +260,14 @@ public class DwarfMultiCannon {
 		NPC n = getTarget(player, cannon);
 		if(n == null)
 			return;
+		if (!player.getKcSystem().meetsRequirements(player.getKcSystem().getData(n.getId()))
+				&& !player.getRights().isSeniorStaff()
+				&& !(n instanceof RaidNpc)
+				&& !n.isInstancedNPC()
+				&& n.getId() != player.getSlayer().getSlayerTask().getNpcId()) {
+			player.getKcSystem().sendRequirementsMessage();
+			return;
+		}
 		Hit dmg = new Hit(Misc.getRandom(25000) - Misc.getRandom(n.getDefinition().getDefenceRange()), Hitmask.RED, CombatIcon.CANNON);
 		new Projectile(cannon.getObject(), n, 53, 44, 3, 43, 31, 0).sendProjectile();
 		n.dealDamage(dmg);

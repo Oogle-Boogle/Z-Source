@@ -10,7 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
-/@Author Flub
+@Author Flub
+ * Disabled by Oogle
 */
 public class TenKMassacre {
 

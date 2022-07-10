@@ -22,7 +22,7 @@ import javafx.scene.paint.Color;
 
 /** 
  * Pest control minigame
- * @author Gabriel Hannason
+ * @Author OogleBoogle
  */
 
 //Use interface ID 15892
@@ -85,7 +85,7 @@ public class PestControl {
 		p.getPacketSender().sendString(15895, "@whi@Next Depature: " +waitTimer);
 		p.getPacketSender().sendString(15897, "@gre@Players Ready: " +TOTAL_PLAYERS);
 		p.getPacketSender().sendString(15898, "");
-		p.getPacketSender().sendString(15899, "(Need 3 to 25 players)");
+		p.getPacketSender().sendString(15899, "(Need 1 to 25 players)");
 		p.getPacketSender().sendString(15900, "");
 		p.getPacketSender().sendString(15901, "@gre@Points: " +p.getPointsHandler().getCustompestcontrolpoints());
 
@@ -184,7 +184,7 @@ public class PestControl {
 				p.getPacketSender().sendString(15895, "@whi@Next Depature: " +waitTimer);
 				p.getPacketSender().sendString(15897, "@gre@Players Ready: " +TOTAL_PLAYERS);
 				p.getPacketSender().sendString(15898, "");
-				p.getPacketSender().sendString(15899, "(Need 3 to 25 players)");
+				p.getPacketSender().sendString(15899, "(Need 1 to 25 players)");
 				p.getPacketSender().sendString(15900, "");
 				p.getPacketSender().sendString(15901, "@gre@Points: " +p.getPointsHandler().getCustompestcontrolpoints());
 
@@ -251,7 +251,7 @@ public class PestControl {
 						movePlayerToIsland(player);
 						playerMap.put(player, PLAYING);
 					} else
-						player.getPacketSender().sendMessage("There must be at least 3 players in the boat before a game can start.");
+						player.getPacketSender().sendMessage("There must be at least 1 players in the boat before a game can start.");
 				}
 			}
 		}
@@ -546,7 +546,7 @@ public class PestControl {
 			if(portals[i] != null && Math.random() > 0.5){
 				PestControlNPC luckiest = PestControlNPC.values()[((int)(Math.random()*PestControlNPC.values().length))];
 				if(luckiest != null){
-					npcList.add(spawnPCNPC(luckiest.getLowestNPCID()+((int) (Math.random()*(luckiest.getHighestNPCID()-luckiest.getLowestNPCID()))), new Position(portals[i].getPosition().getX(), portals[i].getPosition().getY() - 1 , 0), 400));
+					npcList.add(spawnPCNPC(luckiest.getLowestNPCID()+((int) (Math.random()*(luckiest.getHighestNPCID()-luckiest.getLowestNPCID()))), new Position(portals[i].getPosition().getX(), portals[i].getPosition().getY() + 3 , 0), 30000));
 				}
 			}
 		}
@@ -791,7 +791,7 @@ public class PestControl {
 					p.getInventory().delete(id2, 1);
 				} else {
 					name = ItemDefinition.forId(id2).getName();
-					p.getPacketSender().sendMessage("You need to have "+Misc.anOrA(name)+" "+name+" to purhcase this uppgrade.");
+					p.getPacketSender().sendMessage("You need to have "+Misc.anOrA(name)+" "+name+" to purchase this upgrade.");
 					return;
 				}
 			}
@@ -841,6 +841,7 @@ public class PestControl {
 		NPC np = new NPC(id, pos);
 		np.setConstitution(constitution);
 		np.setDefaultConstitution(constitution);
+		np.getMovementQueue().freeze(214700000);
 		World.register(np);
 		return np;
 	}

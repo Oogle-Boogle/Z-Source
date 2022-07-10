@@ -518,14 +518,14 @@ public class NPCDrops { //LOL
 				player.getBank(0).add(item.getId(), item.getAmount() * 2);
 				if (player.getGameMode() == GameMode.GROUP_IRONMAN)
 					player.getGroupIronmanGroup().addItem(player, item.getId(), item.getAmount() * 2);
-				player.sendMessage("Added " + item.getDefinition().getName() + " to your bank because of pet perk.");
+//				player.sendMessage("Added " + item.getDefinition().getName() + " to your bank because of pet perk.");
 				return;
 			}
 			player.getBank(0).add(item.getId(), item.getAmount());
 			if (player.getGameMode() == GameMode.GROUP_IRONMAN)
 				player.getGroupIronmanGroup().addItem(player, item.getId(), item.getAmount());
 			System.out.println("TRIED TO CATCH ?");
-			player.sendMessage("Added " + item.getDefinition().getName() + " to your bank because of pet perk.");
+//			player.sendMessage("Added " + item.getDefinition().getName() + " to your bank because of pet perk.");
 			return;
 		}
 		if (isWearingCollectorUpgraded && !player.getBlockedCollectorsList().contains(item.getId())) {
@@ -534,28 +534,28 @@ public class NPCDrops { //LOL
 				if (player.getGameMode() == GameMode.GROUP_IRONMAN)
 					player.getGroupIronmanGroup().addItem(player, item.getId(), item.getAmount() * 2);
 
-				player.sendMessage("@red@Your Collector has picked up @blu@" + item.getAmount() * 2 + "x "
-						+ item.getDefinition().getName() + " @red@and added them to your bank!");
+//				player.sendMessage("@red@Your Collector has picked up @blu@" + item.getAmount() * 2 + "x "
+//						+ item.getDefinition().getName() + " @red@and added them to your bank!");
 				return;
 			}
 			player.getBank(0).add(item.getId(), item.getAmount());
 			if (player.getGameMode() == GameMode.GROUP_IRONMAN)
 				player.getGroupIronmanGroup().addItem(player, item.getId(), item.getAmount());
 
-			player.sendMessage("@red@Your Collector has picked up @blu@" + item.getAmount() + "x "
-					+ item.getDefinition().getName() + " @red@and added them to your bank!");
+//			player.sendMessage("@red@Your Collector has picked up @blu@" + item.getAmount() + "x "
+//					+ item.getDefinition().getName() + " @red@and added them to your bank!");
 			return;
 		}
 		if (isWearingCollector && !player.getBlockedCollectorsList().contains(item.getId())) {
 			if (dropPerks || scrollDrop) {
 				player.getInventory().add(item.getId(), item.getAmount() * 2);
-				player.sendMessage("@red@Your Collector has picked up @blu@" + item.getAmount() * 2+ "x "
-						+ item.getDefinition().getName() + " @red@and added them to your inventory!");
+//				player.sendMessage("@red@Your Collector has picked up @blu@" + item.getAmount() * 2+ "x "
+//						+ item.getDefinition().getName() + " @red@and added them to your inventory!");
 				return;
 			}
 			player.getInventory().add(item.getId(), item.getAmount());
-			player.sendMessage("@red@Your Collector has picked up @blu@" + item.getAmount() + "x "
-					+ item.getDefinition().getName() + " @red@and added them to your inventory!");
+//			player.sendMessage("@red@Your Collector has picked up @blu@" + item.getAmount() + "x "
+//					+ item.getDefinition().getName() + " @red@and added them to your inventory!");
 			return;
 		}
 		if (dropPerks || scrollDrop) {

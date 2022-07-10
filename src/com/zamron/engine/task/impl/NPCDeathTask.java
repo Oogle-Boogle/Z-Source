@@ -170,7 +170,7 @@ public class NPCDeathTask extends Task {
 							killer.setBossPoints(killer.getBossPoints() + points);
 							killer.getSkillManager().addExperience(Skill.PVM, BossesXP);
 							String pnts = killer.getBossPoints() == 3 ? "Point" : "Points";
-							killer.sendMessage("<img=0>You now have @red@" + killer.getBossPoints() + " Boss " + pnts + "!");
+//							killer.sendMessage("<img=0>You now have @red@" + killer.getBossPoints() + " Boss " + pnts + "!");
 						}
 						if (BOSS5P.contains(npc.getId())) {
 							int points = GlobalPerks.getInstance().getActivePerk() == GlobalPerks.Perk.x2_BOSS_POINTS ? 10 : 5;
@@ -178,7 +178,7 @@ public class NPCDeathTask extends Task {
 							killer.setBossPoints(killer.getBossPoints() + points);
 							killer.getSkillManager().addExperience(Skill.PVM, BossesXP);
 							String pnts = killer.getBossPoints() == 5 ? "Point" : "Points";
-							killer.sendMessage("<img=0>You now have @red@" + killer.getBossPoints() + " Boss " + pnts + "!");
+//							killer.sendMessage("<img=0>You now have @red@" + killer.getBossPoints() + " Boss " + pnts + "!");
 						}
 						if (BOSS7P.contains(npc.getId())) {
 							int points = GlobalPerks.getInstance().getActivePerk() == GlobalPerks.Perk.x2_BOSS_POINTS ? 14 : 7;
@@ -186,7 +186,7 @@ public class NPCDeathTask extends Task {
 							killer.setBossPoints(killer.getBossPoints() + points);
 							killer.getSkillManager().addExperience(Skill.PVM, BossesXP);
 							String pnts = killer.getBossPoints() == 7 ? "Point" : "Points";
-							killer.sendMessage("<img=0>You now have @red@" + killer.getBossPoints() + " Boss " + pnts + "!");
+//							killer.sendMessage("<img=0>You now have @red@" + killer.getBossPoints() + " Boss " + pnts + "!");
 						}
 						if (BOSS9P.contains(npc.getId())) {
 							int points = GlobalPerks.getInstance().getActivePerk() == GlobalPerks.Perk.x2_BOSS_POINTS ? 18 : 9;
@@ -194,7 +194,7 @@ public class NPCDeathTask extends Task {
 							killer.setBossPoints(killer.getBossPoints() + points);
 							killer.getSkillManager().addExperience(Skill.PVM, BossesXP);
 							String pnts = killer.getBossPoints() == 9 ? "Point" : "Points";
-							killer.sendMessage("<img=0>You now have @red@" + killer.getBossPoints() + " Boss " + pnts + "!");
+//							killer.sendMessage("<img=0>You now have @red@" + killer.getBossPoints() + " Boss " + pnts + "!");
 						}
 						if (BOSS11P.contains(npc.getId())) {
 							int points = GlobalPerks.getInstance().getActivePerk() == GlobalPerks.Perk.x2_BOSS_POINTS ? 22 : 11;
@@ -202,7 +202,7 @@ public class NPCDeathTask extends Task {
 							killer.setBossPoints(killer.getBossPoints() + points);
 							killer.getSkillManager().addExperience(Skill.PVM, BossesXP);
 							String pnts = killer.getBossPoints() == 11 ? "Point" : "Points";
-							killer.sendMessage("<img=0>You now have @red@" + killer.getBossPoints() + " Boss " + pnts + "!");
+//							killer.sendMessage("<img=0>You now have @red@" + killer.getBossPoints() + " Boss " + pnts + "!");
 						}
 						if (BOSS13P.contains(npc.getId())) {
 							int points = GlobalPerks.getInstance().getActivePerk() == GlobalPerks.Perk.x2_BOSS_POINTS ? 26 : 13;
@@ -210,7 +210,7 @@ public class NPCDeathTask extends Task {
 							killer.setBossPoints(killer.getBossPoints() + points);
 							killer.getSkillManager().addExperience(Skill.PVM, BossesXP);
 							String pnts = killer.getBossPoints() == 13 ? "Point" : "Points";
-							killer.sendMessage("<img=0>You now have @red@" + killer.getBossPoints() + " Boss " + pnts + "!");
+//							killer.sendMessage("<img=0>You now have @red@" + killer.getBossPoints() + " Boss " + pnts + "!");
 						}
 						if (BOSS15P.contains(npc.getId())) {
 							int points = GlobalPerks.getInstance().getActivePerk() == GlobalPerks.Perk.x2_BOSS_POINTS ? 30 : 15;
@@ -218,13 +218,13 @@ public class NPCDeathTask extends Task {
 							killer.setBossPoints(killer.getBossPoints() + points);
 							killer.getSkillManager().addExperience(Skill.PVM, BossesXP);
 							String pnts = killer.getBossPoints() == 15 ? "Point" : "Points";
-							killer.sendMessage("<img=0>You now have @red@" + killer.getBossPoints() + " Boss " + pnts + "!");
+//							killer.sendMessage("<img=0>You now have @red@" + killer.getBossPoints() + " Boss " + pnts + "!");
 						}
 
 						killer.addNpcKillCount(npc.getId());
 						killer.getStarterProgression().handleKill(npc.getId());
-						killer.sendMessage("@blu@You now have @blu@" + killer.getNpcKillCount(npc.getId()) + "@red@ "
-								+ npc.getDefinition().getName() + "@red@ KC!");
+						/*killer.sendMessage("@blu@You now have @blu@" + killer.getNpcKillCount(npc.getId()) + "@red@ "
+								+ npc.getDefinition().getName() + "@red@ KC!");*/
 
 
 						if (Tier1to3.contains(npc.getId())) {
@@ -267,7 +267,7 @@ public class NPCDeathTask extends Task {
 							int easyAmount = Misc.random(30);
 							if ((killer.getInventory().contains(CASH) || killer.getInventory().getFreeSlots() > 0)) {
 								killer.getInventory().addItem(CASH, easyAmount);
-								killer.sendMessage("@bla@[CASH]: You get " + easyAmount + " 1b coins.");
+//								killer.sendMessage("@bla@[CASH]: You get " + easyAmount + " 1b coins.");
 							} else {
 								killer.sendMessage("You do not have room to collect your cash. Please free up atleast 1 space.");
 							}
@@ -285,7 +285,7 @@ public class NPCDeathTask extends Task {
 							int easyAmount = Misc.random(30);
 							if ((killer.getInventory().contains(CASH) || killer.getInventory().getFreeSlots() > 0)) {
 								killer.getInventory().addItem(CASH, easyAmount);
-								killer.sendMessage("@bla@[CASH]: You get " + easyAmount + " 1b Coins.");
+//								killer.sendMessage("@bla@[CASH]: You get " + easyAmount + " 1b Coins.");
 							} else {
 								killer.sendMessage("You do not have room to collect your cash. Please free up atleast 1 space.");
 							}
@@ -301,7 +301,7 @@ public class NPCDeathTask extends Task {
 							int easyAmount = Misc.random(10);
 							if ((killer.getInventory().contains(CASH) || killer.getInventory().getFreeSlots() > 0)) {
 								killer.getInventory().addItem(CASH, easyAmount);
-								killer.sendMessage("@bla@[CASH]: You get " + easyAmount + " 1b Coins.");
+//								killer.sendMessage("@bla@[CASH]: You get " + easyAmount + " 1b Coins.");
 							} else {
 								killer.sendMessage("You do not have room to collect your cash. Please free up atleast 1 space.");
 							}
@@ -705,7 +705,7 @@ public class NPCDeathTask extends Task {
 			});
 		}
 
-		TenKMassacre.incrementServerKills(killer,1); // Add killer to list and increment server kills by 1
+		//TenKMassacre.incrementServerKills(killer,1); // Add killer to list and increment server kills by 1
 
 		if (npc.getId() == DailyNPCTask.CHOSEN_NPC_ID) {
 			DailyNPCTask.countPlayerKill(killer);
