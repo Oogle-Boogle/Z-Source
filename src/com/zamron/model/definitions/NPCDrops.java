@@ -576,7 +576,7 @@ public class NPCDrops { //LOL
 		int itemId = item.getId();
 		int amount = item.getAmount();
 
-
+//terst
 		if (player.getInventory().contains(6821)) {
 			int value = item.getDefinition().getValue();
 			int formula = value * amount;
