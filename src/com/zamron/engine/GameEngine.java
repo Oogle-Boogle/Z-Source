@@ -1,5 +1,6 @@
 package com.zamron.engine;
 
+import java.lang.management.GarbageCollectorMXBean;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
@@ -11,6 +12,7 @@ import com.zamron.engine.task.TaskManager;
 import com.zamron.event.CycleEventHandler;
 
 
+import com.zamron.util.Stopwatch;
 import com.zamron.world.World;
 import com.zamron.world.content.clan.ClanChatManager;
 import com.zamron.world.content.grandexchange.GrandExchangeOffers;
@@ -25,6 +27,9 @@ import com.zamron.world.entity.impl.player.Player;
 public final class GameEngine implements Runnable {
 
 	private final ScheduledExecutorService logicService = GameEngine.createLogicService();
+
+	private static final int TIME = 10; //10 minutes
+	private static Stopwatch timer = new Stopwatch().reset();
 
 	// private static final int PROCESS_GAME_TICK = 2;
 
@@ -46,6 +51,16 @@ public final class GameEngine implements Runnable {
 			World.sequence();
 			CycleEventHandler.getSingleton().process();
 			long e = (System.nanoTime() - s) / 1000000;
+
+			/**
+			 *
+			 * Remove this if its causing issues
+			 *
+			 */
+			if(timer.elapsed(TIME)) {
+				timer.reset();
+				System.gc();
+			}
 
 			/**
 			 * Process incoming packets consecutively throughout the sleeping cycle *The key to instant switching of
