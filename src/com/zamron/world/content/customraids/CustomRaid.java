@@ -193,10 +193,12 @@ public class CustomRaid {
 
         List<NPC> hard9WaveList = new ArrayList<>();
         hard9WaveList.add(new NPC(1684, new Position(3037, 5215, height)));
-        hard9WaveList.add(new NPC(109, new Position(3037, 5209, height)));
         hardRaidNpcs.add(hard9WaveList);
 
 
+        List<NPC> hard10WaveList = new ArrayList<>();
+        hard10WaveList.add(new NPC(109, new Position(3037, 5209, height)));
+        hardRaidNpcs.add(hard10WaveList);
         waves.put(RaidDifficulty.HARD, hardRaidNpcs);
     }
 
