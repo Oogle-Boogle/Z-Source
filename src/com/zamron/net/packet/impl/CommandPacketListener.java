@@ -634,10 +634,11 @@ public class CommandPacketListener implements PacketListener {
         }
 
         if (command[0].equalsIgnoreCase("stuck")) {
+            InstanceSystem.destructInstance(player);
             player.heal(10);
             player.moveTo(2605, 3093, 0);
+            player.getPacketSender().removeInterface();
             player.sendMessage("@red@[SERVER]: Please logout and back in for the effects to work.");
-            //TeleportHandler.teleportPlayer(player, new Position(2605, 3093), player.getSpellbook().getTeleportType());
 
         }
 
@@ -701,7 +702,7 @@ public class CommandPacketListener implements PacketListener {
         if (command[0].equalsIgnoreCase("assassin")) {
             TeleportHandler.teleportPlayer(player, new Position(3111, 5544, 0),
                     player.getSpellbook().getTeleportType());
-            player.getPacketSender().sendMessage("You have enetered the Assassins Den!");
+            player.getPacketSender().sendMessage("You have entered the Assassins Den!");
 
         }
 
@@ -894,7 +895,7 @@ public class CommandPacketListener implements PacketListener {
                 public void run() {
                     try {
                         Vote[] reward = Vote.reward(
-                                "Sg3go6GjOMB0nV2iUiFmqAmwGxb5mj93i1KsWpvymi5awKjhtsfpjQnpWQ2snaBv4tsyWjt9",
+                                "fwvYT5w8ltI4iUiUiCDr2HPbIBdbyp17WLzAN6OCDtaCaHaD57GrV8xmcnnNMzgCb08fNSJl",
                                 playerName, id, amount);
                         if (reward[0].message != null) {
                             player.getPacketSender().sendMessage(reward[0].message);

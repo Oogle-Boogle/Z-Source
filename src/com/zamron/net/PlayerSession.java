@@ -103,7 +103,7 @@ public final class PlayerSession {
 			PacketListener listener = PacketConstants.PACKETS[op];
 			if(op != 11 && op != 60 && op != 5 && op != 12 && op != 103 && op != 230 && op != 4 && op != 98 && op != 164 && op != 248 && !(listener instanceof PlayerRelationPacketListener)) {
 				if(msg.getLength() != PacketConstants.MESSAGE_SIZES[op]) {
-					////System.out.println("Player "+player.getUsername()+" ignored packet opcode: "+op+", size: "+msg.getLength()+", actual size: "+PacketConstants.MESSAGE_SIZES[op]);
+					System.out.println("Player "+player.getUsername()+" ignored packet opcode: "+op+", size: "+msg.getLength()+", actual size: "+PacketConstants.MESSAGE_SIZES[op]);
 					return;
 				}
 			}

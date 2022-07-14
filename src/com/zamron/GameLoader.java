@@ -22,6 +22,8 @@ import com.zamron.world.content.dialogue.DialogueManager;
 import com.zamron.world.content.grandexchange.GrandExchangeOffers;
 import com.zamron.world.content.groupironman.GroupIronmanGroup;
 import com.zamron.world.content.guidesInterface.GuideBook;
+import com.zamron.world.content.minimes.MiniMeData;
+import com.zamron.world.content.minimes.MiniMeFunctions;
 import com.zamron.world.content.pos.PlayerOwnedShopManager;
 import com.zamron.world.content.serverperks.GlobalPerks;
 import com.zamron.world.content.starterprogression.StarterProgression;

@@ -8,96 +8,61 @@ import java.util.concurrent.TimeUnit;
 
 
 import com.zamron.engine.task.TaskManager;
-import com.zamron.event.CycleEventHandler;
-
 
 import com.zamron.util.Stopwatch;
 import com.zamron.world.World;
 import com.zamron.world.content.clan.ClanChatManager;
 import com.zamron.world.content.grandexchange.GrandExchangeOffers;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
-import com.zamron.world.entity.impl.player.Player;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * @author lare96
- * @author Gabriel Hannason
+ * @author Oogle
  */
 public final class GameEngine implements Runnable {
 
 	private final ScheduledExecutorService logicService = GameEngine.createLogicService();
 
+	private static final Logger log = LoggerFactory.getLogger(GameEngine.class);
+
 	private static final int TIME = 10; //10 minutes
 	private static Stopwatch timer = new Stopwatch().reset();
 
-	// private static final int PROCESS_GAME_TICK = 2;
-
-	// private EngineState engineState = EngineState.PACKET_PROCESSING;
-
-	// private int engineTick = 0;
-
 	@Override
 	public void run() {
-		try {
-			long s = System.nanoTime();
-			/*
-			 * switch(engineState) { case PACKET_PROCESSING: World.getPlayers().forEach($it ->
-			 * $it.getSession().handlePrioritizedMessageQueue()); break; case GAME_PROCESSING: TaskManager.sequence();
-			 * World.sequence(); break; } engineState = next();
-			 */
+		long sequenceStartNanos = System.nanoTime();
 
+		try {
 			TaskManager.sequence();
 			World.sequence();
-			CycleEventHandler.getSingleton().process();
-			long e = (System.nanoTime() - s) / 1000000;
-
-			/**
-			 *
-			 * Remove this if its causing issues
-			 *
-			 */
-			if(timer.elapsed(TIME)) {
-				timer.reset();
-				System.gc();
-			}
-
-			/**
-			 * Process incoming packets consecutively throughout the sleeping cycle *The key to instant switching of
-			 * equipment
-			 */
-			if (e < 600) {
-				if (e < 400) {
-					for (int i = 0; i < 30; i++) {
-						long sleep = (600 - e) / 30;
-						Thread.sleep(sleep);
-						subcycle();
-					}
-				} else {
-					Thread.sleep(600 - e);
-				}
-			}
-		} catch (Throwable e) {
-			e.printStackTrace();
+		} catch (Throwable ex) {
+			log.error("Error whilst running world update sequence.", ex);
+			// Save everything to avoid losses if the exception is fatal.
 			World.savePlayers();
 			GrandExchangeOffers.save();
 			ClanChatManager.save();
 		}
-	}
 
-	private static void subcycle() {
-		for (Player p : World.getPlayers()) {
-			if (p != null) {
-				p.getSession().handleQueuedMessages();
-			} else if  (p == null || p.isMiniMe) {
-					return;
-				}
-			}
+		/**
+		 *
+		 * Remove this if its causing issues
+		 *
+		 */
+		if(timer.elapsed(TIME)) {
+			timer.reset();
+			System.gc();
 		}
 
-	/*
-	 * private EngineState next() { if (engineTick == PROCESS_GAME_TICK) { engineTick = 0; return
-	 * EngineState.GAME_PROCESSING; } engineTick++; return EngineState.PACKET_PROCESSING; } private enum EngineState {
-	 * PACKET_PROCESSING, GAME_PROCESSING; }
-	 */
+		long sequenceFinishNanos = System.nanoTime();
+		long sequenceRunTime = sequenceFinishNanos - sequenceStartNanos;
+		long runTimeInMillis = TimeUnit.NANOSECONDS.toMillis(sequenceRunTime);
+
+		if (runTimeInMillis >= 600L) {
+			log.warn("World sequence ran too slow! Actual runtime was {}ms ({}ns) - should be under 600ms!",
+					runTimeInMillis, sequenceRunTime);
+		}
+	}
 
 	public void submit(Runnable t) {
 		try {

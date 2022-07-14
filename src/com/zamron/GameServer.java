@@ -72,9 +72,6 @@ public class GameServer {
 			loader.finish();
 			//logger.info("The loader has finished loading utility tasks.");
 			ServerTimeUpdateTask.start_configuration_process();
-			logger.info("Trying to connect to firebase database...");
-
-			logger.info("Loaded up firebase connection: Success.");
 			MACBanL.init();
 			if (GameSettings.CONFIGURATION_TIME == 5) {
 				logger.info("Configurations loaded.");
