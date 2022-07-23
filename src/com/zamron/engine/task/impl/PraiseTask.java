@@ -27,7 +27,7 @@ public class PraiseTask extends Task {
 			player.sendMessage("@blu@Praise Time left:@red@ " + (int) QuickUtils.tickToMin(player.getPraiseTime())
 					+ QuickUtils.getPraisePrefix(player));
 		}
-		player.decrementPraiseTime(100);
+		player.decrementPraiseTime(1);
 	}
 
 }

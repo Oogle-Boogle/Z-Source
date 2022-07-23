@@ -1,9 +1,11 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Run" type="Application" factoryName="Application">
-    <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+    <option name="ALTERNATIVE_JRE_PATH" value="17" />
     <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
     <option name="MAIN_CLASS_NAME" value="com.zamron.GameServer" />
     <module name=".Server" />
+    <option name="VM_PARAMETERS" value="-server -Xmx3600m -XX:+UseZGC -cp bin;lib/*" />
+    <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

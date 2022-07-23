@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
 @Author Flub
- * Disabled by Oogle
+ * Disabled by Oogle - THIS IS BUGGED TO FUCK BTW LOL
 */
 public class TenKMassacre {
 

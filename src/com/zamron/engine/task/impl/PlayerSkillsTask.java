@@ -45,7 +45,7 @@ public class PlayerSkillsTask extends Task {
 		if(getDelay() == TIME_WITHOUT_BERSERKER_CURSE && player.getCurseActive()[CurseHandler.BERSERKER] || !player.getCurseActive()[CurseHandler.BERSERKER] && getDelay() == TIME_WITH_BERSERKER_CURSE)
 			setDelay(player.getCurseActive()[CurseHandler.BERSERKER] ? TIME_WITH_BERSERKER_CURSE : TIME_WITHOUT_BERSERKER_CURSE);
 		if(!player.isDying() && player.getConstitution() > 0 && player.getOverloadPotionTimer() == 0) {
-			for (Skill skill : Skill.values()) {
+			for (Skill skill : Skill.values) {
 				if (player.getSkillManager().getCurrentLevel(skill) != player.getSkillManager().getMaxLevel(skill) && skill != Skill.PRAYER && skill != Skill.SUMMONING) {
 					int difference = player.getSkillManager().getCurrentLevel(skill) - player.getSkillManager().getMaxLevel(skill);
 					int toRestore = (difference > 0 ? (player.getSkillManager().getCurrentLevel(skill) - 1) : player.getSkillManager().getCurrentLevel(skill) + 1);

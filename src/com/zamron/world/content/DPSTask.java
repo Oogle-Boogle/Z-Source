@@ -6,7 +6,7 @@ import com.zamron.world.entity.impl.player.Player;
 
 public class DPSTask extends Task {
 	
-	private Player player;
+	private final Player player;
 	
 	public DPSTask(Player player) {
 		super(1, false);

@@ -7,6 +7,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import com.google.gson.JsonElement;
 import com.zamron.SaveNpcData;
 import com.zamron.engine.task.Task;
 import com.zamron.engine.task.TaskManager;
@@ -79,8 +81,8 @@ public class NPC extends Character {
 		if (constitution < defaultConstitution) {
 			if (!isDying) {
 				if (getLastCombat().elapsed((id == 13447 || id == 3200 ? 50000 : 5000))
-						&& !getCombatBuilder().isAttacking() && getLocation() != Location.PEST_CONTROL_GAME
-						&& getLocation() != Location.DUNGEONEERING) {
+						&& !getCombatBuilder().isAttacking() && !Location.PEST_CONTROL_GAME.equals(getLocation())
+						&& !Location.DUNGEONEERING.equals(getLocation())) {
 					setConstitution(constitution + (int) (defaultConstitution * 0.1));
 					if (constitution > defaultConstitution)
 						setConstitution(defaultConstitution);
@@ -201,10 +203,13 @@ public class NPC extends Character {
 			public void load(JsonObject reader, Gson builder) {
 
 				int id = reader.get("npc-id").getAsInt();
+				if (id < 0) return;
+
 				Position position = builder.fromJson(reader.get("position").getAsJsonObject(), Position.class);
 				Coordinator coordinator = builder.fromJson(reader.get("walking-policy").getAsJsonObject(),
 						Coordinator.class);
-				Direction direction = Direction.valueOf(reader.get("face").getAsString());
+				JsonElement face = reader.get("face");
+				Direction direction = face == null ? Direction.SOUTH : Direction.valueOf(face.getAsString());
 				NPC npc = new NPC(id, position);
 				npc.movementCoordinator.setCoordinator(coordinator);
 				npc.setDirection(direction);

@@ -14,6 +14,7 @@ import com.zamron.model.GroundItem;
 import com.zamron.model.Item;
 import com.zamron.model.Position;
 import com.zamron.util.Misc;
+import com.zamron.util.Stopwatch;
 import com.zamron.world.content.combat.CombatBuilder.CombatDamageCache;
 import com.zamron.world.content.discord.DiscordMessenger;
 import com.zamron.world.content.skill.impl.pvm.NpcGain;
@@ -37,6 +38,10 @@ public class TheMay extends NPC {
 	 * 
 	 */
 	public static final int NPC_ID = 2005;
+
+	public static int TIME = 4500;
+
+	private static Stopwatch timer = new Stopwatch().reset();
 	/**
 	 * add your maps to that folder open me your client.java in client
 	 */
@@ -103,6 +108,8 @@ public class TheMay extends NPC {
 	public static void handleDrop(NPC npc) {
 
 		setCurrent(null);
+
+		timer.reset();
 
 		if (npc.getCombatBuilder().getDamageMap().size() == 0) {
 			return;

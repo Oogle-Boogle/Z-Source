@@ -294,9 +294,9 @@ public class ObjectActionPacketListener implements PacketListener {
 					player.sendMessage("Disabled - Currently being worked on.");
 					break;
 				case 2469:
-					//TeleportHandler.teleportPlayer(player, new Position(2582, 4609), player.getSpellbook().getTeleportType());
-					//player.sendMessage("@red@Get the key from the NPCS to advance to room 2");
-					player.getPacketSender().sendMessage("@red@Disabled.");
+					TeleportHandler.teleportPlayer(player, new Position(2582, 4609), player.getSpellbook().getTeleportType());
+					player.sendMessage("@red@Get the key from the NPCS to advance to room 2");
+//					player.getPacketSender().sendMessage("@red@Disabled.");
 					break;
 					
 				case 11231:
@@ -845,14 +845,14 @@ public class ObjectActionPacketListener implements PacketListener {
 					break;
 					
 				case 10804:
-					if (player.getInventory().contains(8851, 1000) && player.getInventory().contains(4691, 5000) && player.getSkillManager().getCurrentLevel(Skill.PVM) >= 92) {
+					if (player.getInventory().contains(8851, 1000) && player.getInventory().contains(4691, 1000) && player.getSkillManager().getCurrentLevel(Skill.PVM) >= 92) {
 						player.getInventory().delete(8851, 1000);
-						player.getInventory().delete(4691, 5000);
+						player.getInventory().delete(4691, 1000);
 						player.performAnimation(new Animation(828));
 						player.moveTo(new Position(3309, 9808, 8));
 						player.sendMessage("@red@You Found a secret dungeon");
 					} else {
-						player.sendMessage("@red@To enter this dungeon you need 1k Frankensteins tokens and 5k Colorful tokens!");
+						player.sendMessage("@red@To enter this dungeon you need 1k Frankensteins tokens and 1k Colorful tokens!");
 						player.sendMessage("@red@To be able to attack the monsters you also need 92 PVM to enter.");
 					}
 					break;
@@ -1281,7 +1281,9 @@ public class ObjectActionPacketListener implements PacketListener {
 				case 27661:
 				case 2640:
 				case 36972:
-					player.performAnimation(new Animation(645));
+					case 4859:
+						player.performAnimation(new Animation(645));
+					Sounds.sendSound(player, Sounds.Sound.PRAY_AT_ALTAR);
 					if(player.getSkillManager().getCurrentLevel(Skill.PRAYER) < player.getSkillManager().getMaxLevel(Skill.PRAYER)) {
 						player.getSkillManager().setCurrentLevel(Skill.PRAYER, player.getSkillManager().getMaxLevel(Skill.PRAYER), true);
 						player.getPacketSender().sendMessage("You recharge your Prayer points.");
@@ -1291,19 +1293,14 @@ public class ObjectActionPacketListener implements PacketListener {
 			
 						player.setSpecialPercentage(100);
 						CombatSpecial.updateBar(player);
+					Sounds.sendSound(player, Sounds.Sound.PRAY_AT_ALTAR);
 						player.getPacketSender().sendMessage("Your special attack energy has been restored.");	
 					player.performGraphic(new Graphic(1302));
 					break;
-				case 4859:
-					player.performAnimation(new Animation(645));
-					if(player.getSkillManager().getCurrentLevel(Skill.PRAYER) < player.getSkillManager().getMaxLevel(Skill.PRAYER)) {
-						player.getSkillManager().setCurrentLevel(Skill.PRAYER, player.getSkillManager().getMaxLevel(Skill.PRAYER), true);
-						player.getPacketSender().sendMessage("You recharge your Prayer points.");
-					}
-					break;
-				case 411:
+					case 411:
 					case 61:
 					player.performAnimation(new Animation(645));
+					Sounds.sendSound(player, 203);
 					if(player.getPrayerbook() == Prayerbook.NORMAL) {
 						player.getPacketSender().sendMessage("You sense a surge of power flow through your body!");
 						player.setPrayerbook(Prayerbook.CURSES);
@@ -1335,6 +1332,7 @@ public class ObjectActionPacketListener implements PacketListener {
 						return;
 					}
 					player.performAnimation(new Animation(645));
+					Sounds.sendSound(player, 442);
 					player.setSpecialPercentage(100);
 					CombatSpecial.updateBar(player);
 					player.sendMessage("@red@Your special bar is now at 100%");
@@ -1421,6 +1419,12 @@ public class ObjectActionPacketListener implements PacketListener {
 				case 2467:
 					KeyRoom.handleObjectClick(player, gameObject, 2);
 					return;
+
+					case 11434:
+				//Strange fiber firemaking
+						EnterAmountOfLogsToAdd.openInterface(player);
+						EvilTrees.sequence();
+						return;
 					
 				case 884:
 					player.setDialogueActionId(41);

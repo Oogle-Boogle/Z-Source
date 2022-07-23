@@ -135,7 +135,7 @@ public class CombatBuilder {
 
 		// Start the event listener implementation that will allow the
 		// controller to attack the victim once we're close enough.
-		TaskManager.cancelTasks(this);
+		TaskManager.cancelTasks(this);//guess cuz the cancellation system doesn't work quite how it used to, so it's cancelling after actually processing new
 		
 		if (distanceTask != null) {
 			if (distanceTask.isRunning()) {

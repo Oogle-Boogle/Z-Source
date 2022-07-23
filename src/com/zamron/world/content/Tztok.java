@@ -14,6 +14,7 @@ import com.zamron.model.GroundItem;
 import com.zamron.model.Item;
 import com.zamron.model.Position;
 import com.zamron.util.Misc;
+import com.zamron.util.Stopwatch;
 import com.zamron.world.content.combat.CombatBuilder.CombatDamageCache;
 import com.zamron.world.content.discord.DiscordMessenger;
 import com.zamron.world.content.skill.impl.pvm.NpcGain;
@@ -36,10 +37,16 @@ public class Tztok extends NPC {
 	 */
 	public static final int NPC_ID = 2745;
 
+	public static int TIME = 6000;
+
+	private static Stopwatch timer = new Stopwatch().reset();
+
 	/**
 	 * add your maps to that folder open me your client.java in client
 	 */
-	public static final TztokLocation[] LOCATIONS = { new TztokLocation(2412, 4670, 0, "<col=0999ad> <img=12> ::wb ") };
+	public static final TztokLocation[] LOCATIONS = {
+			new TztokLocation(2412, 4670, 0, "<col=0999ad> <img=12> ::wb ")
+	};
 
 	/**
 	 * 
@@ -60,7 +67,7 @@ public class Tztok extends NPC {
 	 */
 	public static void initialize() {
 
-		TaskManager.submit(new Task( 10080, false) { // 6000
+		TaskManager.submit(new Task( 6000, false) { // 6000
 
 			@Override
 			public void execute() {
@@ -204,6 +211,7 @@ public class Tztok extends NPC {
 	private static void handleDrop(NPC npc, Player player, int damage) {
 			Position pos = npc.getPosition();
 			giveLoot(player, npc, pos);
+			timer.reset();
 	}
 
 	/**

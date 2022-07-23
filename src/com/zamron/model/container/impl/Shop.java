@@ -429,7 +429,7 @@ public class Shop extends ItemContainer {
 
 			if (currency.getId() == 995) {
 				if (player.getInventory().contains(995, value)) {
-					player.getInventory().delete(995, value);
+					//player.getInventory().delete(995, value);
 				} else {
 					playerCurrencyAmount = player.getMoneyInPouchAsInt();
 					int amountRequired = 0;
@@ -1022,16 +1022,65 @@ public class Shop extends ItemContainer {
 				}
 			} else if (shop == SKILLING_STORE) {
 				switch (item) {
-					case 19706:// Common mbox
-					case 19707:// Uncommon box
+					case 7630:
+						return new Object[] {400, "Skilling Points"};
+
+					case 9470:
+					case 9813:
+					case 9814:
+						return new Object[] {275, "Skilling Points"};
+
+					case 6857:
+					case 6859:
+					case 6861:
+					case 6863:
+						return new Object[] {185, "SKilling Points"};
+
+					case 19706:
+					case 19707:
 					case 19708:
-						return new Object[]{1500, "Skilling Points"};
+						return new Object[]{850, "Skilling Points"};
 					case 18782:
-						return new Object[]{2000, "Skilling Points"};
-					case 15373:// Korasi
-						return new Object[]{1000, "Skilling Points"};
-					case 6199:// Blood Necklace
-						return new Object[]{5000, "Skilling Points"};
+						return new Object[]{50, "Skilling Points"};
+
+					case 11587:
+					case 11588:
+					case 11589:
+					case 11591:
+						return new Object[] { 75, "Skilling Points" };
+
+					case 14044:
+					case 14045:
+					case 14046:
+					case 14047:
+					case 14048:
+					case 898:
+					case 1050:
+					case 3090:
+					case 3976:
+					case 14049:
+					case 14050:
+					case 14051:
+					case 14052:
+					case 14450:
+					case 16049:
+					case 19018:
+					case 19092:
+					case 19093:
+					case 19094:
+						return new Object[] {150, "Skilling Points"};
+
+					case 5048:
+						return new Object[] {250, "Skilling Points"};
+
+					case 11179:
+						return new Object[] {10, "Skilling Points"};
+
+					case 19943:
+						return new Object[] {175, "Skilling Points"};
+
+					case 4777:
+						return new Object[] {500, "Skilling Points"};
 				}
 			} else if (shop == DBZ_TOKEN_SHOP) {
 				switch (item) {
@@ -1208,6 +1257,8 @@ public class Shop extends ItemContainer {
 				return new Object[] { 150, "Donation Points" };
 			} else if (shop == VOID_STORE) {
 				switch (item) {
+					case 10600:
+						return new Object[] {100, "Pest Control Points"};
 					case 9083:
 						return new Object[] {200, "Pest Control Points"};
 				case 14044:// Black Partyhat
@@ -1370,11 +1421,7 @@ public class Shop extends ItemContainer {
 
 			} else if (shop == PRESTIGE_STORE) {
 				switch (item) {
-				case 11587:
-				case 11588:
-				case 11589:
-				case 11592:
-					return new Object[] { 75, "Prestige points" };
+
 				}
 			} else if (shop == HALLOWEEN_SHOP) {
 				switch(item) {

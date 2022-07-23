@@ -456,13 +456,15 @@ public class ButtonClickPacketListener implements PacketListener {
              */
 
             case 19056:
-                player.sendMessage("This tab will be coming soon!");
+                int players = World.getPlayers().size();
+                player.getPacketSender().sendMessage("There are currently " + players + " players online!");
+                PlayersOnlineInterface.showInterface(player);
                 break;
             case 19086:
                 player.getPacketSender().openURL("https://discord.gg/CeHjENEfVv");
                 break;
             case 19091:
-                player.getPacketSender().openURL("https://zamron/net/vote");
+                player.getPacketSender().openURL("https://zamron.us/vote");
                 break;
             case 19096:
                 player.getPacketSender().openURL("https://zamron.us/store");
@@ -1081,14 +1083,14 @@ public class ButtonClickPacketListener implements PacketListener {
                         player.getSpellbook().getTeleportType());
                 break;
 
-            case 19076: // Opens custom NPC teleports interface
-                player.getPacketSender().sendInterface(50500);
+            case 19076: // Opens Drop Simulator
+                player.getDropSimulator().open();
                 break;
 
             // End here
             case -3334:
                 if (!player.getClickDelay().elapsed(3000)) {
-                    player.sendMessage("@red@Please wait a few secounds before trying to upgrade again.");
+                    player.sendMessage("@red@Please wait a few seconds before trying to upgrade again.");
                     return;
                 }
                 new UpgradeListener(player).upgrade();
@@ -1097,7 +1099,7 @@ public class ButtonClickPacketListener implements PacketListener {
 
             case -2334:
                 if (!player.getClickDelay().elapsed(3000)) {
-                    player.sendMessage("@red@Please wait a few secounds before trying to dissolve again.");
+                    player.sendMessage("@red@Please wait a few seconds before trying to dissolve again.");
                     return;
                 }
                 //new DissolveListener(player).dissolve();
@@ -1144,6 +1146,8 @@ public class ButtonClickPacketListener implements PacketListener {
             case -19076:
             case -14492:
             case -13233:
+
+            case -30281:
                 player.getPacketSender().sendInterfaceRemoval();
                 break;
             case -18132:
@@ -1304,7 +1308,6 @@ public class ButtonClickPacketListener implements PacketListener {
             // PlayersOnlineInterface.showInterface(player);
             // break;
 
-
             //new quest tab
             case -31194:
                 PlayerPanel.handleSwitch(player, 1, false);
@@ -1322,29 +1325,19 @@ public class ButtonClickPacketListener implements PacketListener {
                 player.getPacketSender().sendTabInterface(GameSettings.QUESTS_TAB, 47500); // 26600
                 break;
             case -18034:
-                player.getPacketSender().sendTabInterface(GameSettings.QUESTS_TAB, 38333); // 26600
-                break;
             case 32422:
                 player.getPacketSender().sendTabInterface(GameSettings.QUESTS_TAB, 38333); // 26600
                 break;
             case -31196:
                 //player.getPacketSender().sendTabInterface(GameSettings.QUESTS_TAB, 45000); // 26600
-                NpcTasks.updateInterface(player);
-                player.getPacketSender().sendInterfaceReset();
-                player.getPacketSender().sendInterface(65400);
+                player.getProgressionManager().open();
                 break;
             case 19066:
                 PlayerPanel.refreshPanel(player);
-                KillsTracker.open(player);
+//                KillsTracker.open(player);
+                GlobalPerks.getInstance().open(player);
                 break;
             case -26373:
-                PlayerPanel.refreshPanel(player);
-                DropLog.open(player);
-                break;
-
-            case -30281:
-                player.getPacketSender().sendInterfaceRemoval();
-                break;
             case 19071:
                 PlayerPanel.refreshPanel(player);
                 DropLog.open(player);
@@ -1356,9 +1349,6 @@ public class ButtonClickPacketListener implements PacketListener {
                 PlayerPanel.refreshPanel(player);
                 break;
             case -26367:
-                PlayerPanel.refreshPanel(player);
-                break;
-
             case -26368:
                 PlayerPanel.refreshPanel(player);
                 break;
@@ -2401,10 +2391,10 @@ public class ButtonClickPacketListener implements PacketListener {
 
             /** Game Mode Selector **/
             case -11042: // Website Button
-                player.getPacketSender().openURL("https://zamron.net");
+                player.getPacketSender().openURL("https://zamron.us");
                 break;
             case -12042: // Vote Button
-                player.getPacketSender().openURL("https://zamron.everythingrs.com/services/vote");
+                player.getPacketSender().openURL("https://zamron.us/vote");
                 break;
 
             case 2494:

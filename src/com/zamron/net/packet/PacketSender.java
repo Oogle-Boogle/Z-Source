@@ -8,6 +8,7 @@ import com.zamron.model.container.impl.Shop;
 import com.zamron.net.packet.Packet.PacketType;
 import com.zamron.world.content.CustomObjects;
 import com.zamron.world.content.minimes.MiniMeData;
+import com.zamron.world.content.minimes.MiniMeFunctions;
 import com.zamron.world.content.skill.impl.construction.ConstructionData.Furniture;
 import com.zamron.world.content.skill.impl.construction.Palette;
 import com.zamron.world.content.skill.impl.construction.Palette.PaletteTile;
@@ -281,16 +282,16 @@ public class PacketSender {
 		return this;
 	}
 
-    public PacketSender sendEntityInterface(String name) {
+	public PacketSender sendEntityInterface(String name) {
 		if (player.isMiniMe) {
 			return this;
 		}
-        PacketBuilder out = new PacketBuilder(205, PacketType.BYTE);
-        out.putString(name);
-        player.getSession().queueMessage(out);
-        player.sendParallellInterfaceVisibility(41020, true);
-        return this;
-    }
+		PacketBuilder out = new PacketBuilder(205, PacketType.BYTE);
+		out.putString(name);
+		player.getSession().queueMessage(out);
+		player.sendParallellInterfaceVisibility(41020, true);
+		return this;
+	}
 
 	/**
 	 * Changes the sprite of an interface
@@ -326,15 +327,18 @@ public class PacketSender {
 	 * @return The PacketSender instance.
 	 */
 	public PacketSender sendMapRegion() {
-		if (player.isMiniMe) {
-			return this;
-		}
 		player.setRegionChange(true).setAllowRegionChangePacket(true);
 		player.setLastKnownRegion(player.getPosition().copy());
 		PacketBuilder out = new PacketBuilder(73);
 		out.putShort(player.getPosition().getRegionX() + 6, ValueType.A);
 		out.putShort(player.getPosition().getRegionY() + 6);
 		try {
+			if (player.isMiniMe) {
+				return this;
+			}
+			if (player.getSession() == null) {
+				return this;
+			}
 			player.getSession().queueMessage(out);
 			//System.out.println("Tried...");
 		} catch (Exception e) {

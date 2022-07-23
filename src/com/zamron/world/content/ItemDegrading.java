@@ -46,18 +46,18 @@ public class ItemDegrading {
 			} else {
 				return p.getBrawlerChargers()[index]++;
 			}
-			case ELITE_VOID_TOP:
-				if (reset) {
-					return p.getVoidTopChargers()[index] = 0;
-				} else {
-					return p.getVoidTopChargers()[index]++;
-				}
-			case ELITE_VOID_LEG:
-				if (reset) {
-					return p.getVoidLegChargers()[index] = 0;
-				} else {
-					return p.getVoidLegChargers()[index]++;
-				}
+//			case ELITE_VOID_TOP:
+//				if (reset) {
+//					return p.getVoidTopChargers()[index] = 0;
+//				} else {
+//					return p.getVoidTopChargers()[index]++;
+//				}
+//			case ELITE_VOID_LEG:
+//				if (reset) {
+//					return p.getVoidLegChargers()[index] = 0;
+//				} else {
+//					return p.getVoidLegChargers()[index]++;
+//				}
 		case RING_OF_RECOIL:
 			if(reset) {
 				return p.setRecoilCharges(0);
@@ -78,9 +78,9 @@ public class ItemDegrading {
 		 */
 		RING_OF_RECOIL(2550, 2550, Equipment.RING_SLOT, 100),
 
-		//Elite Void
-		ELITE_VOID_TOP(19785, 19785, Equipment.BODY_SLOT, 1500),
-		ELITE_VOID_LEG(19786, 19786, Equipment.LEG_SLOT, 1500),
+//		//Elite Void
+//		ELITE_VOID_TOP(19785, 19785, Equipment.BODY_SLOT, 1500),
+//		ELITE_VOID_LEG(19786, 19786, Equipment.LEG_SLOT, 1500),
 		/*
 		 * Statius's equipment
 		 *

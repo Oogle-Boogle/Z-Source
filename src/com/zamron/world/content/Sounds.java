@@ -26,11 +26,17 @@ public class Sounds {
 		FLETCH_ITEM(new int[] {375}),
 		WOODCUT(new int[] {471, 472, 473}),
 		LIGHT_FIRE(new int[] {811}),
-		TELEPORT(new int[] {202, 201}),
+		TELEPORT(new int[] {1930, 127}), //202, 201 - 1930
 		ACTIVATE_PRAYER_OR_CURSE(new int[] {433}),
 		DEACTIVATE_PRAYER_OR_CURSE(new int[] {435}),
 		RUN_OUT_OF_PRAYER_POINTS(new int[] {438}),
-		BURY_BONE(new int[] {380});
+
+		POTION_NEAR_END(new int[] {3120}),
+
+		POTION_EXPIRED(new int[] {1792}),
+
+		PRAY_AT_ALTAR(new int[] {2674, 442}),
+		BURY_BONE(new int[] {380}); //380
 
 		Sound(int[] sounds) {
 			this.sounds = sounds;

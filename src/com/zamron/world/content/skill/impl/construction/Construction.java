@@ -1634,7 +1634,6 @@ public class Construction {
 		ArrayList<HotSpots> hsses = ConstructionData.HotSpots.forObjectId_3(f.getHotSpotId());
 		if (hsses.isEmpty())
 			return false;
-
 		HotSpots hs = null;
 		if (hsses.size() == 1)
 			hs = hsses.get(0);
@@ -2054,7 +2053,7 @@ public class Construction {
 				}
 			}
 			if (gardenAmt < 2) {
-				p.getPacketSender().sendMessage("You need atleast 1 garden or formal garden");
+				p.getPacketSender().sendMessage("You need at least 1 garden or formal garden");
 				p.getPacketSender().sendInterfaceRemoval();
 				return;
 			}

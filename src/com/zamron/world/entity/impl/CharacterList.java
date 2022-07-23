@@ -99,6 +99,7 @@ public final class CharacterList<E extends Character> implements Iterable<E> {
 	 */
 	public boolean remove(E e) {
 		Objects.requireNonNull(e);
+		int index = e.getIndex();
 
 		// A player cannot be removed from the character list unless it's from a
 		// logout request. On-demand removes for players completely mess up the
@@ -107,8 +108,10 @@ public final class CharacterList<E extends Character> implements Iterable<E> {
 			Player player = (Player) e;
 			if (player.isMiniMe && e.isRegistered()) {
 				e.setRegistered(false);
-				characters[e.getIndex()] = null;
-				slotQueue.add(e.getIndex());
+				if (index >= 0) {
+					characters[index] = null;
+					slotQueue.add(index);
+				}
 				size--;
 				return true;
 			}
@@ -118,10 +121,10 @@ public final class CharacterList<E extends Character> implements Iterable<E> {
 			}
 		}
 
-		if (e.isRegistered() && characters[e.getIndex()] != null) {
+		if (e.isRegistered() && index >= 0 && characters[index] != null) {
 			e.setRegistered(false);
-			characters[e.getIndex()] = null;
-			slotQueue.add(e.getIndex());
+			characters[index] = null;
+			slotQueue.add(index);
 			size--;
 			return true;
 		}
@@ -138,7 +141,8 @@ public final class CharacterList<E extends Character> implements Iterable<E> {
 	 */
 	public boolean contains(E e) {
 		Objects.requireNonNull(e);
-		return characters[e.getIndex()] != null;
+		int index = e.getIndex();
+		return index >= 0 && characters[index] != null;
 	}
 
 	/**

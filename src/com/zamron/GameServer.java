@@ -1,10 +1,9 @@
 package com.zamron;
 
 import com.zamron.engine.task.impl.ServerTimeUpdateTask;
-//import com.zamron.firebase.FirebaseInitalize;
-//import com.zamron.firebase.FirebaseService;
 import com.zamron.util.MACBanL;
 import com.zamron.util.ShutdownHook;
+import com.zamron.util.flood.Flooder;
 import com.zamron.world.World;
 import com.zamron.world.content.discord.DiscordMessenger;
 import com.zamron.world.entity.impl.player.Player;
@@ -27,10 +26,8 @@ public class GameServer {
 
 	private static final GameLoader loader = new GameLoader(GameSettings.GAME_PORT);
 	private static final Logger logger = Logger.getLogger("Zamron");
-	private static boolean updating;
+	private static volatile boolean updating;
 	public static String serverHost;
-
-	//FirebaseService firebaseService;
 
 	static {
 		try {
@@ -63,7 +60,7 @@ public class GameServer {
 								online += 1;
 							}
 						}
-						com.everythingrs.playersonline.PlayersOnline.insert("fwvYT5w8ltI4iUiUiCDr2HPbIBdbyp17WLzAN6OCDtaCaHaD57GrV8xmcnnNMzgCb08fNSJl", online, false);
+						com.everythingrs.playersonline.PlayersOnline.insert("s10kavzuyiAJ2CIZ6dLY78lsehZihrk1ilAzzMgp9uP9vfLuDL968z5KSKoR1krXAGQr384P", online, false);
 					}
 				}, 0, 30, TimeUnit.SECONDS);
 			}
@@ -73,9 +70,6 @@ public class GameServer {
 			//logger.info("The loader has finished loading utility tasks.");
 			ServerTimeUpdateTask.start_configuration_process();
 			MACBanL.init();
-			if (GameSettings.CONFIGURATION_TIME == 5) {
-				logger.info("Configurations loaded.");
-			}
 			logger.info("Zamron is now online on IP: port " + GameSettings.GAME_PORT + "!");
 		} catch (Exception ex) {
 			logger.log(Level.SEVERE, "Could not start Zamron Program terminated.", ex);
@@ -98,4 +92,14 @@ public class GameServer {
 	public static boolean isUpdating() {
 		return GameServer.updating;
 	}
+
+	/**
+	 * The flooder used to stress-test the server.
+	 */
+	private static final Flooder flooder = new Flooder();
+
+	public static Flooder getFlooder() {
+		return flooder;
+	}
+
 }

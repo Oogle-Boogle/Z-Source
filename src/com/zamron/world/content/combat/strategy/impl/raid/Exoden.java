@@ -53,7 +53,7 @@ public class Exoden implements CombatStrategy {
             TaskManager.submit(new Task(2) {
                 @Override
                 protected void execute() {
-                    DailyNpc.moveTo(pos);
+                    //DailyNpc.moveTo(pos);
                     new Projectile(DailyNpc, victim, 1333, 44, 3, 43, 43, 0).sendProjectile();
                     //DailyNpc.performAnimation(new Animation(DailyNpc.getDefinition().getAttackAnimation()));
                     DailyNpc.getCombatBuilder().setContainer(new CombatContainer(DailyNpc, victim, 1, 1, CombatType.MELEE, false));

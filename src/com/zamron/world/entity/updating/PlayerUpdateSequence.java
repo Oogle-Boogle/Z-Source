@@ -7,7 +7,7 @@ import com.zamron.world.World;
 import com.zamron.world.entity.impl.npc.NpcAggression;
 import com.zamron.world.entity.impl.player.Player;
 
-public class PlayerUpdateSequence implements UpdateSequence<Player> {
+public final class PlayerUpdateSequence implements UpdateSequence<Player> {
 
 	/** Used to block the game thread until updating is completed. */
 	private final Phaser synchronizer;
@@ -32,7 +32,7 @@ public class PlayerUpdateSequence implements UpdateSequence<Player> {
 		try {
 			if(!t.isMiniMe)
 				t.getSession().handleQueuedMessages();
-			t.process();
+				t.process();
 			if (t.getWalkToTask() != null)
 				t.getWalkToTask().tick();
 			t.getMovementQueue().sequence();
@@ -40,6 +40,7 @@ public class PlayerUpdateSequence implements UpdateSequence<Player> {
 			NpcAggression.target(t);
 		} catch (Exception e) {
 			e.printStackTrace();
+			t.dispose();
 			World.deregister(t);
 		}
 	}

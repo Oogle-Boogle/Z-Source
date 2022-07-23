@@ -10,7 +10,7 @@ import com.zamron.world.entity.impl.npc.NPC;
  *
  * @author lare96
  */
-public class NpcUpdateSequence implements UpdateSequence<NPC> {
+public final class NpcUpdateSequence implements UpdateSequence<NPC> {
 	
 	@Override
 	public void executePreUpdate(NPC t) {

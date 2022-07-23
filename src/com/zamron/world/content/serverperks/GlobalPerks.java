@@ -117,7 +117,7 @@ public class GlobalPerks {
     private void end() {
         active = false;
         contributions.put(activePerk, 0);
-        World.sendMessageNonDiscord("<img=12>[Server Perks]<img=12> @red@Perk " + StringUtils.usToSpace(activePerk.toString()) + " has ended");
+        World.sendMessageNonDiscord("<img=12>[@whi@Server Perks@bla@]<img=12> @red@Perk " + StringUtils.usToSpace(activePerk.toString()) + " has ended");
         DiscordMessenger.sendGeneralChat("[Server Perks]",StringUtils.usToSpace(activePerk.toString()) + " has ended");
         activePerk = null;
         resetInterface();

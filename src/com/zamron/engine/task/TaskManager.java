@@ -1,61 +1,90 @@
 package com.zamron.engine.task;
 
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import com.zamron.GameSettings;
+import com.zamron.world.World;
+import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
+import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
+import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
+import it.unimi.dsi.fastutil.objects.ObjectSet;
+import org.jctools.queues.MessagePassingQueue;
+import org.jctools.queues.MpscArrayQueue;
+import org.jctools.queues.SpscArrayQueue;
 
-public final class TaskManager {
+import java.util.Set;
 
-	private final static Queue<Task> pendingTasks = new LinkedList<>();
+public enum TaskManager {
+    ;
 
-	private final static List<Task> activeTasks = new LinkedList<>();
+    private static final int CAPACITY = (World.MAX_PLAYERS + World.MAX_NPCS) * 250; //was 20
 
-	private TaskManager() {
-		throw new UnsupportedOperationException(
-				"This class cannot be instantiated!");
-	}
+    private static final Object2ObjectMap<Object, Set<Task>> keyToTasks = new Object2ObjectOpenHashMap<>(CAPACITY);
 
-	public static void sequence() {
-		try {
-			Task t;
-			while ((t = pendingTasks.poll()) != null) {
-				if (t.isRunning()) {
-					activeTasks.add(t);
-				}
-			}
+    private static final MessagePassingQueue<Task> pendingTasks = new MpscArrayQueue<>(CAPACITY);
+    private static final MessagePassingQueue<Task> tasks = new SpscArrayQueue<>(CAPACITY);
 
-			Iterator<Task> it = activeTasks.iterator();
+    private static final MessagePassingQueue.Consumer<Task> pendingTasksConsumer = task -> {
+        if (tasks.offer(task)) {
+            Object key = task.getKey();
+            if (key != null) {
+                Set<Task> keyTasks = keyToTasks.get(key);
+                if (keyTasks == null) {
+                    keyToTasks.put(key, keyTasks = new ObjectOpenHashSet<>());
+                }
+                keyTasks.add(task);
+            }
+        }
+    };
 
-			while (it.hasNext()) {
-				t = it.next();
-				if (!t.tick())
-					it.remove();
-			}
-		} catch(Throwable e) {
-			e.printStackTrace();
-		}
-	}
+    private static final MessagePassingQueue.Consumer<Task> tasksConsumer = task -> {
+        try {
+            Object key = task.getKey();
+            if (!task.tick() || !submit(task)) {
+                if (key != null) {
+                    Set<Task> keyTasks = keyToTasks.get(key);
+                    if (keyTasks != null) {
+                        keyTasks.remove(task);
+                    }
+                }
+            }
+        } catch (final Exception e) {
+            e.printStackTrace();
+        }
+    };
 
-	public static void submit(Task task) {
-		if(!task.isRunning())
-			return;
-		if (task.isImmediate()) {
-			task.execute();
-		}
-		pendingTasks.add(task);
-	}
+    public static void sequence() {
+        pendingTasks.drain(pendingTasksConsumer, CAPACITY);
+        tasks.drain(tasksConsumer, CAPACITY);
+    }
 
-	public static void cancelTasks(Object key) {
-		try {
-			pendingTasks.stream().filter(t -> t.getKey().equals(key)).forEach(t -> t.stop());
-			activeTasks.stream().filter(t -> t.getKey().equals(key)).forEach(t -> t.stop());
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
+    public static boolean submit(Task task) {
+        if (!task.isRunning()) return false;
+        if (task.isImmediate()) {
+            try {
+                task.execute();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return task.isRunning() && pendingTasks.offer(task);
+    }
 
-	public static int getTaskAmount() {
-		return (pendingTasks.size() + activeTasks.size());
-	}
+    public static boolean cancelTasks(Object key) {
+        Set<Task> keyTasks = keyToTasks.get(key);
+        if (keyTasks == null) return false;
+        if (keyTasks.isEmpty()) {
+            keyToTasks.remove(key);
+            return false;
+        }
+        for (Task task : keyTasks) {
+            task.stop();
+        }
+        keyToTasks.remove(key);
+        return true;
+    }
+
+    public static int getTaskAmount() {
+        return pendingTasks.size() + tasks.size();
+    }
+
 }

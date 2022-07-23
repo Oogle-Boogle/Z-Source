@@ -1,5 +1,8 @@
 package com.zamron.world.content;
 
+import com.zamron.GameServer;
+import com.zamron.engine.GameEngine;
+import com.zamron.model.Locations;
 import com.zamron.model.definitions.DropUtils;
 import com.zamron.model.definitions.NpcDefinition;
 import com.zamron.util.Misc;
@@ -7,6 +10,8 @@ import com.zamron.world.content.combat.DailyNPCTask;
 import com.zamron.world.content.combat.TenKMassacre;
 import com.zamron.world.content.event.SpecialEvents;
 import com.zamron.world.entity.impl.player.Player;
+
+import java.util.concurrent.TimeUnit;
 
 public class PlayerPanel {
 	
@@ -93,7 +98,6 @@ public class PlayerPanel {
 				"@whi@-@gre@Server Time:", "@bla@*@whi@"+Misc.getCurrentServerTime(),
 				"@whi@-@gre@Time Played:", "@bla@*@whi@"+Misc.getHoursPlayed((player.getTotalPlayTime() + player.getRecordedLogin().elapsed())),
 				"@whi@-@gre@Drop Rate:", "@bla@*@whi@" +DropUtils.drBonus(player) + "%",
-				"@whi@-@gre@Cleansing Time:", "@bla@*@whi@" + player.getCleansingTime()+ " ms",
 	 			"@whi@-@gre@Total Level: ", "@bla@*@whi@" +player.getSkillManager().getTotalLevel(),
 	 			"@whi@-@gre@Username:", "@bla@*@whi@"+player.getUsername(),
 				"@whi@-@gre@Difficulty:", "@bla@*@whi@"+player.getDifficulty().toString(),
@@ -121,24 +125,38 @@ public class PlayerPanel {
 	private static void sendSecondTab(Player player) {
 
 		String[] Messages = new String[] { "  ", "<img=35>@red@ World And Events", "",
-				"@whi@-@gre@Evil Tree:",
-			 "@bla@*@whi@"	+(EvilTrees.getLocation() != null ? EvilTrees.getLocation().playerPanelFrame : "N/A"),
-			 
-			 "@whi@-@gre@Well of Goodwill:",
-			 "@bla@*@whi@"	+(WellOfGoodwill.isActive() ? WellOfGoodwill.getMinutesRemaining() + " mins" : "N/A"),
-			 
-			 "@whi@-@gre@Crashed Star:",
-		 "@bla@*@whi@"	+(ShootingStar.getLocation() != null ?ShootingStar.getLocation().playerPanelFrame : "N/A"),
-		 
-		 "@whi@-@gre@Bonus:",
-			 "@bla@*@whi@"	+ SpecialEvents.getSpecialDay(),
 
-				"@whi@-@gre@NPC Deaths Until Prize Draw:",
-				"@bla@*@whi@"	+ TenKMassacre.CURRENT_SERVER_KILLS+"/"+TenKMassacre.REQUIRED_SERVER_KILLS,
+				"@whi@-@gre@Today's Bonus:",
+				"@bla@*@whi@"	+ SpecialEvents.getSpecialDay(),
 
 				"@whi@-@gre@Daily NPC Task:",
 				"@bla@*@whi@" + DailyNPCTask.KILLS_REQUIRED + " x " + NpcDefinition.forId(DailyNPCTask.CHOSEN_NPC_ID).getName(),
 				"@bla@*@whi@Progress: "	+ player.getCurrentDailyNPCKills()+"/"+DailyNPCTask.KILLS_REQUIRED,
+
+				"@whi@-@gre@Evil Tree:",
+			 "@bla@*@whi@"	+(EvilTrees.getLocation() != null ? EvilTrees.getLocation().playerPanelFrame : + TimeUnit.MILLISECONDS.toMinutes(EvilTrees.TIME--)) + " minutes",
+			 
+			 "@whi@-@gre@Crashed Star:",
+		 "@bla@*@whi@"	+(ShootingStar.getLocation() != null ?ShootingStar.getLocation().playerPanelFrame : " " + TimeUnit.MILLISECONDS.toMinutes(ShootingStar.TIME--)) + " minutes",
+
+				"@whi@-@gre@Jad WorldBoss:",
+				"@bla@*@whi@"	+(Tztok.getCurrent() != null ? "~~~~~~ Spawned ~~~~~~~" : + TimeUnit.SECONDS.toMinutes(Tztok.TIME--)) + " minutes",
+
+				"@whi@-@gre@May WorldBoss:",
+				"@bla@*@whi@"	+(TheMay.getCurrent() != null ? "~~~~~~ Spawned ~~~~~~~" : + TimeUnit.SECONDS.toMinutes(TheMay.TIME--)) + " minutes",
+
+				"@whi@-@gre@Rick WorldBoss:",
+				"@bla@*@whi@"	+(TheRick.getCurrent() != null ? "~~~~~~ Spawned ~~~~~~~" : + TimeUnit.SECONDS.toMinutes(TheRick.TIME--)) + " minutes",
+
+				"@whi@-@gre@Seph WorldBoss:",
+				"@bla@*@whi@"	+(TheSeph.getCurrent() != null ? "~~~~~~ Spawned ~~~~~~~" : + TimeUnit.SECONDS.toMinutes(TheSeph.TIME--)) + " minutes",
+
+				"@whi@-@gre@Dark Ranger WorldBoss:",
+				"@bla@*@whi@"	+(DarkRanger.getCurrent() != null ? "~~~~~~ Spawned ~~~~~~~" : + TimeUnit.SECONDS.toMinutes(DarkRanger.TIME--)) + " minutes",
+
+
+				"@whi@-@gre@Assassin WorldBoss:",
+				"@bla@*@whi@"	+(Assassin.getCurrent() != null ? "~~~~~~ Spawned ~~~~~~~" : + TimeUnit.SECONDS.toMinutes(Assassin.TIME--)) + " minutes",
 
 
 		 
@@ -164,11 +182,14 @@ public class PlayerPanel {
 				"@whi@-@gre@Loyalty Points: ",
 			 "@bla@*@whi@"+player.getPointsHandler().getLoyaltyPoints(),
 
-			 "@whi@-@gre@Custom Well Donations: ",
-	 "@bla@*@whi@"		+player.getCustomDonations(),
+//			 "@whi@-@gre@Custom Well Donations: ",
+//	 "@bla@*@whi@"		+player.getCustomDonations(),
 
 	 "@whi@-@gre@Prestige Points: ",
 	 "@bla@*@whi@"	+player.getPointsHandler().getPrestigePoints(),
+
+				"@whi@-@gre@Skilling Points: ",
+				"@bla@*@whi@"	+player.getPointsHandler().getSkillPoints(),
 
 	 "@whi@-@gre@Trivia Points: ",
  "@bla@*@whi@"	+player.getPointsHandler().getTriviaPoints(),
@@ -179,11 +200,11 @@ public class PlayerPanel {
  "@whi@-@gre@Donation Points: ",
  "@bla@*@whi@"	+player.getPointsHandler().getDonationPoints(),
 
- "@whi@-@gre@Dungeon Points: ",
- "@bla@*@whi@"	+player.getDungeonPoints(),
+// "@whi@-@gre@Dungeon Points: ",
+// "@bla@*@whi@"	+player.getDungeonPoints(),
 
- "@whi@-@gre@Raid Points: ",
- "@bla@*@whi@"	+player.getPointsHandler().getRaidPoints(),
+// "@whi@-@gre@Raid Points: ",
+// "@bla@*@whi@"	+player.getPointsHandler().getRaidPoints(),
 
  "@whi@-@gre@Pest Control points: ",
  "@bla@*@whi@"	+player.getPointsHandler().getCustompestcontrolpoints(),
@@ -194,14 +215,8 @@ public class PlayerPanel {
 "@whi@-@gre@Boss Points: ",
 "@bla@*@whi@"	+player.getBossPoints(),
 
-"@whi@-@gre@Custom Boss Points: ",
-	 "@bla@*@whi@"	+player.getCustomPoints(),
-
-	 "@whi@-@gre@Slayer Points: ",
-	  "@bla@*@whi@" +player.getPointsHandler().getSlayerPoints(),
-	 	 
-	  "@whi@-@gre@Bravek Tasks Completed: ",
-	 "@bla@*@whi@" +player.getBravekTasksCompleted(),
+//"@whi@-@gre@Custom Boss Points: ",
+//	 "@bla@*@whi@"	+player.getCustomPoints(),
 
 	 "@whi@-@gre@Minigame Points1: ",
 	 "@bla@*@whi@" +player.getPointsHandler().getminiGamePoints1(),
@@ -209,14 +224,14 @@ public class PlayerPanel {
 	 "@whi@-@gre@Pk Points: ",
 	 "@bla@*@whi@" +player.getPointsHandler().getPkPoints(),
 
-	 "@whi@-@gre@Wilderness Killstreak: ",
-"@bla@*@whi@"+player.getPlayerKillingAttributes().getPlayerKillStreak(),
-
-"@whi@-@gre@Wilderness Kills: ",
-"@bla@*@whi@" +player.getPlayerKillingAttributes().getPlayerKills(),
-
-"@whi@-@gre@Wilderness Deaths: ",
-"@bla@*@whi@" +player.getPlayerKillingAttributes().getPlayerDeaths(),
+//	 "@whi@-@gre@Wilderness Killstreak: ",
+//"@bla@*@whi@"+player.getPlayerKillingAttributes().getPlayerKillStreak(),
+//
+//"@whi@-@gre@Wilderness Kills: ",
+//"@bla@*@whi@" +player.getPlayerKillingAttributes().getPlayerKills(),
+//
+//"@whi@-@gre@Wilderness Deaths: ",
+//"@bla@*@whi@" +player.getPlayerKillingAttributes().getPlayerDeaths(),
 
 		};
 
@@ -237,6 +252,9 @@ public class PlayerPanel {
 
 		String[] Messages = new String[] { " ", "<img=35>@gre@ Slayer Information", "",
 
+				"@whi@-@gre@Slayer Points: ",
+				"@bla@*@whi@" +player.getPointsHandler().getSlayerPoints(),
+
 				"@whi@-@gre@Master: ",
 			 "@bla@*@whi@"	 +player.getSlayer().getSlayerMaster(),
 		
@@ -252,6 +270,9 @@ public class PlayerPanel {
 		 
 		 "@whi@-@gre@Task Streak: ",
  "@bla@*@whi@"	+player.getSlayer().getTaskStreak(),
+
+				"@whi@-@gre@Bravek Tasks Completed: ",
+				"@bla@*@whi@" +player.getBravekTasksCompleted(),
 
 		};
 

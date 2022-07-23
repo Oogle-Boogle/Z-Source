@@ -58,6 +58,7 @@ import com.zamron.world.content.grandexchange.GrandExchangeSlot;
 import com.zamron.world.content.groupironman.GroupIronman;
 import com.zamron.world.content.groupironman.GroupIronmanGroup;
 import com.zamron.world.content.invansionminigame.InvasionGame;
+import com.zamron.world.content.kcsystem.KCSystem;
 import com.zamron.world.content.minigames.Minigame;
 import com.zamron.world.content.minigames.MinigameAttributes;
 import com.zamron.world.content.minigames.impl.Dueling;
@@ -116,7 +117,7 @@ public class Player extends Character {
 	public void setPerkIndex(int perkIndex) {
 		this.perkIndex = perkIndex;
 	}
-	
+
 	public int combineIndex = 0;
     public int combiner = 0;
 
@@ -178,8 +179,8 @@ public class Player extends Character {
 	public void setInRaid(boolean inRaid) {
 		this.inRaid = inRaid;
 	}
-	
-	
+
+
 	// Presets
 	public int[] presetItems = new int[56];
 	public int[] presetGear = new int[30];
@@ -312,7 +313,7 @@ public class Player extends Character {
 		return pendingBotRemoval;
 	}
 
-	
+
 	 /**
      * Group ironman
      */
@@ -322,17 +323,17 @@ public class Player extends Character {
     public GroupIronmanGroup getGroupIronmanGroup() {
         return groupIronmanGroup;
     }
-    
-   
-    
-  
+
+
+
+
 
     public void setGroupIronmanGroup(GroupIronmanGroup groupIronmanGroup) {
         this.groupIronmanGroup = groupIronmanGroup;
     }
 
     private BestItems bestItems = new BestItems(this);
-    
+
     private GroupIronmanGroup groupIronmanGroupInvitation = null;
 
     public GroupIronmanGroup getGroupIronmanGroupInvitation() {
@@ -358,19 +359,19 @@ public class Player extends Character {
     public GroupIronman getGroupIronman() {
         return groupIronman;
     }
-    
+
     private boolean gim;
 
     public boolean isGim() {
         return gim;
     }
-    
+
 
 
     public void setGim(boolean state) {
         gim = state;
     }
-    
+
 	public final StarterZone starterZone = new StarterZone(this);
 
 	public final StarterProgression starterProgression = new StarterProgression(this);
@@ -666,7 +667,7 @@ public class Player extends Character {
 	private int rewardTimer3;
 	private int rewardTimer4;
 
-	private ScratchCard scratchCard = new ScratchCard(this);
+	private final ScratchCard scratchCard = new ScratchCard(this);
 
 	public ScratchCard getScratchCard() {
 		return scratchCard;
@@ -695,7 +696,7 @@ public class Player extends Character {
 		return npcKillCountMap.values().stream().mapToInt(Integer::intValue).sum();
 	}
 
-	KCSystem kcSystem = new KCSystem(this);
+	private final KCSystem kcSystem = new KCSystem(this);
 
 	public KCSystem getKcSystem() {
 		return kcSystem;
@@ -1644,7 +1645,7 @@ public class Player extends Character {
 		this.session = playerIO;
 	}
 
-	private Map<String, Object> attributes = new HashMap<>();
+	private final Map<String, Object> attributes = new HashMap<>();
 
 	@SuppressWarnings("unchecked")
 	public <T> T getAttribute(String key) {
@@ -1762,9 +1763,9 @@ public class Player extends Character {
 
 	/*
 	 * Variables for DropTable & Player Profiling
-	 * 
+	 *
 	 * @author Levi Patton
-	 * 
+	 *
 	 * @www.rune-server.org/members/auguryps
 	 */
 	public Player dropLogPlayer;
@@ -1782,7 +1783,7 @@ public class Player extends Character {
 
 	/*
 	 * Variables for the DropLog
-	 * 
+	 *
 	 * @author Levi Patton
 	 */
 	public PacketSender getPA() {
@@ -2178,9 +2179,9 @@ public class Player extends Character {
 		if (!(o instanceof Player)) {
 			return false;
 		}
-
 		Player p = (Player) o;
-		return p.getIndex() == getIndex() || p.getUsername().equals(username);
+		int index = getIndex();
+		return (index >= 0 && index == p.getIndex()) || username.equals(p.getUsername());
 	}
 
 	@Override
@@ -2276,8 +2277,8 @@ public class Player extends Character {
 		if (this.getSummoning().getFamiliar() != null) {
 			BossPets.pickup(this, this.getSummoning().getFamiliar().getSummonNpc());
 		}
-		int[] playerXP = new int[Skill.values().length];
-		for (int i = 0; i < Skill.values().length; i++) {
+		int[] playerXP = new int[Skill.values.length];
+		for (int i = 0; i < Skill.values.length; i++) {
 			playerXP[i] = this.getSkillManager().getExperience(Skill.forId(i));
 		}
 
@@ -2285,12 +2286,12 @@ public class Player extends Character {
 		String gameMode = Misc.formatText(this.getGameMode().name());
 
 		if (!this.getGameMode().equals(GameMode.NORMAL) && !this.getRights().equals(PlayerRights.OWNER) && !this.getRights().equals(PlayerRights.DEVELOPER) && !this.getRights().equals(PlayerRights.ADMINISTRATOR)){
-			com.everythingrs.hiscores.Hiscores.update("fwvYT5w8ltI4iUiUiCDr2HPbIBdbyp17WLzAN6OCDtaCaHaD57GrV8xmcnnNMzgCb08fNSJl", gameMode, getUsername(), this.getRights().ordinal(), playerXP, debugMessage);
+			com.everythingrs.hiscores.Hiscores.update("s10kavzuyiAJ2CIZ6dLY78lsehZihrk1ilAzzMgp9uP9vfLuDL968z5KSKoR1krXAGQr384P", gameMode, getUsername(), this.getRights().ordinal(), playerXP, debugMessage);
 		}
 
 		// Only submit a hiscore if the player isn't an Owner, Admin or Dev
 		if (!this.getRights().equals(PlayerRights.OWNER) && !this.getRights().equals(PlayerRights.DEVELOPER) && !this.getRights().equals(PlayerRights.ADMINISTRATOR)){
-			com.everythingrs.hiscores.Hiscores.update("fwvYT5w8ltI4iUiUiCDr2HPbIBdbyp17WLzAN6OCDtaCaHaD57GrV8xmcnnNMzgCb08fNSJl", "Normal Mode", getUsername(), this.getRights().ordinal(), playerXP, debugMessage);
+			com.everythingrs.hiscores.Hiscores.update("s10kavzuyiAJ2CIZ6dLY78lsehZihrk1ilAzzMgp9uP9vfLuDL968z5KSKoR1krXAGQr384P", "Normal Mode", getUsername(), this.getRights().ordinal(), playerXP, debugMessage);
 		}
 
 		if (getCombatBuilder().isBeingAttacked()) {
@@ -2324,14 +2325,14 @@ public class Player extends Character {
 		CurseHandler.deactivateAll(this);
 		getEquipment().refreshItems();
 		getInventory().refreshItems();
-		for (Skill skill : Skill.values()) {
+		for (Skill skill : Skill.values) {
 			getSkillManager().setCurrentLevel(skill, getSkillManager().getMaxLevel(skill));
 		}
 		setRunEnergy(100);
 		setDying(false);
 		getMovementQueue().setLockMovement(false).reset();
 		getUpdateFlag().flag(Flag.APPEARANCE);
-		
+
 	}
 
 	public boolean busy() {
@@ -2358,7 +2359,7 @@ public class Player extends Character {
 	/**
 	 * * LONGS *
 	 */
-	private Long longUsername;
+	private long longUsername;
 	private long moneyInPouch;
 	private long totalPlayTime;
 	// Timers (Stopwatches)
@@ -2608,11 +2609,11 @@ public class Player extends Character {
 		return this;
 	}
 
-	public Long getLongUsername() {
+	public long getLongUsername() {
 		return longUsername;
 	}
 
-	public Player setLongUsername(Long longUsername) {
+	public Player setLongUsername(long longUsername) {
 		this.longUsername = longUsername;
 		return this;
 	}
@@ -2669,12 +2670,12 @@ public class Player extends Character {
 		this.rights = rights;
 		return this;
 	}
-	
+
     public boolean isDonor() {
         return getRights() == PlayerRights.DONATOR || getRights() == PlayerRights.SUPER_DONATOR || getRights() == PlayerRights.EXTREME_DONATOR || getRights() == PlayerRights.DELUXE_DONATOR || getRights() == PlayerRights.UBER_DONATOR
 				|| getRights() == PlayerRights.LEGENDARY_DONATOR || getRights() == PlayerRights.VIP_DONATOR;
     }
-    
+
     public boolean isAdmin() {
         return getRights() == PlayerRights.ADMINISTRATOR || getRights() == PlayerRights.OWNER;
     }
@@ -2925,9 +2926,9 @@ public class Player extends Character {
 	public int currentDailyNPCKills = 0;//Counts the current Kills.
 
 	/** Flub adding Boss Minigame Values **/
-	public int[] bossGameLevels = new int[Skill.values().length];
-	public int[] bossGameSkillXP = new int[Skill.values().length];
-	public int[] bossGameMaxLevels = new int[Skill.values().length];
+	public int[] bossGameLevels = new int[Skill.values.length];
+	public int[] bossGameSkillXP = new int[Skill.values.length];
+	public int[] bossGameMaxLevels = new int[Skill.values.length];
 
 	@Setter
 	public int currentBossWave = 0;
@@ -4473,7 +4474,7 @@ public class Player extends Character {
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	public void endKeyRoom(boolean fromUpdate) {
 		if (this.getKeyRoom() != null) {

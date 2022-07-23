@@ -16,85 +16,84 @@ import com.zamron.world.entity.impl.player.Player;
  */
 public final class NpcAggression {
 
-	/**
-	 * Time that has to be spent in a region before npcs stop acting aggressive
-	 * toward a specific player.
-	 */
-	public static final int NPC_TOLERANCE_SECONDS = 300; //5 mins
+    /**
+     * Time that has to be spent in a region before npcs stop acting aggressive
+     * toward a specific player.
+     */
+    public static final int NPC_TOLERANCE_SECONDS = 5000; //5 mins
 
-	public static void target(Player player) {
+    public static void target(Player player) {
+        if (player.isPlayerLocked()) return;
 
-		if(player.isPlayerLocked())
-			return;
+        final boolean dung = Dungeoneering.doingDungeoneering(player);
 
-		final boolean dung = Dungeoneering.doingDungeoneering(player);
+        // Loop through all of the aggressive npcs.
+        for (NPC npc : player.getLocalNpcs()) {
+            /**
+             *
+             * Book that makes NPC's aggressive towards you
+             * @Author Oogleboogle
+             */
+            if (!npc.getDefinition().isAttackable()) {
+                return;
+            } else if (player.getInventory().contains(9078, 1)
+                    && npc.getDefaultPosition().getDistance(player.getPosition()) < 7 + npc.getMovementCoordinator().getCoordinator().getRadius()
+                    && player.getKcSystem().meetsRequirements(npc, false)) {
+                player.setTargeted(true);
+                npc.getCombatBuilder().attack(player);
+                continue;
+            }
 
-		// Loop through all of the aggressive npcs.
-		for (NPC npc : player.getLocalNpcs()) {
+            if (npc.getConstitution() <= 0 || !(dung && npc.getId() != 11226) && !npc.getDefinition().isAggressive()) {
+                continue;
+            }
 
-			/**
-			 *
-			 * Book that makes NPC's aggressive towards you
-			 * @Author Oogleboogle
-			 */
-			if (!npc.getDefinition().isAttackable()) {
-				return;
-			} else if (player.getInventory().contains(9078, 1) && npc.getDefaultPosition().getDistance(player.getPosition()) < 7 + npc.getMovementCoordinator().getCoordinator().getRadius() && player.getKcSystem().meetsRequirements(player.getKcSystem().getData(npc.getId()))) {
-				player.setTargeted(true);
-				npc.getCombatBuilder().attack(player);
-				continue;
-			}
+            if (!npc.findNewTarget()) {
+                if (npc.getCombatBuilder().isAttacking() || npc.getCombatBuilder().isBeingAttacked()) {
+                    continue;
+                }
+            }
 
-			if(npc == null || npc.getConstitution() <= 0 || !(dung && npc.getId() != 11226) && !npc.getDefinition().isAggressive()) {
-				continue;
-			}
+            /** GWD **/
+            boolean gwdMob = Nex.nexMob(npc.getId()) || npc.getId() == 6260 || npc.getId() == 6261 || npc.getId() == 6263 || npc.getId() == 6265 || npc.getId() == 6222 || npc.getId() == 6223 || npc.getId() == 6225 || npc.getId() == 6227 || npc.getId() == 6203 || npc.getId() == 6208 || npc.getId() == 6204 || npc.getId() == 6206 || npc.getId() == 6247 || npc.getId() == 6248 || npc.getId() == 6250 || npc.getId() == 6252;
+            if (gwdMob) {
+                if (!player.getMinigameAttributes().getGodwarsDungeonAttributes().hasEnteredRoom()) {
+                    continue;
+                }
+            }
 
-			if(!npc.findNewTarget()) {
-				if(npc.getCombatBuilder().isAttacking() || npc.getCombatBuilder().isBeingAttacked()) {
-					continue;
-				}
-			}
+            // Check if the entity is within distance.
+            if (Locations.goodDistance(npc.getPosition(), player.getPosition(), npc.getAggressionDistance()) || gwdMob) {
 
-			/** GWD **/
-			boolean gwdMob = Nex.nexMob(npc.getId()) || npc.getId() == 6260 || npc.getId() == 6261 || npc.getId() == 6263 || npc.getId() == 6265 || npc.getId() == 6222 || npc.getId() == 6223 || npc.getId() == 6225 || npc.getId() == 6227 || npc.getId() == 6203 || npc.getId() == 6208 || npc.getId() == 6204 || npc.getId() == 6206 || npc.getId() == 6247 || npc.getId() == 6248 || npc.getId() == 6250 || npc.getId() == 6252;
-			if(gwdMob) {
-				if(!player.getMinigameAttributes().getGodwarsDungeonAttributes().hasEnteredRoom()) {
-					continue;
-				}
-			}
+                if (player.getTolerance().elapsed() > (NPC_TOLERANCE_SECONDS * 1000) && player.getLocation() != Location.GODWARS_DUNGEON && player.getLocation() != Location.DAGANNOTH_DUNGEON && !dung) {
+                    break;
+                }
 
-			// Check if the entity is within distance.
-			if (Locations.goodDistance(npc.getPosition(), player.getPosition(), npc.getAggressionDistance()) || gwdMob) {
+                boolean multi = Location.inMulti(player);
 
-				if (player.getTolerance().elapsed() > (NPC_TOLERANCE_SECONDS * 1000) && player.getLocation() != Location.GODWARS_DUNGEON && player.getLocation() != Location.DAGANNOTH_DUNGEON && !dung) {
-					break;
-				}
-
-				boolean multi = Location.inMulti(player);
-
-				if(player.isTargeted()) {
-					if(!player.getCombatBuilder().isBeingAttacked()) {
-						player.setTargeted(false);
-					} else if(!multi) {
-						break;
-					}
-				}
+                if (player.isTargeted()) {
+                    if (!player.getCombatBuilder().isBeingAttacked()) {
+                        player.setTargeted(false);
+                    } else if (!multi) {
+                        break;
+                    }
+                }
 
 
-				if (player.getSkillManager().getCombatLevel() > (npc.getDefinition().getCombatLevel() * 2) && player.getLocation() != Location.WILDERNESS && !dung) {
-					continue;
-				}
+                if (player.getSkillManager().getCombatLevel() > (npc.getDefinition().getCombatLevel() * 2) && player.getLocation() != Location.WILDERNESS && !dung) {
+                    continue;
+                }
 
-				if(Location.ignoreFollowDistance(npc) || gwdMob || npc.getDefaultPosition().getDistance(player.getPosition()) < 7 + npc.getMovementCoordinator().getCoordinator().getRadius() || dung) {
-					if(CombatFactory.checkHook(npc, player)) {
-						player.setTargeted(true);
-						npc.getCombatBuilder().attack(player);
-						npc.setFindNewTarget(false);
-						break;
-					}
-				}
-			}
-		}
-	}
+                if (Location.ignoreFollowDistance(npc) || gwdMob || npc.getDefaultPosition().getDistance(player.getPosition()) < 7 + npc.getMovementCoordinator().getCoordinator().getRadius() || dung) {
+                    if (CombatFactory.checkHook(npc, player)) {
+                        player.setTargeted(true);
+                        npc.getCombatBuilder().attack(player);
+                        npc.setFindNewTarget(false);
+                        break;
+                    }
+                }
+            }
+        }
+    }
 
 }

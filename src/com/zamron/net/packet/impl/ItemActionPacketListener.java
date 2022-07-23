@@ -232,6 +232,7 @@ public class ItemActionPacketListener implements PacketListener {
 				if (!PrayerRegainPotionTask.effectStatus) {
 					player.performAnimation(new Animation(drinkingAnimation));
 					TaskManager.submit(new PrayerRegainPotionTask(player));
+					Sounds.sendSound(player, 442);
 					player.getInventory().delete(14415, 1);
 					player.sendMessage("This will increase your prayer 2 times (1 now, 1 afterwards)");
 					PrayerRegainPotionTask.effectStatus = true;
@@ -277,6 +278,7 @@ public class ItemActionPacketListener implements PacketListener {
 					player.getSkillManager().setCurrentLevel(Skill.RANGED, 155);
 					player.getSkillManager().setCurrentLevel(Skill.MAGIC, 155);
 					player.performAnimation(new Animation(829));
+					Sounds.sendSound(player, Sounds.Sound.DRINK_POTION);
 					player.sendMessage("@blu@The Potion Makes you feel even stronger");
 					player.getClickDelay().reset();
 				} else {
@@ -293,6 +295,7 @@ public class ItemActionPacketListener implements PacketListener {
 					player.getSkillManager().setCurrentLevel(Skill.MAGIC, 199);
 					player.getClickDelay().reset();
 					player.performAnimation(new Animation(829));
+					Sounds.sendSound(player, Sounds.Sound.DRINK_POTION);
 					player.sendMessage("@blu@The Potion Makes you feel even stronger");
 				} else {
 					return;
@@ -566,12 +569,12 @@ public class ItemActionPacketListener implements PacketListener {
 							+ " and receive your reward including " + pointAmount + " Vote Points");
 					StarterTasks.finishTask(player, StarterTasks.StarterTaskData.REDEEM_A_VOTE_SCROLL);
 					int chance = RandomUtility.exclusiveRandom(1000);
-					if (chance >= 750) {
+					if (chance >= 700) {
 						player.getInventory().add(3824, 1);
 						World.sendMessageNonDiscord("<img=12>@blu@[WORLD]<img=12> " + player.getUsername().toString()
 								+ " @red@Has just received a Vote Mystery Box!");
 					}
-					if (chance >= 980) {
+					if (chance >= 900) {
 						player.getInventory().add(19936, 1);
 						World.sendMessageNonDiscord("<img=12>@blu@[WORLD]<img=12> " + player.getUsername().toString()
 								+ " @red@Has just received a $10 Bond from voting!");
@@ -712,6 +715,7 @@ public class ItemActionPacketListener implements PacketListener {
 			case 17922: // DUNGEON FLOOR 2 TP
 				TeleportHandler.teleportPlayer(player, new Position(2478, 10129, 0), TeleportType.NORMAL);
 				player.getInventory().delete(17922, 1);
+				player.getPacketSender().sendMessage("@red@Once you've received 1000 Hellfire orbs, go North/West through portal.");
 				break;
 
 			case 5136: // DUNGEON FLOOR 2 TP
@@ -1082,10 +1086,9 @@ public class ItemActionPacketListener implements PacketListener {
 					player.getInventory().delete(7956, 1);
 				}
 
-
 				int[] rewards = {10835, 10835, 10835, 10835, 10835, 10835, 10835, 10835, 10835, 15373, 15012, 536, 536, 536, //14
 						19864, 19864, 19864, 2572, 11133, 10835, 10835, 10835, 10835, 10835, 10835, 10835, 10835, 10835};
-				int[] rewardsAmount = {15, 16, 14, 14, 22, 17, 34, 12, 21, 1, 1, 15, 10, 20, 10, 25, //16
+				int[] rewardsAmount = {15, 15, 20, 25, 50, 100, 5000, 12, 21, 1, 1, 15, 10, 20, 10, 25, //16
 						50, 1, 1, 3, 3, 3, 2, 2, 2, 1, 1, 1};
 				int rewardPos = Misc.getRandom(rewards.length - 1);
 				player.getInventory().add(rewards[rewardPos],

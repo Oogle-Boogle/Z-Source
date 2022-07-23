@@ -22,8 +22,8 @@ public class EntityHandler {
 				World.getPlayers().add(player);
 				return;
 			}
-			if (session.getState() == SessionState.LOGGING_IN && !World.getLoginQueue().contains(player)) {
-				World.getLoginQueue().add(player);
+			if (session.getState() == SessionState.LOGGING_IN) {
+				World.queueLogin(player);
 			}
 		}
 		
@@ -46,6 +46,7 @@ public class EntityHandler {
 		if(entity.isPlayer()) {
 			Player player = (Player)entity;
 			World.getPlayers().remove(player);
+			World.removePlayerUsername(player);
 		} else if(entity.isNpc()) {
 			NPC npc = (NPC)entity;
 			TaskManager.cancelTasks(npc.getCombatBuilder());

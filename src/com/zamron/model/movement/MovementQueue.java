@@ -14,6 +14,7 @@ import com.zamron.world.clip.region.RegionClipping;
 import com.zamron.world.content.EnergyHandler;
 import com.zamron.world.content.combat.CombatFactory;
 import com.zamron.world.content.combat.CombatType;
+import com.zamron.world.content.minimes.MiniMeFunctions;
 import com.zamron.world.entity.impl.Character;
 import com.zamron.world.entity.impl.npc.NPC;
 import com.zamron.world.entity.impl.player.Player;

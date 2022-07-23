@@ -33,13 +33,12 @@ public class MiniMeFunctions {
         Player MiniMe = owner.getMinime();
         MiniMeData.load(MiniMe);
 
-        TaskManager.submit(new Task(2, owner.getMinime(), false) {
+        MiniMe.getEquipment().setItems(owner.getEquipment().getItems());
+        MiniMe.setWeapon(owner.getWeapon());
+        MiniMe.getUpdateFlag().flag(Flag.APPEARANCE);
+        TaskManager.submit(new Task(1, owner.getMinime(), false) {
             @Override
             public void execute() {
-                MiniMe.getEquipment().setItems(owner.getEquipment().getItems());
-                MiniMe.setWeapon(owner.getWeapon());
-                MiniMe.getUpdateFlag().flag(Flag.APPEARANCE);
-
                 MiniMe.setCharacterAnimations(originalPlayer); //Fix shit animation
 
                 if (owner.getCombatBuilder().isAttacking() || owner.getCombatBuilder().isBeingAttacked()) {
@@ -79,6 +78,7 @@ public class MiniMeFunctions {
     }
 
     public static void startFollowing(Player owner) {
+
         if (owner.getMinime() == null) {
             owner.sendMessage("You need to summon your mini me first.");
             return;

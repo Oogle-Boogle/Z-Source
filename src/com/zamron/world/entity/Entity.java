@@ -35,7 +35,7 @@ public class Entity {
 	/**
 	 * The entity's unique index.
 	 */
-	private int index;
+	private int index = -1;
 
 	/**
 	 * The entity's tile size.

@@ -14,7 +14,7 @@ import lombok.var;
 
 
 public class CollectionLogInterface {
-    private List<Integer> currentlyViewing = new ArrayList<>();
+    private final List<Integer> currentlyViewing = new ArrayList<>();
 
     public CollectionLogInterface(Player player) {
         this.player = player;
@@ -63,9 +63,10 @@ public class CollectionLogInterface {
     private boolean hasObtainedItem(int npc, int item) {
         return player.getCollectionLogData()
                 .stream()
-                .filter(data -> data.getNpcId() == npc && data.getItem() == item)
-                .findFirst()
-                .isPresent();
+                .anyMatch(data -> data.getNpcId() == npc && data.getItem() == item);
+//                .filter(data -> data.getNpcId() == npc && data.getItem() == item)
+//                .findFirst()
+//                .isPresent();
     }
 
     private void sendNpcData(int index) {
@@ -81,7 +82,7 @@ public class CollectionLogInterface {
         var drops = NPCDrops.forId(definition.getId());
         var slot = 0;
         for (var npcDrop : drops.getDropList()) { //smaller and equal too means very common, and always,
-            if (npcDrop.getChance().ordinal() < DropChance.LEGENDARY.ordinal()) {
+            if (npcDrop.getChance().ordinal() < DropChance.COMMON.ordinal()) {
                 continue; //now this is like this bc there is no drops, 1 sec
             }
             if (hasObtainedItem(definition.getId(), npcDrop.getId())) {
@@ -111,6 +112,6 @@ public class CollectionLogInterface {
     }
 
     private final int[] NPC_LIST = new int[]{17, 422, 3263, 15, 224, 1999, 9932, 9994, 9993, 16, 9277, 9273, 9903, 8133,
-            8493, 9247, 172, 9203, 9935, 169, 170, 219, 12239, 3154, 5957, 1684, 185, 6311, 5959, 5958,};
+            8493, 9247, 172, 9203, 9935, 169, 170, 219, 12239, 3154, 5957, 1684, 185, 6311, 5959, 5958, 842, 174, 2843, 6309, 8548, 420, 812, 5922, 6357, 10038, 10140, 4541,};
     private final Player player;
 }

@@ -25,43 +25,43 @@ public class GameSettings {
 
 	public static final Position RAIDS_FINISHED_POSITION = new Position(3220, 3223);
 
-	public static boolean PLAYERS_ONLINE;
+	public static volatile boolean PLAYERS_ONLINE;
 
-	public static boolean LIVE_GAME;
+	public static volatile boolean LIVE_GAME;
 
-	public static boolean VOTING_CONNECTIONS;
+	public static volatile boolean VOTING_CONNECTIONS;
 
-	public static boolean STORE_CONNECTIONS;
+	public static volatile boolean STORE_CONNECTIONS;
 
-	public static boolean YELL_STATUS;
+	public static volatile boolean YELL_STATUS = true;
 
-	public static boolean BONUS_EXP;
+	public static volatile boolean BONUS_EXP;
 
-	public static boolean DOUBLE_DROPS;
+	public static volatile boolean DOUBLE_DROPS;
 	
 	
 	public static boolean TRIPLE_EXP;
 	
 	public static boolean DOUBLE_EXP;
 
-	public static boolean DOUBLE_POINTS;
+	public static volatile boolean DOUBLE_POINTS;
 
-	public static boolean DOUBLE_VOTE_TOKENS;
+	public static volatile boolean DOUBLE_VOTE_TOKENS;
 	public static boolean DOUBLE_BOSSPOINTS;
 
-	public static boolean POS_ENABLED;
+	public static volatile boolean POS_ENABLED;
 	
-	public static boolean IS_GIVEAWAY;
+	public static volatile boolean IS_GIVEAWAY;
 
-	public static int PASSWORD_CHANGE;
+	public static volatile int PASSWORD_CHANGE;
 
-	public static boolean PLAYER_LOGGING;
+	public static volatile boolean PLAYER_LOGGING;
 
-	public static boolean DEBUG_MODE;
+	public static volatile boolean DEBUG_MODE;
 
 	public static boolean SHOW_DEBUG_MESSAGES;
 
-	public static boolean DEVELOPER_MODE;
+	public static volatile boolean DEVELOPER_MODE;
 
 	public static final boolean LOCALHOST = false;
 
@@ -86,19 +86,17 @@ public class GameSettings {
 	 */
 	public static final int GAME_PORT = 43595;
 
-
+	/**
+	 * The maximum amount of players that can be logged in on a single game
+	 * sequence.
+	 */
+	public static final int LOGIN_THRESHOLD = 100;
 
 	/**
 	 * The maximum amount of players that can be logged in on a single game
 	 * sequence.
 	 */
-	public static final int LOGIN_THRESHOLD = 25;
-
-	/**
-	 * The maximum amount of players that can be logged in on a single game
-	 * sequence.
-	 */
-	public static final int LOGOUT_THRESHOLD = 50;
+	public static final int LOGOUT_THRESHOLD = 100;
 	
 	/**
 	 * The maximum amount of players who can receive rewards on a single game
@@ -111,7 +109,7 @@ public class GameSettings {
 	 * other words how many clients can be logged in at once per connection.
 	 * (0 is counted too)
 	 */
-	public static final int CONNECTION_AMOUNT = 3;
+	public static final int CONNECTION_AMOUNT = 2000/*3*/;
 
 	/**
 	 * The throttle interval for incoming connections accepted by the
@@ -133,7 +131,7 @@ public class GameSettings {
 	/**
 	 * The maximum amount of messages that can be decoded in one sequence.
 	 */
-	public static final int DECODE_LIMIT = 30;
+	public static final int DECODE_LIMIT = 25;
 	
 	/** GAME **/
 
@@ -197,8 +195,6 @@ public class GameSettings {
 	OPTIONS_TAB = 11,
 	EMOTES_TAB = 12;
 
-	public static int CONFIGURATION_TIME = 0;
-	
 	public static final int REGIONAL_DISTANCE = 64;
 	
 }

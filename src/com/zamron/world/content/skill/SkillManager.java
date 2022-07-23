@@ -160,7 +160,7 @@ public class SkillManager {
         /*
          * Adds the experience to the skill's experience.
          */
-        this.skills.experience[skill.ordinal()] = this.skills.experience[skill.ordinal()] + experience > MAX_EXPERIENCE ? MAX_EXPERIENCE : this.skills.experience[skill.ordinal()] + experience;
+        this.skills.experience[skill.ordinal()] = Math.min(this.skills.experience[skill.ordinal()] + experience, MAX_EXPERIENCE);
 
 
         if (this.skills.experience[skill.ordinal()] >= MAX_EXPERIENCE) {
@@ -178,14 +178,17 @@ public class SkillManager {
          * If the starting level less than the new level, level up.
          */
 
+        boolean b = !skill.equals(Skill.ATTACK) && !skill.equals(Skill.STRENGTH) && !skill.equals(Skill.CONSTITUTION)
+                && !skill.equals(Skill.DEFENCE) && !skill.equals(Skill.MAGIC) && !skill.equals(Skill.RANGED);
         if (newLevel >= 120) {
-            if (!skill.equals(Skill.ATTACK) && !skill.equals(Skill.STRENGTH) && !skill.equals(Skill.CONSTITUTION)
-                    && !skill.equals(Skill.DEFENCE) && !skill.equals(Skill.MAGIC) && !skill.equals(Skill.RANGED)) {
+            if (b) {
                 for (int i = 1; i <= 121; i++) {
+                    int amt = 1;
+                    int amtR = Misc.exclusiveRandom(amt * 2);
                     if (this.skills.experience[skill.ordinal()] >= (15000000 * i)) {
                         if (i <= player.skillPoints[skill.ordinal()]) {
-                            player.getPacketSender().sendMessage("You've just recieved " + 150 + " skilling points.");
-                            player.getPointsHandler().incrementSkillPoints(200);
+                            player.getPacketSender().sendMessage("You've just received " + amt + " Skilling Point(s).");
+                            player.getPointsHandler().incrementSkillPoints(amt);
                             player.skillPoints[skill.ordinal()] = i;
                         }
                     }
@@ -260,14 +263,14 @@ public class SkillManager {
                     player.getSkillManager().addExperience(skill, 250000);
                 }
             }
-            if (!skill.equals(Skill.ATTACK) && !skill.equals(Skill.STRENGTH) && !skill.equals(Skill.CONSTITUTION)
-                    && !skill.equals(Skill.DEFENCE) && !skill.equals(Skill.MAGIC) && !skill.equals(Skill.RANGED)) {
-                if (newLevel >= 75) {
-                    player.getPointsHandler().incrementSkillPoints((level * 2));
-                    player.getPacketSender().sendMessage("You've just recieved " + (level * 2) + " skilling points.");
-                } else {
-                    player.getPointsHandler().incrementSkillPoints(level);
-                    player.getPacketSender().sendMessage("You've just recieved " + level + " skilling points.");
+            if (b) {
+                /**
+                 * If wearing Investigators outfit while skilling get bonus skilling points
+                 */
+                int amt = 1;
+                if (newLevel >= 1) {
+                    player.getPointsHandler().incrementSkillPoints(amt);
+                    player.getPacketSender().sendMessage("You've just received " + amt + " Skilling Points.");
                 }
             }
             Sounds.sendSound(player, Sound.LEVELUP);
@@ -396,7 +399,7 @@ public class SkillManager {
     }
 
     public static boolean softMax(Player p) {
-        for (int i = 0; i < Skill.values().length; i++) {
+        for (int i = 0; i < Skill.values.length; i++) {
             if (i == 21)
                 continue;
             if (p.getSkillManager().getMaxLevel(i) < (i == 3 || i == 5 ? 990 : 99)) {
@@ -407,7 +410,7 @@ public class SkillManager {
     }
 
     public static boolean fullMax(Player p) {
-        for (int i = 0; i < Skill.values().length; i++) {
+        for (int i = 0; i < Skill.values.length; i++) {
             if (i == 21)
                 continue;
             if (p.getSkillManager().getMaxLevel(i) < (i == 3 || i == 5 ? 1200 : 120)) {
@@ -514,7 +517,7 @@ public class SkillManager {
      */
     public int getTotalLevel() {
         int total = 0;
-        for (Skill skill : Skill.values()) {
+        for (Skill skill : Skill.values) {
             /*
              * If the skill is not equal to constitution or prayer, total can be summed up
              * with the maxLevel.
@@ -538,7 +541,7 @@ public class SkillManager {
      */
     public long getTotalExp() {
         long xp = 0;
-        for (Skill skill : Skill.values())
+        for (Skill skill : Skill.values)
             xp += player.getSkillManager().getExperience(skill);
         return xp;
     }
@@ -735,7 +738,7 @@ public class SkillManager {
     /**
      * The maximum amount of skills in the game.
      */
-    public static final int MAX_SKILLS = Skill.values().length; // Think this should be 26
+    public static final int MAX_SKILLS = Skill.values.length; // Think this should be 26
 
     /**
      * The maximum amount of experience you can achieve in a skill.

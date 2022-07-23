@@ -43,7 +43,7 @@ public class DiscordMessenger extends JSONObject {
             @SuppressWarnings("unused")
             DiscordEmbed embed = new DiscordEmbed.Builder()
                     .withTitle("Donation Deals") // The title of the embed element
-                    .withURL("https://zamron.net") // The URL of the embed element
+                    .withURL("https://zamron.us") // The URL of the embed element
                     .withColor(Color.RED) // The color of the embed. You can leave this at null for no color
                     .withDescription(msg) // The description of the embed object
                     .build(); // Build the embed element
@@ -74,7 +74,7 @@ public class DiscordMessenger extends JSONObject {
 
             DiscordEmbed embed = new DiscordEmbed.Builder()
                     .withTitle("BUG REPORT") // The title of the embed element
-                    .withURL("https://zamron.net") // The URL of the embed element
+                    .withURL("https://zamron.us") // The URL of the embed element
                     .withColor(Color.RED) // The color of the embed. You can leave this at null for no color
                     .withDescription(Misc.stripIngameFormat(bug)) // The description of the embed object
                     .build(); // Build the embed element
@@ -108,7 +108,7 @@ public class DiscordMessenger extends JSONObject {
             @SuppressWarnings("unused")
             DiscordEmbed embed = new DiscordEmbed.Builder()
                     .withTitle(player + " has just received..") // The title of the embed element
-                    .withURL("https://zamron.net") // The URL of the embed element
+                    .withURL("https://zamron.us") // The URL of the embed element
                     .withColor(Color.RED) // The color of the embed. You can leave this at null for no color
                     .withDescription(msg) // The description of the embed object
                     .build(); // Build the embed element
@@ -140,7 +140,7 @@ public class DiscordMessenger extends JSONObject {
             @SuppressWarnings("unused")
             DiscordEmbed embed = new DiscordEmbed.Builder()
                     .withTitle(title) // The title of the embed element
-                    .withURL("https://zamron.net") // The URL of the embed element
+                    .withURL("https://zamron.us") // The URL of the embed element
                     .withColor(Color.RED) // The color of the embed. You can leave this at null for no color
                     .withDescription(msg) // The description of the embed object
                     .build(); // Build the embed element
@@ -172,7 +172,7 @@ public class DiscordMessenger extends JSONObject {
             @SuppressWarnings("unused")
             DiscordEmbed embed = new DiscordEmbed.Builder()
                     .withTitle("Staff Alert!") // The title of the embed element
-                    .withURL("https://Zamron.net") // The URL of the embed element
+                    .withURL("https://zamron.us") // The URL of the embed element
                     .withColor(Color.RED) // The color of the embed. You can leave this at null for no color
                     .withDescription(msg) // The description of the embed object
                     .build(); // Build the embed element
@@ -204,7 +204,7 @@ public class DiscordMessenger extends JSONObject {
             @SuppressWarnings("unused")
             DiscordEmbed embed = new DiscordEmbed.Builder()
                     .withTitle("New Player!") // The title of the embed element
-                    .withURL("https://zamron.net") // The URL of the embed element
+                    .withURL("https://zamron.us") // The URL of the embed element
                     .withColor(Color.RED) // The color of the embed. You can leave this at null for no color
                     .withDescription(msg) // The description of the embed object
                     .build(); // Build the embed element
@@ -236,7 +236,7 @@ public class DiscordMessenger extends JSONObject {
             @SuppressWarnings("unused")
             DiscordEmbed embed = new DiscordEmbed.Builder()
                     .withTitle("In Game Bot!") // The title of the embed element
-                    .withURL("https://zamron.net") // The URL of the embed element
+                    .withURL("https://zamron.us") // The URL of the embed element
                     .withColor(Color.RED) // The color of the embed. You can leave this at null for no color
                     .withDescription(msg) // The description of the embed object
                     .build(); // Build the embed element

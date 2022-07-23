@@ -1,5 +1,6 @@
 package com.zamron.net.packet.impl;
 
+import com.zamron.GameSettings;
 import com.zamron.model.Flag;
 import com.zamron.model.Item;
 import com.zamron.model.PlayerRights;
@@ -59,7 +60,7 @@ public class ItemContainerActionPacketListener implements PacketListener {
 		Item item = new Item(id);
 
 		if (player.getRights().equals(PlayerRights.OWNER)) {
-			player.getPacketSender().sendMessage("FIRST ACTION Interface: "+interfaceId + " ID: " + id + " Slot " + slot + " Item: " + item.getDefinition().getName());
+			player.getPacketSender().sendMessage("FIRST ACTION Interface: " + interfaceId + " ID: " + id + " Slot " + slot + " Item: " + item.getDefinition().getName());
 		}
 
 		/*
@@ -70,18 +71,18 @@ public class ItemContainerActionPacketListener implements PacketListener {
 		 */
 
 
-
 		if (player.getInterfaceId() == 37600) {
 			if (!player.getBlockedCollectorsList().contains(item.getId())) {
 				player.getBlockedCollectorsList().add(item.getId());
-				player.sendMessage("@red@Blocked item:@blu@ " + item.getDefinition().getName());
-			} else {
-				player.getBlockedCollectorsList().remove(item.getId());
-				player.sendMessage("@blu@That item was already blocked so it has been unblocked");
-				return;
+				player.sendMessage("@red@You have blocked item: " + item.getDefinition().getName());
+				System.out.println("List: " + player.getBlockedCollectorsList());
+		} else if (player.getBlockedCollectorsList().contains(item.getId())) {
+			player.getBlockedCollectorsList().clear();
+			player.sendMessage("@gre@[ITEMS]: You have unblocked all items");
+			System.out.println("List: " + player.getBlockedCollectorsList());
 			}
-			//System.out.println("List: " + player.getBlockedCollectorsList());
 		}
+
 		//System.out.println("Interface id: " + interfaceId);
 
 		switch (interfaceId) {

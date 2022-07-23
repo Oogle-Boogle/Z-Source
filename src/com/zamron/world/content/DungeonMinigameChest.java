@@ -58,7 +58,7 @@ public class DungeonMinigameChest {
 			});
 		} else {
 
-			player.getPacketSender().sendMessage("@red@You require a Dungeon Key(Room1) to open this chest!");
+			player.getPacketSender().sendMessage("@red@You require a Dungeon Key to open this chest!");
 			return;
 		}
 

@@ -34,6 +34,7 @@ public class Prayer {
 		player.getPacketSender().sendInterfaceRemoval();
 		player.performAnimation(new Animation(827));
 		player.getPacketSender().sendMessage("You dig a hole in the ground..");
+		Sounds.sendSound(player, Sound.BURY_BONE);
 		final Item bone = new Item(itemId);
 		player.getInventory().delete(bone);
 		TaskManager.submit(new Task(3, player, false) {
@@ -41,7 +42,6 @@ public class Prayer {
 			public void execute() {
 				player.getPacketSender().sendMessage("..and bury the "+bone.getDefinition().getName()+".");
 				player.getSkillManager().addExperience(Skill.PRAYER, currentBone.getBuryingXP());
-				Sounds.sendSound(player, Sound.BURY_BONE);
 				if(currentBone == BonesData.BIG_BONES)
 					Achievements.finishAchievement(player, AchievementData.BURY_A_BIG_BONE);
 				else if(currentBone == BonesData.FROSTDRAGON_BONES) {

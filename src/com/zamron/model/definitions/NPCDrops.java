@@ -159,8 +159,6 @@ public class NPCDrops { //LOL
 			return id;
 		}
 
-		public final int PLAT_TOKEN = 10835;
-
 		/**
 		 * Gets the chance.
 		 *
@@ -325,12 +323,14 @@ public class NPCDrops { //LOL
 		final boolean goGlobal = p.getPosition().getZ() >= 0 && p.getPosition().getZ() < 4;
 		final Position npcPos = npc.getPosition().copy();
 		if (drops.getDropList().length > 0 && p.getPosition().getZ() >= 0 && p.getPosition().getZ() < 4) {
-
 			casketDrop(p, npc.getDefinition().getCombatLevel(), npcPos);
 		}
 		if (drops.getDropList().length > 0 && p.getPosition().getZ() >= 0 && p.getPosition().getZ() < 4) {
 			clueDrop(p, npc.getDefinition().getCombatLevel(), npcPos);
 
+		}
+		if (npc.getDefaultConstitution() > 10000) {
+			bonesDrop(p, npc.getDefinition().getCombatLevel(), npcPos);
 		}
 
 		if (npc.getDefaultConstitution() > 10000) {
@@ -776,21 +776,26 @@ public class NPCDrops { //LOL
 	public static void clueDrop(Player player, int combat, Position pos) {
 		if (Misc.inclusiveRandom(1, 40) == 15|| Misc.inclusiveRandom(1, 40) == -15) {
 			player.getInventory().add(19626, 1);
-			player.getPacketSender().sendMessage("@or2@<img=12><shad=1>You have recieved a Mysterious scroll!");
+			player.getPacketSender().sendMessage("@or2@<img=12><shad=1>You have received a Mysterious scroll!");
+		}
+	}
+
+	public static void bonesDrop(Player player, int combat, Position pos) {
+		if (Misc.inclusiveRandom(1, 100) > 88) {
+			player.getInventory().add(19080, 1);
 		}
 	}
 
 	private static void dropScratchcard(Player player, Position pos) {
 		int chance = RandomUtility.inclusiveRandom(0, 1000);
 
-		if (chance <= 999) {
+		if (chance <= 925) {
 			return;
 		}
-
-		GroundItemManager.spawnGroundItem(player,
-				new GroundItem(new Item(3912, 1), pos, player.getUsername(), false, 150, true, 200));
-
-		player.sendMessage("@or2@<img=12><shad=1>You Earned a Event box, Congratulations ");
+		player.getBank(0).add(3912, 1);
+//		GroundItemManager.spawnGroundItem(player,
+//				new GroundItem(new Item(3912, 1), pos, player.getUsername(), false, 150, true, 200));
+		player.sendMessage("@or2@<img=12><shad=1>You Earned a Event box, Congratulations. It has gone to your bank.");
 	}
 
 	public static class ItemDropAnnouncer {

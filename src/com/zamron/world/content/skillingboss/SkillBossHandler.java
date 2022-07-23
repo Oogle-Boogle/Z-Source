@@ -61,7 +61,7 @@ public class SkillBossHandler {
 
     /** Chooses a random Skill **/
     private static Skill selectSkill() {
-        return Skill.values()[Misc.exclusiveRandom(Skill.values().length)];
+        return Skill.values[Misc.exclusiveRandom(Skill.values.length)];
     }
 
     /** After the NPC is killed, we calculate the damage

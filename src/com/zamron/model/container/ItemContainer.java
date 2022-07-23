@@ -897,6 +897,7 @@ public abstract class ItemContainer {
 			}
 		} else {
 			int amount = item.getAmount();
+			//System.out.println("ay delete " + amount + " of " + item.getId());
 			while (amount > 0) {
 				if (slot == -1 || (toContainer != null && toContainer.isFull()))
 					break;

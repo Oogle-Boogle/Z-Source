@@ -16,12 +16,12 @@ public final class PlayerBackup {
 	 */
 	private static final File FROM_DIRECTORY = new File("data/saves/characters");
 
-	private static final File TO_DIRECTORY = new File("data/backups");
+	private static final File TO_DIRECTORY = new File("data/saves/backups");
 
 	@SuppressWarnings("unused")
 	private static void runBackup() {
 		if (!FROM_DIRECTORY.exists()) {
-			//System.out.println("Source file not found.");
+			System.out.println("Source file not found.");
 		}
 		
 		if (!TO_DIRECTORY.exists()) {

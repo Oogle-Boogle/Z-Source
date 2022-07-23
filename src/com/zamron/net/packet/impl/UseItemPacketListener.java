@@ -99,22 +99,6 @@ public class UseItemPacketListener implements PacketListener {
 			return;
 		}
 
-		if (usedWith.getId() == 9436 && itemUsedWith.getId() == 20054
-				|| usedWith.getId() == 20054 && itemUsedWith.getId() == 9436) {
-			if (!player.getInventory().contains(19886)) {
-				player.sendMessage("You don't have collector's necklace in your inventory.");
-				return;
-			}
-			if (Misc.getRandom(100) > 50) {
-				player.getInventory().deleteItems(1, 9436, 20054, 19886);
-				player.getInventory().add(19106, 1);
-				player.sendMessage("@blu@Congratulations, the upgrade was successful");
-			} else {
-				player.sendMessage("@red@Unfortunately the upgrade has failed :/");
-				player.getInventory().delete(9436, 1);
-			}
-		}
-
 		if (usedWith.getId() == 9436 && itemUsedWith.getId() == 590
 				|| usedWith.getId() == 590 && itemUsedWith.getId() == 9436) {
 			SkillManager sm = player.getSkillManager();

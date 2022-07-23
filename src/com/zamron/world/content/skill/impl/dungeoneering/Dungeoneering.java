@@ -91,7 +91,7 @@ public class Dungeoneering {
 				ItemBinding.onDungeonEntrance(member);
 				PrayerHandler.deactivateAll(member);
 				CurseHandler.deactivateAll(member);
-				for(Skill skill : Skill.values())
+				for(Skill skill : Skill.values)
 					member.getSkillManager().setCurrentLevel(skill, member.getSkillManager().getMaxLevel(skill));
 				member.getSkillManager().stopSkilling();
 				member.getPacketSender().sendClientRightClickRemoval();

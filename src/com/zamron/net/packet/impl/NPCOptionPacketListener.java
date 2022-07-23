@@ -134,7 +134,7 @@ public class NPCOptionPacketListener implements PacketListener {
                             player.getPacketSender().sendMessage("@gre@Welcome to the StarWars Zone");
                         } else {
                             player.getPacketSender().sendMessage("@red@You must have 65+ PVM level & 2500+ NPC Killcount.");
-                            player.getPacketSender().sendMessage("@red@You currently have " +player.getNPCKILLCount() + " & " +player.getSkillManager().getCurrentLevel(Skill.PVM)+ " PVM Level.");
+                            player.getPacketSender().sendMessage("@red@You currently have " + player.getNPCKILLCount() + " & " + player.getSkillManager().getCurrentLevel(Skill.PVM) + " PVM Level.");
                             return;
                         }
                         break;
@@ -507,13 +507,13 @@ public class NPCOptionPacketListener implements PacketListener {
                         DialogueManager.start(player, 180);
                         break;
                     case 4475: //Upgrade interface add items here - Upgradeable items
-                        int[] itemList = { 4799, 4800, 4801, 3973, 3951,
+                        int[] itemList = {4799, 4800, 4801, 3973, 3951,
 
                                 9006, 3908, 3909, 3910, 5187, 5186,
 
                                 4772, 4771, 4770, 12708, 5131, 18347,
 
-                                3928, 15418, 2572, 18392, 19886, 5185, 3276, 3274, 936, 3459, 3455, 19101 ,19140, 19141, 20699, 3641, 17931, 8839, 8840
+                                3928, 15418, 2572, 18392, 19886, 5185, 3276, 3274, 936, 3459, 3455, 19101, 19140, 19141, 20699, 3641, 17931, 8839, 8840
 
                         };
                         player.getPacketSender().sendInterface(62200);
@@ -660,7 +660,7 @@ public class NPCOptionPacketListener implements PacketListener {
             if (player.getSlayer().getSlayerTask().equals(SlayerTasks.ZORBAK)) {
                 player.getCombatBuilder().attack(npc);
             } else {
-                player.getPacketSender().sendMessage("You must have " + npc.getDefinition().getName()+ " as a slayer task.");
+                player.getPacketSender().sendMessage("You must have " + npc.getDefinition().getName() + " as a slayer task.");
                 return;
             }
         }
@@ -669,7 +669,7 @@ public class NPCOptionPacketListener implements PacketListener {
             if (player.getSlayer().getSlayerTask().equals(SlayerTasks.MEWTWO)) {
                 player.getCombatBuilder().attack(npc);
             } else {
-                player.getPacketSender().sendMessage("You must have " + npc.getDefinition().getName()+ " as a slayer task.");
+                player.getPacketSender().sendMessage("You must have " + npc.getDefinition().getName() + " as a slayer task.");
                 return;
             }
         }
@@ -678,7 +678,7 @@ public class NPCOptionPacketListener implements PacketListener {
             if (player.getSlayer().getSlayerTask().equals(SlayerTasks.BAL)) {
                 player.getCombatBuilder().attack(npc);
             } else {
-                player.getPacketSender().sendMessage("You must have " + npc.getDefinition().getName()+ " as a slayer task.");
+                player.getPacketSender().sendMessage("You must have " + npc.getDefinition().getName() + " as a slayer task.");
                 return;
             }
         }
@@ -687,7 +687,7 @@ public class NPCOptionPacketListener implements PacketListener {
             if (player.getSlayer().getSlayerTask().equals(SlayerTasks.KASH)) {
                 player.getCombatBuilder().attack(npc);
             } else {
-                player.getPacketSender().sendMessage("You must have " + npc.getDefinition().getName()+ " as a slayer task.");
+                player.getPacketSender().sendMessage("You must have " + npc.getDefinition().getName() + " as a slayer task.");
                 return;
             }
         }
@@ -696,7 +696,7 @@ public class NPCOptionPacketListener implements PacketListener {
             if (player.getSlayer().getSlayerTask().equals(SlayerTasks.TOAD)) {
                 player.getCombatBuilder().attack(npc);
             } else {
-                player.getPacketSender().sendMessage("You must have " + npc.getDefinition().getName()+ " as a slayer task.");
+                player.getPacketSender().sendMessage("You must have " + npc.getDefinition().getName() + " as a slayer task.");
                 return;
             }
         }
@@ -705,7 +705,7 @@ public class NPCOptionPacketListener implements PacketListener {
             if (player.getSlayer().getSlayerTask().equals(SlayerTasks.MAGIC_SPIDER) || player.getSlayer().getSlayerTask().equals(SlayerTasks.MAGIC_SPIDER2)) {
                 player.getCombatBuilder().attack(npc);
             } else {
-                player.getPacketSender().sendMessage("You must have " + npc.getDefinition().getName()+ " as a slayer task.");
+                player.getPacketSender().sendMessage("You must have " + npc.getDefinition().getName() + " as a slayer task.");
                 return;
             }
         }
@@ -714,7 +714,7 @@ public class NPCOptionPacketListener implements PacketListener {
             if (player.getSlayer().getSlayerTask().equals(SlayerTasks.JOKER) || player.getSlayer().getSlayerTask().equals(SlayerTasks.JOKER1)) {
                 player.getCombatBuilder().attack(npc);
             } else {
-                player.getPacketSender().sendMessage("You must have " + npc.getDefinition().getName()+ " as a slayer task.");
+                player.getPacketSender().sendMessage("You must have " + npc.getDefinition().getName() + " as a slayer task.");
                 return;
             }
         }
@@ -723,7 +723,7 @@ public class NPCOptionPacketListener implements PacketListener {
             if (player.getSlayer().getSlayerTask().equals(SlayerTasks.PUMPKIN) || player.getSlayer().getSlayerTask().equals(SlayerTasks.PUMPKIN1) || player.getSlayer().getSlayerTask().equals(SlayerTasks.PUMPKIN2)) {
                 player.getCombatBuilder().attack(npc);
             } else {
-                player.getPacketSender().sendMessage("You must have " + npc.getDefinition().getName()+ " as a slayer task.");
+                player.getPacketSender().sendMessage("You must have " + npc.getDefinition().getName() + " as a slayer task.");
                 return;
             }
         }
@@ -732,7 +732,7 @@ public class NPCOptionPacketListener implements PacketListener {
             if (player.getSlayer().getSlayerTask().equals(SlayerTasks.CHARIZARD) || player.getSlayer().getSlayerTask().equals(SlayerTasks.CHARIZARD1)) {
                 player.getCombatBuilder().attack(npc);
             } else {
-                player.getPacketSender().sendMessage("You must have " + npc.getDefinition().getName()+ " as a slayer task.");
+                player.getPacketSender().sendMessage("You must have " + npc.getDefinition().getName() + " as a slayer task.");
                 return;
             }
         }
@@ -741,7 +741,7 @@ public class NPCOptionPacketListener implements PacketListener {
             if (player.getSlayer().getSlayerTask().equals(SlayerTasks.CHARMANDER)) {
                 player.getCombatBuilder().attack(npc);
             } else {
-                player.getPacketSender().sendMessage("You must have " + npc.getDefinition().getName()+ " as a slayer task.");
+                player.getPacketSender().sendMessage("You must have " + npc.getDefinition().getName() + " as a slayer task.");
                 return;
             }
         }
@@ -750,7 +750,7 @@ public class NPCOptionPacketListener implements PacketListener {
             if (player.getSlayer().getSlayerTask().equals(SlayerTasks.BULBASAUR)) {
                 player.getCombatBuilder().attack(npc);
             } else {
-                player.getPacketSender().sendMessage("You must have " + npc.getDefinition().getName()+ " as a slayer task.");
+                player.getPacketSender().sendMessage("You must have " + npc.getDefinition().getName() + " as a slayer task.");
                 return;
             }
         }
@@ -759,7 +759,7 @@ public class NPCOptionPacketListener implements PacketListener {
             if (player.getSlayer().getSlayerTask().equals(SlayerTasks.AMONGUS_BLACK)) {
                 player.getCombatBuilder().attack(npc);
             } else {
-                player.getPacketSender().sendMessage("You must have " + npc.getDefinition().getName()+ " as a slayer task.");
+                player.getPacketSender().sendMessage("You must have " + npc.getDefinition().getName() + " as a slayer task.");
                 return;
             }
         }
@@ -767,7 +767,7 @@ public class NPCOptionPacketListener implements PacketListener {
             if (player.getSlayer().getSlayerTask().equals(SlayerTasks.AMONGUS_CYAN)) {
                 player.getCombatBuilder().attack(npc);
             } else {
-                player.getPacketSender().sendMessage("You must have " + npc.getDefinition().getName()+ " as a slayer task.");
+                player.getPacketSender().sendMessage("You must have " + npc.getDefinition().getName() + " as a slayer task.");
                 return;
             }
         }
@@ -776,25 +776,22 @@ public class NPCOptionPacketListener implements PacketListener {
             if (player.getSlayer().getSlayerTask().equals(SlayerTasks.AMONGUS_GREEN)) {
                 player.getCombatBuilder().attack(npc);
             } else {
-                player.getPacketSender().sendMessage("You must have " + npc.getDefinition().getName()+ " as a slayer task.");
+                player.getPacketSender().sendMessage("You must have " + npc.getDefinition().getName() + " as a slayer task.");
                 return;
             }
         }
 
         /** Comment this out if it's fucked **/
 
-         if (!player.getKcSystem().meetsRequirements(player.getKcSystem().getData(npc.getId()))
-                && !player.getRights().isSeniorStaff()
+        if (!player.getRights().isSeniorStaff()
                 && !(npc instanceof RaidNpc)
                 && !npc.isInstancedNPC()
-                && npc.getId() != player.getSlayer().getSlayerTask().getNpcId()) {
-            player.getKcSystem().sendRequirementsMessage();
+                && npc.getId() != player.getSlayer().getSlayerTask().getNpcId()
+                && !player.getKcSystem().meetsRequirements(npc, false)) {
             return;
         }
-         else {
-            player.getCombatBuilder().attack(npc);
-        }
-
+        
+        player.getCombatBuilder().attack(npc);
 
         /** Stop the comment here **/
 
@@ -896,7 +893,7 @@ public class NPCOptionPacketListener implements PacketListener {
                         break;
 
                     case 1394:
-                        int[] items = { 15373, 2577, 902, 903, 904, 905, 3082, 5161, 20016, 20017, 20018, 20021, 20022, 18910, 10720, 14006, 5160, 5157, 17911, 17908, 17909, 11732, 3928, 3932, 4775, 19892, 2749, 2750, 2751, 2752, 2753, 2754, 2755, 19721,
+                        int[] items = {15373, 2577, 902, 903, 904, 905, 3082, 5161, 20016, 20017, 20018, 20021, 20022, 18910, 10720, 14006, 5160, 5157, 17911, 17908, 17909, 11732, 3928, 3932, 4775, 19892, 2749, 2750, 2751, 2752, 2753, 2754, 2755, 19721,
                                 19722, 19723, 19724, 19725, 19734, 19736, 15418, 18892, 19468, 15398, 18363, 18377, 2572, 16137, 11076,
                         };
                         player.getPacketSender().sendInterface(52300);

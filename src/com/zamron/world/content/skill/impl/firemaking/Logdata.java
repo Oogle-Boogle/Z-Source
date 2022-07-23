@@ -18,7 +18,8 @@ public class Logdata {
 		EUCALYPTUS(12581, 58, 550, 45),
 		YEW(1515, 60, 600, 50),
 		MAGIC(1513, 75, 650, 50),
-		HELLFIRE(19079, 50, 700, 50);
+		HELLFIRE(19079, 50, 700, 50),
+		;
 		
 		private int logId, level, burnTime;
 		private int xp;

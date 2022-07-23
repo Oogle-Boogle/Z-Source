@@ -649,10 +649,10 @@ public final class CombatFactory {
 		}
 
 		if (EquipmentBonus.wearingVoid(player, CombatType.MELEE)) {
-			otherBonusMultiplier = 1.5;
+			otherBonusMultiplier = 2;
 		}
 		if (EquipmentBonus.wearingEliteVoid(player, CombatType.MELEE)) {
-			otherBonusMultiplier = 2.5;
+			otherBonusMultiplier = 5;
 		}
 
 
@@ -748,10 +748,10 @@ public final class CombatFactory {
 		double baseDamage = (13 + effectiveRangeDamage + (rangedStrength / 8) + ((effectiveRangeDamage * rangedStrength) / 65)) / 11;
 
 		if (EquipmentBonus.wearingVoid(player, CombatType.RANGED)) {
-			otherBonusMultiplier = 1.5;
+			specialMultiplier = 2;
 		}
 		if (EquipmentBonus.wearingEliteVoid(player, CombatType.RANGED)) {
-			otherBonusMultiplier = 2.5;
+			specialMultiplier = 5;
 		}
 
 		if (player.isSpecialActivated()) {
@@ -1317,22 +1317,22 @@ public final class CombatFactory {
 					ItemDegrading.handleItemDegrading(t2, DegradingItem.RING_OF_RECOIL);
 				}
 
-				else if (t2.getEquipment().getItems()[Equipment.BODY_SLOT].getId() == 19785) {
-					int recDamage = (int) (damage * 10);
-					if (recDamage <= 0)
-						return;
-					if (recDamage >= 200)
-						recDamage = 200;
-						ItemDegrading.handleItemDegrading(t2, DegradingItem.ELITE_VOID_TOP);
-				}
-				else if (t2.getEquipment().getItems()[Equipment.LEG_SLOT].getId() == 19786) {
-					int recDamage = (int) (damage * 10);
-					if (recDamage <= 0)
-						return;
-					if (recDamage >= 200)
-						recDamage = 200;
-					ItemDegrading.handleItemDegrading(t2, DegradingItem.ELITE_VOID_LEG);
-				}
+//				else if (t2.getEquipment().getItems()[Equipment.BODY_SLOT].getId() == 19785) {
+//					int recDamage = (int) (damage * 10);
+//					if (recDamage <= 0)
+//						return;
+//					if (recDamage >= 200)
+//						recDamage = 200;
+//						ItemDegrading.handleItemDegrading(t2, DegradingItem.ELITE_VOID_TOP);
+//				}
+//				else if (t2.getEquipment().getItems()[Equipment.LEG_SLOT].getId() == 19786) {
+//					int recDamage = (int) (damage * 10);
+//					if (recDamage <= 0)
+//						return;
+//					if (recDamage >= 200)
+//						recDamage = 200;
+//					ItemDegrading.handleItemDegrading(t2, DegradingItem.ELITE_VOID_LEG);
+//				}
 
 				/** PHOENIX NECK **/
 				else if(t2.getEquipment().getItems()[Equipment.AMULET_SLOT].getId() == 11090 && t2.getLocation() != Location.DUEL_ARENA) {

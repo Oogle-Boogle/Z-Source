@@ -10,8 +10,8 @@ import com.zamron.world.entity.impl.player.Player;
 
 public class ShootingStar {
 
-	private static final int TIME = 1000000;
-	public static final int MAXIMUM_MINING_AMOUNT = 10000;
+	public static int TIME = 1000000;
+	public static final int MAXIMUM_MINING_AMOUNT = 5000;
 	
 	private static Stopwatch timer = new Stopwatch().reset();
 	public static CrashedStar CRASHED_STAR = null;
@@ -73,13 +73,12 @@ public class ShootingStar {
 				//World.sendMessageNonDiscord("<img=381>[AFK]@blu@A star has just crashed at home or "+locationData.clue+"");
 				World.sendMessageNonDiscord("<img=12><shad=20><col=b96900>[AFK]A crashing star has just landed south of ::home !");
 				World.getPlayers().forEach(p -> p.getPacketSender().sendString(26623, "@or2@Crashed star: @gre@"+ShootingStar.CRASHED_STAR.getStarLocation().playerPanelFrame+""));
-				timer.reset();
 			}
-		/**} else {
+		} else {
 			if(CRASHED_STAR.starObject.getPickAmount() >= MAXIMUM_MINING_AMOUNT) {
 				despawn(false);
 				timer.reset();
-			}**/
+			}
 		}
 	}
 

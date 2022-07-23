@@ -1,0 +1,20 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Flooder" type="Application" factoryName="Application">
+    <option name="ALTERNATIVE_JRE_PATH" value="17" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <option name="MAIN_CLASS_NAME" value="com.zamron.util.flood.Flooder" />
+    <module name=".Server" />
+    <option name="PROGRAM_PARAMETERS" value="1500" />
+    <option name="VM_PARAMETERS" value="-Xmx2g -XX:+UseZGC" />
+    <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="com.zamron.util.flood.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

@@ -55,7 +55,7 @@ public class EquipPacketListener implements PacketListener {
 					 * Making sure item exists and that id is consistent.
 					 */
 					if (item != null && id == item.getId()) {
-						for (Skill skill : Skill.values()) {
+						for (Skill skill : Skill.values) {
 							if (skill == Skill.CONSTRUCTION)
 								continue;
 							if (item.getDefinition().getRequirement()[skill.ordinal()] > player.getSkillManager()

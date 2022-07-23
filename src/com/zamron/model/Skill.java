@@ -106,7 +106,7 @@ public enum Skill {
 	 * @return		The Skill instance.
 	 */
 	public static Skill forId(int id) {
-		for (Skill skill : Skill.values()) {
+		for (Skill skill : Skill.values) {
 			if (skill.ordinal() == id) {
 				return skill;
 			}
@@ -120,7 +120,7 @@ public enum Skill {
 	 * @return		The Skill instance.
 	 */
 	public static Skill forPrestigeId(int id) {
-		for (Skill skill : Skill.values()) {
+		for (Skill skill : Skill.values) {
 			if (skill.prestigeId == id) {
 				return skill;
 			}
@@ -134,7 +134,7 @@ public enum Skill {
 	 * @return		The Skill instance.
 	 */
 	public static Skill forName(String name) {
-		for (Skill skill : Skill.values()) {
+		for (Skill skill : Skill.values) {
 			if (skill.toString().equalsIgnoreCase(name)) {
 				return skill;
 			}
@@ -172,4 +172,5 @@ public enum Skill {
 	public static final int RANGED_MODIFIER = 30;
 	//public static final int PRAYER_MODIFIER = 20;
 	public static final int MAGIC_MODIFIER = 30;
+
 }

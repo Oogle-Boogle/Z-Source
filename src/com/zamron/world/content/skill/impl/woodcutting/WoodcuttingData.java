@@ -71,8 +71,8 @@ public class WoodcuttingData {
 		MAHOGANY(50, 600, 6332, new int[] { 9034 }, 7, true),
 		YEW(60, 650, 1515, new int[] { 1309 }, 8, true),
 		MAGIC(75, 700, 1513, new int[] { 1306 }, 9, true),
-		EVIL_TREE(80, 750, 14666, new int[] { 11434 }, 9, true),
-		CUSTOM_TREE(99, 800, 19864, new int[] { 10660 }, 35, true);
+		EVIL_TREE(80, 750, 12852, new int[] { 11434 }, 9, true),
+		CUSTOM_TREE(99, 800, 10835, new int[] { 10660 }, 35, true);
 
 		private int[] objects;
 		private int req, xp, log, ticks;

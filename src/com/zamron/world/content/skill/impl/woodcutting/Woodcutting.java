@@ -39,7 +39,7 @@ public class Woodcutting {
 		if (Misc.getRandom(25000) == 3) {
 			player.getInventory().add(13322, 1);
 			World.sendMessageNonDiscord("@blu@<img=12>[Skilling Pets] " + player.getUsername() + " has received the Beaver pet!");
-			player.getPacketSender().sendMessage("@red@You have received a skilling pet!");
+			player.getPacketSender().sendMessage("@red@You have received a Skilling pet!");
 		}
 		if (h != null) {
 			if (player.getSkillManager().getCurrentLevel(Skill.WOODCUTTING) >= h.getRequiredLevel()) {
@@ -80,6 +80,7 @@ public class Woodcutting {
 
 										}
 									}
+									Sounds.sendSound(player, Sound.WOODCUT);
 									cycle = 0;
 									//BirdNests.dropNest(player);
 									this.stop();
@@ -142,16 +143,16 @@ public class Woodcutting {
 
 									if (t == Trees.MAGIC || t == Trees.CUSTOM_TREE) {
 									    if (chance1 >= 9990) {
-									        player.getInventory().add(9436, 1);
+									        player.getInventory().add(3912, 5);
 									        World.sendMessageNonDiscord(
 									                "<img=12>@blu@[WOODCUTTING]<img=12> @red@" + player.getUsername()
-									                        + " @blu@Has just received Strange Fiber from woodcutting");
+									                        + " @blu@Has just received 5x Taxbag box's from woodcutting");
 									    }
 									} else if (chance1 >= 9997) {
 									    World.sendMessageNonDiscord(
 									            "<img=12>@blu@[WOODCUTTING]<img=12> @red@" + player.getUsername()
-									                    + " @blu@Has just received Strange Fiber from woodcutting");
-									    player.getInventory().add(9436, 1);
+									                    + " @blu@Has just received x20 Taxbag box's from woodcutting");
+									    player.getInventory().add(3912, 20);
 									}
 									if (t == Trees.OAK) {
 										Achievements.finishAchievement(player, AchievementData.CUT_AN_OAK_TREE);

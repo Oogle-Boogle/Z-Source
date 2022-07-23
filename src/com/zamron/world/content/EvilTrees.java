@@ -20,9 +20,9 @@ import com.zamron.world.entity.impl.player.Player;
 public class EvilTrees {
 	
 
-	private static final int TIME = 4000000; //40 minutes? not sure lol
-	public static final int MAX_CUT_AMOUNT = 1000000;//Amount of logs the tree will give before
-											//despawning
+	public static int TIME = 4000000; //40 minutes? not sure lol
+	public static final int MAX_CUT_AMOUNT = 200000;//Amount of logs the tree will give before
+											//despawning 1000000
 
 	public static Stopwatch timer = new Stopwatch().reset();
 	public static EvilTree SPAWNED_TREE = null;

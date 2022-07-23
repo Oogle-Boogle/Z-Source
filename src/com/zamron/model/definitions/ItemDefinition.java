@@ -119,8 +119,10 @@ public class ItemDefinition {
      */
 
     public static ItemDefinition forId(int id) {
-        return (id < 0 || id > definitions.length || definitions[id] == null) ? new ItemDefinition() : definitions[id];
+        return (id < 0 || id > definitions.length || definitions[id] == null) ? DEFAULT : definitions[id];
     }
+
+    public static final ItemDefinition DEFAULT = new ItemDefinition();
 
     public static void whatDrops(Player player, String name) {
 
@@ -308,13 +310,13 @@ public class ItemDefinition {
         return equipmentType.equals(EquipmentType.FULL_HELMET);
     }
 
-    private double[] bonus = new double[18];
+    private final double[] bonus = new double[18];
 
     public double[] getBonus() {
         return bonus;
     }
 
-    private int[] requirement = new int[27];
+    private final int[] requirement = new int[27];
 
     public int[] getRequirement() {
         return requirement;

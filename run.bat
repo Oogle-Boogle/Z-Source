@@ -1,4 +1,5 @@
 @echo off
 title Running Zamron 317!
-java -server -Xmx3600m -cp bin;lib/* com.zamron.GameServer
-pause
+:Start
+java -server -Xmx4000m -XX:+UnlockExperimentalVMOptions -XX:+UseZGC -cp bin;lib/* com.zamron.GameServer
+goto:Start
