@@ -1,0 +1,59 @@
+[7/23/22 03:35PM]	Login from host 82.39.89.215, serial number: null	
+[7/23/22 04:12PM]	Login from host 82.39.89.215, serial number: null	
+[7/23/22 04:14PM]	Player dropping item: 5209, amount: 1	
+[7/23/22 04:14PM]	Player dropping item: 3908, amount: 1	
+[7/23/22 04:14PM]	Player dropping item: 18950, amount: 1	
+[7/23/22 04:14PM]	Player dropping item: 19886, amount: 1	
+[7/23/22 04:14PM]	Player dropping item: 3907, amount: 1	
+[7/23/22 04:14PM]	Player dropping item: 18347, amount: 1	
+[7/23/22 04:14PM]	Player dropping item: 18347, amount: 1	
+[7/23/22 04:14PM]	Player dropping item: 5131, amount: 1	
+[7/23/22 04:14PM]	Player dropping item: 923, amount: 1	
+[7/23/22 04:14PM]	Player dropping item: 3907, amount: 1	
+[7/23/22 04:14PM]	Player dropping item: 3907, amount: 1	
+[7/23/22 04:15PM]	Player dropping item: 5209, amount: 1	
+[7/23/22 04:15PM]	Player dropping item: 3908, amount: 1	
+[7/23/22 04:15PM]	Player dropping item: 3908, amount: 1	
+[7/23/22 04:15PM]	Player dropping item: 19886, amount: 1	
+[7/23/22 04:15PM]	Player dropping item: 3908, amount: 1	
+[7/23/22 04:15PM]	Player dropping item: 3908, amount: 1	
+[7/23/22 04:15PM]	Player dropping item: 4771, amount: 1	
+[7/23/22 04:15PM]	Player dropping item: 19886, amount: 1	
+[7/23/22 04:40PM]	Player dropping item: 8943, amount: 1	
+[7/24/22 01:14pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 01:22pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 01:23pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 01:25pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 01:26pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 01:29pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 01:31pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 01:32pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 01:44pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 03:58pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 04:13pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 04:14pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 04:35pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 04:42pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 04:54pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 05:10pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 05:11pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 05:11pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 05:30pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 05:42pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 05:45pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 05:47pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 06:09pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 06:10pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 06:11pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 06:12pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 06:17pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 06:18pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 06:32pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 06:32pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 06:38pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 07:16pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 07:23pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 07:26pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 07:29pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 07:32pm]	Login from host 127.0.0.1, serial number: null	
+[7/24/22 07:35pm]	Login from host 127.0.0.1, serial number: null	

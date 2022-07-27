@@ -42,7 +42,7 @@ public class TriviaBot
 					{ "<col=6666FF> [ Trivia ]:</col> @red@What skill has a wolf?", "summoning" },
 					{ "<col=6666FF> [ Trivia ]:</col> @red@What is the form of currency on Zamron?", "1b coins" },
 					{ "<col=6666FF> [ Trivia ]:</col> @red@How many minutes game-played do you need to participate in raids?", "120" },
-					{ "<col=6666FF> [ Trivia ]:</col> @red@Who is the discord owner?", "Retro" },
+					{ "<col=6666FF> [ Trivia ]:</col> @red@Who is the discord owner?", "fatalsalmon" },
 					{ "<col=6666FF> [ Trivia ]:</col> @red@What is the Dzanth KC required to kill King Kong?", "750" },
 					{ "<col=6666FF> [ Trivia ]:</col> @red@What is Luminitous Warrior armour called?", "luminita" },
 					{ "<col=6666FF> [ Trivia ]:</col> @red@What is the last NPC called in ::train?", "martian" },

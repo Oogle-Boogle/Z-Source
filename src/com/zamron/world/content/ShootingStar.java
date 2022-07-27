@@ -59,6 +59,7 @@ public class ShootingStar {
 	}
 
 	public static void sequence() {
+		TIME--;
 		if(CRASHED_STAR == null) {
 			if(timer.elapsed(TIME)) {
 				LocationData locationData = getRandom();

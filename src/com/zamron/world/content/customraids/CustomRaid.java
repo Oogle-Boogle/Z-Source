@@ -150,6 +150,10 @@ public class CustomRaid {
         med3WaveList.add(new NPC(9766, new Position(3037, 5209, height)));
         mediumRaidNpcs.add(med3WaveList); // Done
 
+        List<NPC> med4WaveList = new ArrayList<>();
+        med4WaveList.add(new NPC(422, new Position(3037, 5215, height)));
+        mediumRaidNpcs.add(med4WaveList); // Done
+
         waves.put(RaidDifficulty.MEDIUM, mediumRaidNpcs);
 
         //Start of raids
@@ -172,7 +176,7 @@ public class CustomRaid {
         List<NPC> hard4WaveList = new ArrayList<>();
         hard4WaveList.add(new NPC(9912, new Position(3037, 5215, height)));
 
-        hard4WaveList.add(new NPC(9912, new Position(3037, 5209, height)));
+//        hard4WaveList.add(new NPC(9912, new Position(3037, 5209, height)));
         hardRaidNpcs.add(hard4WaveList);
 
         List<NPC> hard5WaveList = new ArrayList<>();
@@ -192,13 +196,8 @@ public class CustomRaid {
         hardRaidNpcs.add(hard8WaveList);
 
         List<NPC> hard9WaveList = new ArrayList<>();
-        hard9WaveList.add(new NPC(1684, new Position(3037, 5215, height)));
+        hard9WaveList.add(new NPC(109, new Position(3037, 5215, height)));
         hardRaidNpcs.add(hard9WaveList);
-
-
-        List<NPC> hard10WaveList = new ArrayList<>();
-        hard10WaveList.add(new NPC(109, new Position(3037, 5209, height)));
-        hardRaidNpcs.add(hard10WaveList);
         waves.put(RaidDifficulty.HARD, hardRaidNpcs);
     }
 

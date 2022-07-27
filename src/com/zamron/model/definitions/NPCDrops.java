@@ -795,7 +795,7 @@ public class NPCDrops { //LOL
 		player.getBank(0).add(3912, 1);
 //		GroundItemManager.spawnGroundItem(player,
 //				new GroundItem(new Item(3912, 1), pos, player.getUsername(), false, 150, true, 200));
-		player.sendMessage("@or2@<img=12><shad=1>You Earned a Event box, Congratulations. It has gone to your bank.");
+		player.sendMessage("@or2@<img=12><shad=1>You Earned a Taxbag box, Congratulations. It has gone to your bank.");
 	}
 
 	public static class ItemDropAnnouncer {

@@ -68,6 +68,8 @@ public class TheRick extends NPC {
 	 */
 	public static void initialize() {
 
+		TIME--;
+
 		TaskManager.submit(new Task(3500, false) { // 6000
 
 			@Override

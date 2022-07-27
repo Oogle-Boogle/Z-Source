@@ -44,8 +44,7 @@ import com.zamron.world.entity.impl.player.Player;
 
 public class PacketConstants {
 
-	//public static final PacketListener[] PACKETS = new PacketListener[257];
-	public static final PacketListener[] PACKETS = new PacketListener[260];
+	public static final PacketListener[] PACKETS = new PacketListener[257];
 
 	static {
 		for(int i = 0; i < PACKETS.length; i++)

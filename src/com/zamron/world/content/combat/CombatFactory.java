@@ -1478,7 +1478,7 @@ public final class CombatFactory {
 			if(CurseHandler.isActivated(p, CurseHandler.SOUL_SPLIT) && damage > 0) {
 				final int form = (int) (damage / 8);
 				new Projectile(attacker, target, 2263, 44, 3, 43, 31, 0).sendProjectile();
-				TaskManager.submit(new Task(1, p, false) {
+				TaskManager.submit(new Task(1, p, true) {
 					@Override
 					public void execute() {
 						if (!(attacker == null || target == null || attacker.getConstitution() <= 0)) {

@@ -154,7 +154,6 @@ public class PlayerPanel {
 				"@whi@-@gre@Dark Ranger WorldBoss:",
 				"@bla@*@whi@"	+(DarkRanger.getCurrent() != null ? "~~~~~~ Spawned ~~~~~~~" : + TimeUnit.SECONDS.toMinutes(DarkRanger.TIME--)) + " minutes",
 
-
 				"@whi@-@gre@Assassin WorldBoss:",
 				"@bla@*@whi@"	+(Assassin.getCurrent() != null ? "~~~~~~ Spawned ~~~~~~~" : + TimeUnit.SECONDS.toMinutes(Assassin.TIME--)) + " minutes",
 

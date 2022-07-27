@@ -380,7 +380,7 @@ public class ItemActionPacketListener implements PacketListener {
 				} else {
 					player.getInventory().delete(itemId, 1);
 					player.sendMessage("You have been granted 2 hours of double drops.");
-					player.incrementCleansingTime(12000);
+					player.incrementCleansingTime(7200);
 					TaskManager.submit(new CleansingTask(player));
 					player.setDoubleDropsActive(true);
 				}
@@ -388,11 +388,10 @@ public class ItemActionPacketListener implements PacketListener {
 			case 12848:
 				player.getInventory().delete(itemId, 1);
 				player.sendMessage("You have been granted 3 hours of double drops.");
-				player.incrementCleansingTime(18000);
+				player.incrementCleansingTime(10800);
 				TaskManager.submit(new CleansingTask(player));
 				player.setDoubleRateActive(true);
 				break;
-
 
 			case 19864:
 				try {
@@ -425,7 +424,7 @@ public class ItemActionPacketListener implements PacketListener {
 				} else {
 					player.getInventory().delete(itemId, 1);
 					player.sendMessage("You have been granted 2 hours of double drop rates.");
-					player.incrementPraiseTime(12000);
+					player.incrementPraiseTime(7200);
 					TaskManager.submit(new PraiseTask(player));
 					player.setDoubleRateActive(true);
 				}

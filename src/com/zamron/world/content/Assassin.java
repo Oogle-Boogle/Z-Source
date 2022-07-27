@@ -65,6 +65,8 @@ public class Assassin extends NPC {
 	 */
 	public static void initialize() {
 
+		TIME--;
+
 		TaskManager.submit(new Task( 10000, false) { // 6000
 
 			@Override

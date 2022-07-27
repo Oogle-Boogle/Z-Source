@@ -1305,7 +1305,7 @@ public class Locations {
                 return true;
             }
         },
-        INSTANCE_ARENA(new int[]{2518, 2539}, new int[]{3661, 3682}, true, false, true, false, true, true) {
+        INSTANCE_ARENA(new int[]{2518, 2539}, new int[]{3661, 3682}, true, false, true, false, false, true) {
             @Override
             public boolean canAttackNPC(Player player, NPC Target) {
                 return AOESystem.hasAoeWeapon(player);

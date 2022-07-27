@@ -1,0 +1,19 @@
+[7/23/22 03:35PM]	Login from host 86.3.6.36, serial number: null	
+[7/23/22 03:36PM]	Receiving item from trade. Id: 13661, amount: 1	
+[7/23/22 03:36PM]	Player dropping item: 1359, amount: 1	
+[7/23/22 03:37PM]	Player dropping item: 1517, amount: 1	
+[7/23/22 03:37PM]	Player dropping item: 1517, amount: 1	
+[7/23/22 03:37PM]	Player dropping item: 1517, amount: 1	
+[7/23/22 03:37PM]	Player dropping item: 1511, amount: 1	
+[7/23/22 03:37PM]	Player dropping item: 1521, amount: 1	
+[7/23/22 03:37PM]	Player dropping item: 1521, amount: 1	
+[7/23/22 03:38PM]	Player dropping item: 1521, amount: 1	
+[7/23/22 03:38PM]	Player dropping item: 1521, amount: 1	
+[7/23/22 03:38PM]	Player dropping item: 1511, amount: 1	
+[7/23/22 03:38PM]	Player dropping item: 1511, amount: 1	
+[7/23/22 03:39PM]	Player dropping item: 1511, amount: 1	
+[7/23/22 03:39PM]	Player dropping item: 1511, amount: 1	
+[7/23/22 03:39PM]	Player dropping item: 1511, amount: 1	
+[7/23/22 03:39PM]	Player dropping item: 1511, amount: 1	
+[7/23/22 03:39PM]	Player dropping item: 1511, amount: 1	
+[7/23/22 03:46PM]	Login from host 86.3.6.36, serial number: null	

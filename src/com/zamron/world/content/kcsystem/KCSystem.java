@@ -19,7 +19,7 @@ public final class KCSystem {
         if (Location.INSTANCE_ARENA.equals(player.getLocation())) {
             return true; //Remove KC in the instance arena
         }
-        if (player.isInRaid()) return true;
+//        if (player.isInRaid()) return true;
         boolean met = true;
         for (KillRequirement requirement : data.getKillRequirements()) {
             if (requirement.meetsRequirement(player)) continue;

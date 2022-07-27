@@ -1,5 +1,6 @@
 package com.zamron.world.content;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -7,7 +8,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
+import com.zamron.engine.GameEngine;
 import com.zamron.engine.task.Task;
 import com.zamron.engine.task.TaskManager;
 import com.zamron.model.GroundItem;
@@ -23,6 +28,10 @@ import com.zamron.world.content.combat.CombatFactory;
 import com.zamron.world.entity.impl.GroundItemManager;
 import com.zamron.world.entity.impl.npc.NPC;
 import com.zamron.world.entity.impl.player.Player;
+import org.apache.http.client.fluent.Executor;
+
+import javax.swing.*;
+import javax.xml.bind.Marshaller;
 
 public class Tztok extends NPC {
 
@@ -33,13 +42,12 @@ public class Tztok extends NPC {
 	public static int[] SUPERRARELOOT = {11978,19140,19886,6320,4058,4057,4056,4059,19890,12162, 19938, 19937, 19935, 19936 };
 
 	/**
-	 * 
+	 *
 	 */
 	public static final int NPC_ID = 2745;
 
-	public static int TIME = 6000;
-
-	private static Stopwatch timer = new Stopwatch().reset();
+	public static int TIME;
+	public static Stopwatch timer = new Stopwatch().reset();
 
 	/**
 	 * add your maps to that folder open me your client.java in client
@@ -49,12 +57,12 @@ public class Tztok extends NPC {
 	};
 
 	/**
-	 * 
+	 *
 	 */
 	private static Tztok current;
 
 	/**
-	 * 
+	 *
 	 * @param position
 	 */
 	public Tztok(Position position) {
@@ -62,10 +70,13 @@ public class Tztok extends NPC {
 		super(NPC_ID, position);
 	}
 
+
 	/**
 	 * 
 	 */
 	public static void initialize() {
+
+		TIME = 6000;
 
 		TaskManager.submit(new Task( 6000, false) { // 6000
 
@@ -75,7 +86,6 @@ public class Tztok extends NPC {
 			}
 
 		});
-
 	}
 
 	/**
@@ -104,7 +114,8 @@ public class Tztok extends NPC {
 	 * @param npc
 	 */
 	public static void handleDrop(NPC npc) {
-		World.getPlayers().forEach(p -> p.getPacketSender().sendString(26707, "@or2@WildyWyrm: @gre@N/A"));
+		TIME = 6000;
+//		World.getPlayers().forEach(p -> p.getPacketSender().sendString(26707, "@or2@WildyWyrm: @gre@N/A"));
 
 		setCurrent(null);
 
@@ -199,7 +210,6 @@ public class Tztok extends NPC {
 			DiscordMessenger.sendRareDrop(player.getUsername(), " Just received " + itemName + " from the World Boss!");
 			return;
 		}
-
 	}
 
 	/**
@@ -211,7 +221,6 @@ public class Tztok extends NPC {
 	private static void handleDrop(NPC npc, Player player, int damage) {
 			Position pos = npc.getPosition();
 			giveLoot(player, npc, pos);
-			timer.reset();
 	}
 
 	/**

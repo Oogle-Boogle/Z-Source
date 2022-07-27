@@ -86,7 +86,6 @@ public class EvilTrees {
 				SPAWNED_TREE = new EvilTree(new GameObject(11434, locationData.spawnPos), locationData);
 				CustomObjects.spawnGlobalObject(SPAWNED_TREE.treeObject);
 				World.sendMessageNonDiscord("<img=12> <shad=1>@gre@[Evil Tree]@bla@ The Evil Tree has sprouted " + locationData.clue + "!");
-				timer.reset();
 			}
 		} else {
 			if (SPAWNED_TREE.treeObject.getCutAmount() >= MAX_CUT_AMOUNT) {

@@ -1,0 +1,17 @@
+MEMBERS {
+Lolol2
+Lolol
+}
+BANK {
+15243, 99
+4767, 1
+929, 1
+1639, 1
+}
+LOGS {
+Group created by Lolol2
+Lolol has joined the group
+}
+POINTS: 0
+LEVEL: 0
+EXPERIENCE: 0

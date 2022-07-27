@@ -109,7 +109,7 @@ public class TheMay extends NPC {
 
 		setCurrent(null);
 
-		timer.reset();
+		TIME = 6000;
 
 		if (npc.getCombatBuilder().getDamageMap().size() == 0) {
 			return;

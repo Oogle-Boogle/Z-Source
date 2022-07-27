@@ -70,6 +70,8 @@ public class TheSeph extends NPC {
 	 */
 	public static void initialize() {
 
+		TIME--;
+
 		TaskManager.submit(new Task(7500, false) { // 6000
 
 			@Override

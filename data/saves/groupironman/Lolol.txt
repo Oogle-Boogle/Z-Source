@@ -1,0 +1,12 @@
+MEMBERS {
+Lolol
+}
+BANK {
+}
+LOGS {
+Group created by Lolol
+Testing2 has joined the group
+}
+POINTS: 0
+LEVEL: 0
+EXPERIENCE: 0

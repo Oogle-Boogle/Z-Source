@@ -1,0 +1,348 @@
+{
+  "total-play-time-ms": 108408826,
+  "position": {
+    "x": 2846,
+    "y": 5147,
+    "z": 0
+  },
+  "money-pouch": 0,
+  "gender": "MALE",
+  "spell-book": "NORMAL",
+  "prayer-book": "NORMAL",
+  "running": true,
+  "run-energy": 100,
+  "auto-retaliate": true,
+  "xp-locked": false,
+  "veng-cast": false,
+  "last-veng": 1658215761413,
+  "fight-type": "HALBERD_JAB",
+  "accept-aid": false,
+  "poison-damage": 0,
+  "poison-immunity": 0,
+  "overload-timer": 0,
+  "fire-immunity": 0,
+  "fire-damage-mod": 0,
+  "prayer-renewal-timer": 0,
+  "teleblock-timer": 0,
+  "special-amount": 100,
+  "autocast": true,
+  "autocast-spell": -1,
+  "appearance": [
+    0,
+    3,
+    18,
+    26,
+    34,
+    38,
+    42,
+    14,
+    2,
+    14,
+    5,
+    4,
+    0
+  ],
+  "skills": {
+    "level": [
+      120,
+      120,
+      120,
+      525,
+      120,
+      1200,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120
+    ],
+    "maxLevel": [
+      120,
+      120,
+      120,
+      1200,
+      120,
+      1200,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120
+    ],
+    "experience": [
+      1000000000,
+      1000000000,
+      1000000000,
+      1000000000,
+      1000000000,
+      13047556,
+      1000000000,
+      104273167,
+      104273167,
+      104273167,
+      104273167,
+      104273167,
+      104273167,
+      104273167,
+      104273167,
+      104273167,
+      104273167,
+      104273167,
+      104273167,
+      104273167,
+      104273167,
+      104273167,
+      104287417,
+      104273167,
+      104273167,
+      104289292,
+      104331091
+    ]
+  },
+  "inventory": [
+    {
+      "id": 10835,
+      "amount": 60168,
+      "slot": 0
+    },
+    {
+      "id": 4691,
+      "amount": 600,
+      "slot": 0
+    },
+    {
+      "id": 6199,
+      "amount": 6,
+      "slot": 0
+    },
+    {
+      "id": 15373,
+      "amount": 12,
+      "slot": 0
+    },
+    {
+      "id": 19864,
+      "amount": 300,
+      "slot": 0
+    },
+    {
+      "id": -1,
+      "amount": 0,
+      "slot": 0
+    },
+    {
+      "id": -1,
+      "amount": 0,
+      "slot": 0
+    },
+    {
+      "id": -1,
+      "amount": 0,
+      "slot": 0
+    },
+    {
+      "id": -1,
+      "amount": 0,
+      "slot": 0
+    },
+    {
+      "id": -1,
+      "amount": 0,
+      "slot": 0
+    },
+    {
+      "id": -1,
+      "amount": 0,
+      "slot": 0
+    },
+    {
+      "id": -1,
+      "amount": 0,
+      "slot": 0
+    },
+    {
+      "id": -1,
+      "amount": 0,
+      "slot": 0
+    },
+    {
+      "id": -1,
+      "amount": 0,
+      "slot": 0
+    },
+    {
+      "id": -1,
+      "amount": 0,
+      "slot": 0
+    },
+    {
+      "id": -1,
+      "amount": 0,
+      "slot": 0
+    },
+    {
+      "id": -1,
+      "amount": 0,
+      "slot": 0
+    },
+    {
+      "id": -1,
+      "amount": 0,
+      "slot": 0
+    },
+    {
+      "id": -1,
+      "amount": 0,
+      "slot": 0
+    },
+    {
+      "id": -1,
+      "amount": 0,
+      "slot": 0
+    },
+    {
+      "id": -1,
+      "amount": 0,
+      "slot": 0
+    },
+    {
+      "id": -1,
+      "amount": 0,
+      "slot": 0
+    },
+    {
+      "id": -1,
+      "amount": 0,
+      "slot": 0
+    },
+    {
+      "id": -1,
+      "amount": 0,
+      "slot": 0
+    },
+    {
+      "id": -1,
+      "amount": 0,
+      "slot": 0
+    },
+    {
+      "id": -1,
+      "amount": 0,
+      "slot": 0
+    },
+    {
+      "id": -1,
+      "amount": 0,
+      "slot": 0
+    },
+    {
+      "id": -1,
+      "amount": 0,
+      "slot": 0
+    }
+  ],
+  "equipment": [
+    {
+      "id": 3322,
+      "amount": 1,
+      "slot": 0
+    },
+    {
+      "id": 15566,
+      "amount": 1,
+      "slot": 0
+    },
+    {
+      "id": 19156,
+      "amount": 1,
+      "slot": 0
+    },
+    {
+      "id": 1413,
+      "amount": 1,
+      "slot": 0
+    },
+    {
+      "id": 3313,
+      "amount": 1,
+      "slot": 0
+    },
+    {
+      "id": 20700,
+      "amount": 1,
+      "slot": 0
+    },
+    {
+      "id": -1,
+      "amount": 0,
+      "slot": 0
+    },
+    {
+      "id": 3314,
+      "amount": 1,
+      "slot": 0
+    },
+    {
+      "id": -1,
+      "amount": 0,
+      "slot": 0
+    },
+    {
+      "id": 3318,
+      "amount": 1,
+      "slot": 0
+    },
+    {
+      "id": 3315,
+      "amount": 1,
+      "slot": 0
+    },
+    {
+      "id": -1,
+      "amount": 0,
+      "slot": 0
+    },
+    {
+      "id": -1,
+      "amount": 0,
+      "slot": 0
+    },
+    {
+      "id": 11212,
+      "amount": 7788,
+      "slot": 0
+    }
+  ]
+}

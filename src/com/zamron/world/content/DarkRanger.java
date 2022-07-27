@@ -63,6 +63,8 @@ public class DarkRanger extends NPC {
      */
     public static void initialize() {
 
+        TIME--;
+
         TaskManager.submit(new Task( 8500, false) { // 6000
 
             @Override

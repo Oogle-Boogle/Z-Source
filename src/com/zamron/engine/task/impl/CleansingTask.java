@@ -22,7 +22,7 @@ public class CleansingTask extends Task {
 			stop();
 			return;
 		}
-		player.decrementCleansingTime(100);
+		player.decrementCleansingTime(1);
 		if (player.getCleansingTime() % 1500 == 0) {
 			player.sendMessage("@blu@Cleansing Time left:@red@ " + (int) QuickUtils.tickToMin(player.getCleansingTime())
 					+ QuickUtils.getCleansingPrefix(player));
